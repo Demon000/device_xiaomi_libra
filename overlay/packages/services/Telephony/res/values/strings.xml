@@ -16,7 +16,7 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="network_lte">LTE (CDMA) auto</string>
+    <string name="network_lte_cdma">LTE (CDMA) auto</string>
     <string name="network_3G">3G auto</string>
     <string name="network_1x">CDMA only</string>
 
@@ -31,7 +31,7 @@
         <item>@string/network_gsm_wcdma</item>
         <item>@string/network_lte_only</item>
         <item>@string/network_gsm_only</item>
-        <item>@string/network_lte</item>
+        <item>@string/network_lte_cdma</item>
         <item>@string/network_cdma_evdo</item>
         <item>@string/network_1x</item>
     </string-array>
@@ -40,7 +40,7 @@
         <item>@string/network_gsm_wcdma</item>
         <item>@string/network_lte_only</item>
         <item>@string/network_gsm_only</item>
-        <item>@string/network_lte</item>
+        <item>@string/network_lte_cdma</item>
         <item>@string/network_cdma_evdo</item>
         <item>@string/network_1x</item>
     </string-array>
@@ -59,7 +59,7 @@
         <item>@string/network_gsm_wcdma</item>
         <item>@string/network_lte_only</item>
         <item>@string/network_gsm_only</item>
-        <item>@string/network_lte</item>
+        <item>@string/network_lte_cdma</item>
         <item>@string/network_cdma_evdo</item>
         <item>@string/network_1x</item>
     </string-array>
