@@ -12,6 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_STEM := bullhead/BoardConfigPartial.mk
+LOCAL_STEM := libra/BoardConfigPartial.mk
 
--include vendor/lge/$(LOCAL_STEM)
+-include vendor/xiaomi/$(LOCAL_STEM)

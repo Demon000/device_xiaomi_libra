@@ -13,7 +13,7 @@
 # limitations under the License.
 
 #
-# Input Device Calibration File for the Bullhead touch screen.
+# Input Device Calibration File for the Libra touch screen.
 #
 
 device.internal = 1

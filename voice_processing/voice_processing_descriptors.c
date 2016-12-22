@@ -31,7 +31,7 @@ const effect_descriptor_t qcom_product_aec_descriptor = {
         0,
         0,
         "Acoustic Echo Canceler",
-        "Qualcomm Fluence for Bullhead"
+        "Qualcomm Fluence for Libra"
 };
 
 // Noise suppression 30890b40-4a8d-11e5-b3ee-0002a5d5c51b
@@ -43,5 +43,5 @@ const effect_descriptor_t qcom_product_ns_descriptor = {
         0,
         0,
         "Noise Suppression",
-        "Qualcomm Fluence for Bullhead"
+        "Qualcomm Fluence for Libra"
 };

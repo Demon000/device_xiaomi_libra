@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Vendor blob(s) necessary for Bullhead hardware
+# Vendor blob(s) necessary for Libra hardware
 PRODUCT_COPY_FILES := \
-    vendor/lge/bullhead/proprietary/vendor.img:vendor.img:lge \
+    vendor/xiaomi/libra/proprietary/vendor.img:vendor.img:xiaomi \
 

@@ -62,7 +62,7 @@ system/etc/cne/profile.txt:qcom
 system/etc/data/dsi_config.xml:qcom
 system/etc/data/netmgr_config.xml:qcom
 system/etc/data/qmi_config.xml:qcom
-system/etc/diag/Bullhead_radio-general.cfg:qcom
+system/etc/diag/Libra_radio-general.cfg:qcom
 system/etc/diag/ims_epdg.cfg:qcom
 system/etc/diag/wlan.cfg:qcom
 system/etc/flp.conf:qcom
@@ -82,7 +82,7 @@ system/framework/embmslibrary.jar:qcom
 system/framework/qcrilhook.jar:qcom
 system/framework/rcsimssettings.jar:qcom
 system/framework/rcsservice.jar:qcom
-system/lib64/hw/fingerprint.bullhead.so:qcom
+system/lib64/hw/fingerprint.libra.so:qcom
 system/lib64/hw/gps.msm8992.so:qcom
 system/lib64/lib_fpc_tac_shared.so:qcom
 system/lib64/libgps.utils.so:qcom
@@ -90,7 +90,7 @@ system/lib64/libiperf.so:qcom
 system/lib64/libloc_core.so:qcom
 system/lib64/libloc_eng.so:qcom
 system/lib64/libwifi-hal-qcom.so:qcom
-system/lib/hw/fingerprint.bullhead.so:qcom
+system/lib/hw/fingerprint.libra.so:qcom
 system/lib/hw/gps.msm8992.so:qcom
 system/lib/lib_fpc_tac_shared.so:qcom
 system/lib/libgps.utils.so:qcom
@@ -99,4 +99,4 @@ system/lib/libloc_core.so:qcom
 system/lib/libloc_eng.so:qcom
 system/lib/libwifi-hal-qcom.so:qcom
 system/xbin/iperf3:qcom
-IMAGES/vendor.img:lge
+IMAGES/vendor.img:xiaomi

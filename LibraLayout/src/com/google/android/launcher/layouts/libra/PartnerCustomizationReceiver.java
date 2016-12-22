@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.android.launcher.layouts.bullhead;
+package com.google.android.launcher.layouts.libra;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

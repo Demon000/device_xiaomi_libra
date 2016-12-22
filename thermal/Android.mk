@@ -22,5 +22,5 @@ LOCAL_MODULE_RELATIVE_PATH := hw
 LOCAL_SRC_FILES := thermal.c
 LOCAL_SHARED_LIBRARIES := liblog libcutils
 LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE := thermal.bullhead
+LOCAL_MODULE := thermal.libra
 include $(BUILD_SHARED_LIBRARY)

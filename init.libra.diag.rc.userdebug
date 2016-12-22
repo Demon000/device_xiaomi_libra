@@ -1,4 +1,4 @@
-# This file gets copied as /init.bullhead.diag.rc
+# This file gets copied as /init.libra.diag.rc
 
 on post-fs-data
     # Modem logging collection

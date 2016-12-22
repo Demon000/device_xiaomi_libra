@@ -1,11 +1,11 @@
-type init-bullhead-qseecomd-sh, domain;
-type init-bullhead-qseecomd-sh_exec, exec_type, file_type;
+type init-libra-qseecomd-sh, domain;
+type init-libra-qseecomd-sh_exec, exec_type, file_type;
 
-init_daemon_domain(init-bullhead-qseecomd-sh)
+init_daemon_domain(init-libra-qseecomd-sh)
 
-get_prop(init-bullhead-qseecomd-sh, qseecomtee_prop)
+get_prop(init-libra-qseecomd-sh, qseecomtee_prop)
 
-allow init-bullhead-qseecomd-sh shell_exec:file rx_file_perms;
+allow init-libra-qseecomd-sh shell_exec:file rx_file_perms;
 
 # execute toybox/toolbox
-allow init-bullhead-qseecomd-sh toolbox_exec:file rx_file_perms;
+allow init-libra-qseecomd-sh toolbox_exec:file rx_file_perms;

@@ -23,6 +23,6 @@ ifeq ($(TARGET_USES_INTERACTION_BOOST),true)
     LOCAL_CFLAGS += -DINTERACTION_BOOST
 endif
 
-LOCAL_MODULE := power.bullhead
+LOCAL_MODULE := power.libra
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_SHARED_LIBRARY)

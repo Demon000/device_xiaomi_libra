@@ -55,7 +55,7 @@ const float kMaxSampleRateHzOrientation = 200.0f;
  * The fowllowing max count is determined by the total number of blocks
  * avaliable in the shared nanohub buffer and number of samples each type of
  * event can hold within a buffer block.
- * For bullhead's case, there are 239 blocks in the shared sensor buffer and
+ * For libra's case, there are 239 blocks in the shared sensor buffer and
  * each block can hold 30 OneAxis Samples, 15 ThreeAxis Samples or 24
  * RawThreeAxies Samples.
  */

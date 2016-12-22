@@ -1,6 +1,6 @@
 [
   {
-    "repository": "android_kernel_lge_bullhead",
-    "target_path": "kernel/lge/bullhead"
+    "repository": "android_kernel_xiaomi_libra",
+    "target_path": "kernel/xiaomi/libra"
   }
 ]

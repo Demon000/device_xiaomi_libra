@@ -1591,11 +1591,11 @@
         <ctl name="IIR1 Enable Band5" value="1" />
     </path>
 
-    <!-- Sidetone for headphone/headset not needed on bullhead, meets spec  -->
+    <!-- Sidetone for headphone/headset not needed on libra, meets spec  -->
     <path name="sidetone-headphones" />
     <path name="sidetone-handset" />
 
-     <!-- sidetone needed for hac-headset on bullhead -->
+     <!-- sidetone needed for hac-headset on libra -->
     <path name="sidetone-hac-handset">
         <path name="sidetone-iir" />
         <ctl name="RX1 MIX2 INP1" value="IIR1" />

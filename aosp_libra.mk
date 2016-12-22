@@ -18,20 +18,20 @@
 # $(call inherit-product, device/sample/products/backup_overlay.mk)
 
 # Get the long list of APNs
-# PRODUCT_COPY_FILES := device/lge/bullhead/apns-full-conf.xml:system/etc/apns-conf.xml
+# PRODUCT_COPY_FILES := device/xiaomi/libra/apns-full-conf.xml:system/etc/apns-conf.xml
 
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
-PRODUCT_NAME := aosp_bullhead
-PRODUCT_DEVICE := bullhead
+PRODUCT_NAME := aosp_libra
+PRODUCT_DEVICE := libra
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := AOSP on BullHead
-PRODUCT_MANUFACTURER := LGE
+PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_RESTRICT_VENDOR_FILES := true
 
-#PRODUCT_COPY_FILES += device/lge/bullhead/fstab.aosp_bullhead:root/fstab.bullhead
+#PRODUCT_COPY_FILES += device/xiaomi/libra/fstab.aosp_libra:root/fstab.libra
 
-$(call inherit-product, device/lge/bullhead/device.mk)
-$(call inherit-product-if-exists, vendor/lge/bullhead/bullhead-vendor.mk)
+$(call inherit-product, device/xiaomi/libra/device.mk)
+$(call inherit-product-if-exists, vendor/xiaomi/libra/libra-vendor.mk)

@@ -164,11 +164,11 @@ def ParseBootloaderHeader(bootloader):
   return img_dict
 
 
-# bullhead's bootloader.img contains 11 separate images.
+# libra's bootloader.img contains 11 separate images.
 # Each goes to its own partition:
 #    sbl1, tz, rpm, aboot, sdi, imgdata, pmic, hyp, sec, keymaster, cmnlib
 #
-# bullhead also has 8 backup partitions:
+# libra also has 8 backup partitions:
 #    sbl1, tz, rpm, aboot, pmic, hyp, keymaster, cmnlib
 #
 release_backup_partitions = "sbl1 tz rpm aboot pmic hyp keymaster cmnlib"
@@ -226,7 +226,7 @@ def WriteBootloader(info, bootloader):
 
   target_device = info.info_dict["build.prop"]["ro.product.device"]
   # swap ptes in secondary and force secondary gpt
-  info.script.AppendExtra("lge_"+target_device+"_update_gpt();")
+  info.script.AppendExtra("xiaomi_"+target_device+"_update_gpt();")
 
   # flash again after swap, effectively flashing primary
   # pte's are not re-read, hence primary is psuedo-secondary
@@ -240,7 +240,7 @@ def WriteBootloader(info, bootloader):
         'package_extract_file("bootloader.%s.img", "%s");' % (i, device))
 
   # restore secondary gpt for correct mappings and enable primary gpt
-  info.script.AppendExtra("lge_"+target_device+"_recover_gpt();")
+  info.script.AppendExtra("xiaomi_"+target_device+"_recover_gpt();")
 
   # Write the images to separate files in the OTA package
   for i in to_flash:
