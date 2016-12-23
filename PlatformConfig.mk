@@ -1,5 +1,6 @@
 # Platform
 TARGET_BOARD_PLATFORM := msm8992
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno418
 
 # Architecture
 TARGET_ARCH := arm64
