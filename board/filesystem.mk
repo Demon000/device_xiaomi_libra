@@ -10,7 +10,4 @@ TARGET_USERIMAGES_USE_EXT4 := true
 
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-# Build a separate vendor.img
-TARGET_COPY_OUT_VENDOR := system
-
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/fstab.qcom
