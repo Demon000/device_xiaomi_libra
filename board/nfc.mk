@@ -1,2 +1,0 @@
-#NFC
-NXP_CHIP_TYPE := 2

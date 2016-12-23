@@ -206,10 +206,6 @@ on post-fs-data
     # Create the directories used by CnE subsystem
     mkdir /data/connectivity 0771 system system
 
-    # NFC: create data/nfc for nv storage
-    mkdir /data/nfc 0770 nfc nfc
-    mkdir /data/nfc/param 0770 nfc nfc
-
     # use qcril.db to handle Ecc and load MBN
     copy /system/etc/qcril.db /data/misc/radio/qcril.db
     chown radio radio /data/misc/radio/qcril.db
