@@ -44,4 +44,7 @@ endif
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
 $(call inherit-product-if-exists, hardware/qcom/msm8994/msm8992.mk)
+
+# Call the proprietary setup
+$(call inherit-product-if-exists, vendor/xiaomi/libra/libra-vendor.mk)
 $(call inherit-product-if-exists, vendor/qcom/gpu/msm8994/msm8994-gpu-vendor.mk)

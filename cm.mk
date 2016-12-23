@@ -2,14 +2,22 @@
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
 
+# Inherit 64-bit configs
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Inherit device configuration
-$(call inherit-product, device/xiaomi/libra/aosp_libra.mk)
+$(call inherit-product, device/xiaomi/libra/device.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_NAME := cm_libra
+PRODUCT_DEVICE := libra
+
 PRODUCT_BRAND := google
 PRODUCT_MODEL := Nexus 5X
 TARGET_MANUFACTURER := Xiaomi
