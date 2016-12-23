@@ -18,9 +18,9 @@ $(call inherit-product, device/xiaomi/libra/device.mk)
 PRODUCT_NAME := cm_libra
 PRODUCT_DEVICE := libra
 
-PRODUCT_BRAND := google
-PRODUCT_MODEL := Nexus 5X
-TARGET_MANUFACTURER := Xiaomi
+PRODUCT_BRAND := Xiaomi
+PRODUCT_MODEL := Mi-4c
+PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_RESTRICT_VENDOR_FILES := false
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
