@@ -30,7 +30,4 @@ type ssr_device, dev_type;
 
 type ttyHS0_device, dev_type;
 
-# Fingerprint device
-type fingerprint_device, dev_type;
-
 type subsys_modem_device, dev_type;
