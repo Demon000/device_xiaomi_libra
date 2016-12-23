@@ -2,7 +2,7 @@
 
 			L I B R M N E T C T L . C
 
-Copyright (c) 2013-2014, The Linux Foundation. All rights reserved.
+Copyright (c) 2013-2015, The Linux Foundation. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -33,7 +33,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /*!
 * @file    librmnetctl.c
-* @brief   rmnet control API's implentations file
+* @brief   rmnet control API's implementation file
 */
 
 /*===========================================================================
@@ -68,12 +68,14 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 			      RMNET_INGRESS_FORMAT_DEAGGREGATION | \
 			      RMNET_INGRESS_FORMAT_DEMUXING | \
 			      RMNET_INGRESS_FORMAT_MAP_COMMANDS | \
-			      RMNET_INGRESS_FORMAT_MAP_CKSUMV3)
+			      RMNET_INGRESS_FORMAT_MAP_CKSUMV3 | \
+			      RMNET_INGRESS_FORMAT_MAP_CKSUMV4)
 #define EGRESS_FLAGS_MASK    (RMNET_EGRESS_FORMAT__RESERVED__ | \
 			      RMNET_EGRESS_FORMAT_MAP | \
 			      RMNET_EGRESS_FORMAT_AGGREGATION | \
 			      RMNET_EGRESS_FORMAT_MUXING | \
-			      RMNET_EGRESS_FORMAT_MAP_CKSUMV3)
+			      RMNET_EGRESS_FORMAT_MAP_CKSUMV3 | \
+			      RMNET_EGRESS_FORMAT_MAP_CKSUMV4)
 
 #define min(a, b) (((a) < (b)) ? (a) : (b))
 /*===========================================================================
@@ -438,8 +440,14 @@ int rmnet_get_network_device_associated(rmnetctl_hndl_t *hndl,
 		!= RMNETCTL_SUCCESS)
 		break;
 
-	if (_rmnetctl_check_data(response.crd, error_code) != RMNETCTL_SUCCESS)
+	if (_rmnetctl_check_data(response.crd, error_code)
+		!= RMNETCTL_SUCCESS) {
+		if (_rmnetctl_check_code(response.crd, error_code)
+			== RMNETCTL_SUCCESS)
+			return_code = _rmnetctl_set_codes(response.return_code,
+							  error_code);
 		break;
+	}
 
 	*register_status = response.return_code;
 	return_code = RMNETCTL_SUCCESS;
@@ -517,8 +525,14 @@ int rmnet_get_link_egress_data_format(rmnetctl_hndl_t *hndl,
 		!= RMNETCTL_SUCCESS)
 		break;
 
-	if (_rmnetctl_check_data(response.crd, error_code) != RMNETCTL_SUCCESS)
+	if (_rmnetctl_check_data(response.crd, error_code)
+		!= RMNETCTL_SUCCESS) {
+		if (_rmnetctl_check_code(response.crd, error_code)
+			== RMNETCTL_SUCCESS)
+			return_code = _rmnetctl_set_codes(response.return_code,
+							  error_code);
 		break;
+	}
 
 	*egress_flags = response.data_format.flags;
 	*agg_size = response.data_format.agg_size;
@@ -595,8 +609,14 @@ int rmnet_get_link_ingress_data_format_tailspace(rmnetctl_hndl_t *hndl,
 		!= RMNETCTL_SUCCESS)
 		break;
 
-	if (_rmnetctl_check_data(response.crd, error_code) != RMNETCTL_SUCCESS)
+	if (_rmnetctl_check_data(response.crd, error_code)
+		!= RMNETCTL_SUCCESS) {
+		if (_rmnetctl_check_code(response.crd, error_code)
+			== RMNETCTL_SUCCESS)
+			return_code = _rmnetctl_set_codes(response.return_code,
+							  error_code);
 		break;
+	}
 
 	if (ingress_flags)
 		*ingress_flags = response.data_format.flags;
@@ -727,8 +747,15 @@ int rmnet_get_logical_ep_config(rmnetctl_hndl_t *hndl,
 	if ((*error_code = rmnetctl_transact(hndl, &request, &response))
 		!= RMNETCTL_SUCCESS)
 		break;
-	if (_rmnetctl_check_data(response.crd, error_code) != RMNETCTL_SUCCESS)
+
+	if (_rmnetctl_check_data(response.crd, error_code)
+		!= RMNETCTL_SUCCESS) {
+		if (_rmnetctl_check_code(response.crd, error_code)
+			== RMNETCTL_SUCCESS)
+			return_code = _rmnetctl_set_codes(response.return_code,
+							  error_code);
 		break;
+	}
 
 	str_len = strlcpy(*next_dev,
 			  (char *)(response.local_ep_config.next_dev),
@@ -819,8 +846,15 @@ int rmnet_get_vnd_name(rmnetctl_hndl_t *hndl,
 	if ((*error_code = rmnetctl_transact(hndl, &request, &response))
 		!= RMNETCTL_SUCCESS)
 		break;
-	if (_rmnetctl_check_data(response.crd, error_code) != RMNETCTL_SUCCESS)
+
+	if (_rmnetctl_check_data(response.crd, error_code)
+		!= RMNETCTL_SUCCESS) {
+		if (_rmnetctl_check_code(response.crd, error_code)
+			== RMNETCTL_SUCCESS)
+			return_code = _rmnetctl_set_codes(response.return_code,
+							  error_code);
 		break;
+	}
 
 	str_len = (uint32_t)strlcpy(buf,
 			  (char *)(response.vnd.vnd_name),
