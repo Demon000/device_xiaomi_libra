@@ -70,10 +70,6 @@ PRODUCT_COPY_FILES += \
     device/xiaomi/libra/qpnp_pon.kl:system/usr/keylayout/qpnp_pon.kl \
     device/xiaomi/libra/uinput-fpc.kl:system/usr/keylayout/uinput-fpc.kl
 
-# for launcher layout
-#PRODUCT_PACKAGES += \
-#    LibraLayout
-
 # Prebuilt input device calibration files
 PRODUCT_COPY_FILES += \
     device/xiaomi/libra/synaptics_rmi4_i2c.idc:system/usr/idc/synaptics_rmi4_i2c.idc
