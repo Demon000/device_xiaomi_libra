@@ -28,7 +28,7 @@ PRODUCT_MODEL := AOSP on BullHead
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_RESTRICT_VENDOR_FILES := true
 
-#PRODUCT_COPY_FILES += device/xiaomi/libra/fstab.aosp_libra:root/fstab.libra
+#PRODUCT_COPY_FILES += device/xiaomi/libra/rootdir/fstab.aosp_libra:root/fstab.libra
 
 $(call inherit-product, device/xiaomi/libra/device.mk)
 $(call inherit-product-if-exists, vendor/xiaomi/libra/libra-vendor.mk)

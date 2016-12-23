@@ -23,37 +23,20 @@
 TARGET_USES_CHINOOK_SENSORHUB := false
 
 PRODUCT_COPY_FILES += \
-    device/xiaomi/libra/init.libra.rc:root/init.libra.rc \
-    device/xiaomi/libra/init.libra.usb.rc:root/init.libra.usb.rc \
-    device/xiaomi/libra/fstab.libra:root/fstab.libra \
-    device/xiaomi/libra/ueventd.libra.rc:root/ueventd.libra.rc \
-    device/xiaomi/libra/init.recovery.libra.rc:root/init.recovery.libra.rc \
-    device/xiaomi/libra/init.libra.ramdump.rc:root/init.libra.ramdump.rc \
-    device/xiaomi/libra/init.libra.fp.rc:root/init.libra.fp.rc
-
-ifeq ($(TARGET_USES_CHINOOK_SENSORHUB),true)
-PRODUCT_COPY_FILES += \
-    device/xiaomi/libra/init.libra.sensorhub.rc:root/init.libra.sensorhub.rc
-else
-PRODUCT_COPY_FILES += \
-    device/xiaomi/libra/init.libra.nanohub.rc:root/init.libra.sensorhub.rc
-endif
-
-PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
-    device/xiaomi/libra/media_codecs.xml:system/etc/media_codecs.xml \
-    device/xiaomi/libra/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
-    device/xiaomi/libra/media_profiles.xml:system/etc/media_profiles.xml
+    device/xiaomi/libra/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    device/xiaomi/libra/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
+    device/xiaomi/libra/configs/media_profiles.xml:system/etc/media_profiles.xml
 
 # Audio
 PRODUCT_COPY_FILES += \
-    device/xiaomi/libra/audio_effects.conf:system/etc/audio_effects.conf \
-    device/xiaomi/libra/mixer_paths.xml:system/etc/mixer_paths.xml \
-    device/xiaomi/libra/audio_platform_info.xml:system/etc/audio_platform_info.xml \
-    device/xiaomi/libra/audio_policy_configuration.xml:system/etc/audio_policy_configuration.xml \
-    device/xiaomi/libra/audio_policy_volumes_drc.xml:system/etc/audio_policy_volumes_drc.xml \
+    device/xiaomi/libra/audio/audio_effects.conf:system/etc/audio_effects.conf \
+    device/xiaomi/libra/audio/mixer_paths.xml:system/etc/mixer_paths.xml \
+    device/xiaomi/libra/audio/audio_platform_info.xml:system/etc/audio_platform_info.xml \
+    device/xiaomi/libra/audio/audio_policy_configuration.xml:system/etc/audio_policy_configuration.xml \
+    device/xiaomi/libra/audio/audio_policy_volumes_drc.xml:system/etc/audio_policy_volumes_drc.xml \
     frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:system/etc/a2dp_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:system/etc/r_submix_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:system/etc/usb_audio_policy_configuration.xml \
@@ -61,18 +44,18 @@ PRODUCT_COPY_FILES += \
 
 #Sound Trigger
 PRODUCT_COPY_FILES += \
-    device/xiaomi/libra/sound_trigger_mixer_paths.xml:system/etc/sound_trigger_mixer_paths.xml \
-    device/xiaomi/libra/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml
+    device/xiaomi/libra/audio/sound_trigger_mixer_paths.xml:system/etc/sound_trigger_mixer_paths.xml \
+    device/xiaomi/libra/audio/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml
 
 # Input device files
 PRODUCT_COPY_FILES += \
-    device/xiaomi/libra/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-    device/xiaomi/libra/qpnp_pon.kl:system/usr/keylayout/qpnp_pon.kl \
-    device/xiaomi/libra/uinput-fpc.kl:system/usr/keylayout/uinput-fpc.kl
+    device/xiaomi/libra/configs/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+    device/xiaomi/libra/configs/qpnp_pon.kl:system/usr/keylayout/qpnp_pon.kl \
+    device/xiaomi/libra/configs/uinput-fpc.kl:system/usr/keylayout/uinput-fpc.kl
 
 # Prebuilt input device calibration files
 PRODUCT_COPY_FILES += \
-    device/xiaomi/libra/synaptics_rmi4_i2c.idc:system/usr/idc/synaptics_rmi4_i2c.idc
+    device/xiaomi/libra/configs/synaptics_rmi4_i2c.idc:system/usr/idc/synaptics_rmi4_i2c.idc
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -132,18 +115,6 @@ PRODUCT_COPY_FILES += \
     device/xiaomi/libra/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/qca_cld/WCNSS_cfg.dat \
     device/xiaomi/libra/wifi/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini
 
-# Power configuration file
-PRODUCT_COPY_FILES += \
-    device/xiaomi/libra/init.libra.power.sh:system/bin/init.libra.power.sh
-
-# MBN
-PRODUCT_COPY_FILES += \
-    device/xiaomi/libra/init.libra.sh:system/bin/init.libra.sh
-
-# Qseecomd configuration file
-PRODUCT_COPY_FILES += \
-    device/xiaomi/libra/init.libra.qseecomd.sh:system/bin/init.libra.qseecomd.sh
-
 PRODUCT_TAGS += dalvik.gc.type-precise
 
 PRODUCT_AAPT_CONFIG := normal
@@ -196,7 +167,7 @@ PRODUCT_PACKAGES += \
 
 # GPS configuration
 PRODUCT_COPY_FILES += \
-    device/xiaomi/libra/gps.conf:system/etc/gps.conf
+    device/xiaomi/libra/configs/gps.conf:system/etc/gps.conf
 
 # NFC packages
 PRODUCT_PACKAGES += \
@@ -450,20 +421,10 @@ ifeq (,$(filter aosp_libra, $(TARGET_PRODUCT)))
 PRODUCT_PACKAGES += \
     QXDMLoggerV2
 endif # aosp_libra
-
-PRODUCT_COPY_FILES += \
-    device/xiaomi/libra/init.libra.diag.rc.userdebug:root/init.libra.diag.rc \
-    device/xiaomi/libra/init.libra.misc.rc.userdebug:root/init.libra.misc.rc
-else
-PRODUCT_COPY_FILES += \
-    device/xiaomi/libra/init.libra.diag.rc.user:root/init.libra.diag.rc \
-    device/xiaomi/libra/init.libra.misc.rc.user:root/init.libra.misc.rc
 endif
 
 # only include verity on user builds for CM
 ifeq ($(TARGET_BUILD_VARIANT),user)
-   PRODUCT_COPY_FILES += device/xiaomi/libra/fstab-verity.libra:root/fstab.libra
-
 # setup dm-verity configs.
 PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc.0/f9824900.sdhci/by-name/system
 #PRODUCT_VENDOR_VERITY_PARTITION := /dev/block/platform/soc.0/f9824900.sdhci/by-name/vendor

@@ -83,7 +83,7 @@ TARGET_BOOTLOADER_BOARD_NAME := libra
 TARGET_BOARD_INFO_FILE := device/xiaomi/libra/board-info.txt
 TARGET_NO_RPC := true
 
-BOARD_EGL_CFG := device/xiaomi/libra/egl.cfg
+BOARD_EGL_CFG := device/xiaomi/libra/configs/egl.cfg
 
 # Shader cache config options
 # Maximum size of the  GLES Shaders that can be cached for reuse.
@@ -128,7 +128,7 @@ TARGET_COPY_OUT_VENDOR := system
 
 BOARD_HAL_STATIC_LIBRARIES := libdumpstate.libra
 
-TARGET_RECOVERY_FSTAB = device/xiaomi/libra/fstab.libra
+TARGET_RECOVERY_FSTAB = device/xiaomi/libra/rootdir/fstab.libra
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/xiaomi/libra
 
