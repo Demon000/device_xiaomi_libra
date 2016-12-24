@@ -5,6 +5,5 @@ PRODUCT_PACKAGES += \
     libcnefeatureconfig \
     libqsap_sdk \
     librmnetctl \
-    libtinyxml \
     libtinyxml2 \
     libxml2
