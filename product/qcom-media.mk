@@ -1,14 +1,20 @@
+# Media
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
-    libstagefrighthw \
+    libdivxdrmdecrypt \
+    libOmxAacEnc \
+    libOmxAmrEnc \
     libOmxCore \
+    libOmxEvrcEnc \
+    libOmxQcelp13Enc \
     libmm-omxcore \
     libOmxVdec \
     libOmxVdecHevc \
-    libOmxVenc
+    libOmxVenc \
+    libstagefrighthw
 
-# Enable AAC 5.1 output
 PRODUCT_PROPERTY_OVERRIDES += \
-    vidc.debug.perf.mode=2 \
+    mm.enable.smoothstreaming=true \
+    media.aac_51_output_enabled=true \
+    vidc.debug.level=1 \
     vidc.enc.dcvs.extra-buff-count=2
-    media.aac_51_output_enabled=true
