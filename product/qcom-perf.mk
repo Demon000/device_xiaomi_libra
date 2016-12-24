@@ -1,8 +1,6 @@
-# for perfd
+# property for vendor specific library
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.min_freq_0=384000
-    ro.min_freq_4=384000
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.extension_library=libqti-perfd-client.so
-
+    ro.vendor.extension_library=libqti-perfd-client.so \
+    ro.vendor.at_library=libqti-at.so \
+    ro.vendor.gt_library=libqti-gt.so \
+    sys.games.gt.prof=0
