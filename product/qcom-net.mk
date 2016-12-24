@@ -1,3 +1,10 @@
 PRODUCT_PACKAGES += \
+    ebtables \
+    ethertypes \
+    libbson \
+    libcnefeatureconfig \
+    libqsap_sdk \
     librmnetctl \
-    rmnetcli
+    libtinyxml \
+    libtinyxml2 \
+    libxml2
