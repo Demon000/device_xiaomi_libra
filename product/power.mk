@@ -1,4 +1,4 @@
 # Power HAL
 PRODUCT_PACKAGES += \
     init.libra.power.sh \
-    power.libra
+    power.msm8992
