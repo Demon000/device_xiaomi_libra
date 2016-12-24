@@ -35,18 +35,6 @@ LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-ifeq ($(TARGET_USES_CHINOOK_SENSORHUB),true)
-LOCAL_MODULE       := init.libra.sensorhub.rc
-else
-LOCAL_MODULE       := init.libra.nanohub.rc
-endif
-LOCAL_MODULE_TAGS  := optional
-LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := init.libra.sensorhub.rc
-LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
 LOCAL_MODULE       := init.libra.ramdump.rc
 LOCAL_MODULE_TAGS  := optional
 LOCAL_MODULE_CLASS := ETC
