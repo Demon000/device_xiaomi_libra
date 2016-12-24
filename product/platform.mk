@@ -1,7 +1,18 @@
+# ramdisk files
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.qcom.rc \
+    hcidump.sh \
+    hsic.control.bt.sh \
+    qca6234-service.sh \
     ueventd.qcom.rc
+
+# etc files
+PRODUCT_PACKAGES += \
+    usf_post_boot.sh
+
+# sensor select
+PRODUCT_PACKAGES += \
+    sensor_select.sh
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \

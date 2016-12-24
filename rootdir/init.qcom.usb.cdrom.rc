@@ -1,0 +1,3 @@
+on set_cdrom_install_file
+    write /sys/class/android_usb/android0/f_mass_storage/lun/file /system/etc/cdrom_install.iso
+
