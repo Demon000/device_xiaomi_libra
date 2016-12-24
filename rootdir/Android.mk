@@ -6,11 +6,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE       := fstab.libra
 LOCAL_MODULE_TAGS  := optional
 LOCAL_MODULE_CLASS := ETC
-ifeq ($(TARGET_BUILD_VARIANT),user)
-LOCAL_SRC_FILES    := fstab-verity.libra
-else
 LOCAL_SRC_FILES    := fstab.libra
-endif
 LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
 
