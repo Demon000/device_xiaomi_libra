@@ -17,8 +17,8 @@
 
 set -e
 
-DEVICE=ether
-VENDOR=nextbit
+DEVICE=libra
+VENDOR=xiaomi
 
 # Load extractutils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
