@@ -17,7 +17,3 @@ on post-fs
     chown root system /sys/class/power_supply/bms/voltage_ocv
     chmod 0664 /sys/class/power_supply/bms/current_now
     chmod 0664 /sys/class/power_supply/bms/voltage_ocv
-
-    # Always start adbd on userdebug and eng builds
-    write /sys/class/android_usb/android0/enable 1
-    start adbd
