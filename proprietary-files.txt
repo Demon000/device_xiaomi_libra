@@ -16,7 +16,6 @@ bin/imscmservice
 bin/imsdatadaemon
 bin/imsqmidaemon
 bin/ims_rtp_daemon
-bin/ipacm
 bin/ipacm-diag
 bin/irsc_util
 bin/location-mq
