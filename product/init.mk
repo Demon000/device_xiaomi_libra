@@ -1,8 +1,6 @@
 # ramdisk files
 PRODUCT_PACKAGES += \
-    init.ath3k.bt.sh \
     init.class_main.sh \
-    init.crda.sh \
     init.mdm.sh \
     init.qcom.class_core.sh \
     init.qcom.early_boot.sh \
@@ -19,6 +17,8 @@ PRODUCT_PACKAGES += \
 
 # etc scripts
 PRODUCT_PACKAGES += \
+    init.ath3k.bt.sh \
+    init.crda.sh \
     init.qcom.audio.sh \
     init.qcom.bt.sh \
     init.qcom.coex.sh \

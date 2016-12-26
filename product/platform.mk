@@ -1,14 +1,14 @@
 # ramdisk files
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    hcidump.sh \
-    hsic.control.bt.sh \
     qca6234-service.sh \
     ueventd.qcom.rc
 
 # etc files
 PRODUCT_PACKAGES += \
-    usf_post_boot.sh
+    usf_post_boot.sh \
+    hcidump.sh \
+    hsic.control.bt.sh
 
 # sensor select
 PRODUCT_PACKAGES += \
