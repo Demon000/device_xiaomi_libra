@@ -1,3 +1,3 @@
 # Lights
 PRODUCT_PACKAGES += \
-    lights.libra
+    lights.msm8992
