@@ -25,8 +25,6 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-import init.qcom.usb.cdrom.rc
-
 on init
     write /sys/class/android_usb/android0/f_rndis/wceis 1
     write /sys/class/android_usb/android0/iSerial ${ro.serialno}
@@ -190,7 +188,6 @@ on property:sys.usb.config=diag,serial_smd,rmnet_qti_bam
 
 on property:sys.usb.config=diag,serial_smd,serial_tty,rmnet_bam,mass_storage,adb
     stop adbd
-    stop mdbd
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 05C6
     write /sys/class/android_usb/android0/idProduct 9025
@@ -420,7 +417,6 @@ on property:sys.usb.config=diag,acm_smd,acm_tty,rmnet_smd,mass_storage
 # RmNet using USB BAM to IPA BAM
 on property:sys.usb.config=diag,serial_smd,serial_tty,rmnet_ipa,mass_storage,adb
     stop adbd
-    stop mdbd
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 05C6
     write /sys/class/android_usb/android0/idProduct 9025
@@ -697,7 +693,6 @@ on property:sys.usb.config=rndis,none
     write /sys/class/android_usb/android0/functions rndis
     write /sys/class/android_usb/android0/enable 1
     setprop sys.usb.state rndis
-    start mdbd
 
 on property:sys.usb.config=rndis,adb
     setprop sys.usb.config rndis,${persist.sys.usb.config.extra},adb
@@ -711,7 +706,6 @@ on property:sys.usb.config=rndis,none,adb
     write /sys/class/android_usb/android0/iProduct ${ro.product.model}
     write /sys/class/android_usb/android0/functions rndis,adb
     write /sys/class/android_usb/android0/enable 1
-    start mdbd
     start adbd
     setprop sys.usb.state rndis,adb
 
@@ -800,7 +794,6 @@ on property:sys.usb.config=rndis,diag,diag_mdm,adb
 #for CT test
 on property:sys.usb.config=rndis,diag,modem,adb
     stop adbd
-    stop mdbd
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 05C6
     write /sys/class/android_usb/android0/idProduct 9942
@@ -839,7 +832,6 @@ on property:sys.usb.config=ptp
     write /sys/class/android_usb/android0/iProduct ${ro.product.model}
     write /sys/class/android_usb/android0/functions ptp
     write /sys/class/android_usb/android0/enable 1
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=ptp,adb
@@ -851,7 +843,6 @@ on property:sys.usb.config=ptp,adb
     write /sys/class/android_usb/android0/iProduct ${ro.product.model}
     write /sys/class/android_usb/android0/functions ptp,adb
     write /sys/class/android_usb/android0/enable 1
-    start mdbd
     start adbd
     setprop sys.usb.state ${sys.usb.config}
 
@@ -861,11 +852,8 @@ on property:sys.usb.config=mtp
     write /sys/class/android_usb/android0/idProduct ff60
     write /sys/class/android_usb/android0/iManufacturer ${ro.product.manufacturer}
     write /sys/class/android_usb/android0/iProduct ${ro.product.model}
-    write /sys/class/android_usb/android0/functions mtp,mass_storage
+    write /sys/class/android_usb/android0/functions mtp
     write /sys/class/android_usb/android0/enable 1
-    write /sys/class/android_usb/android0/f_mass_storage/lun/ro 1
-    trigger set_cdrom_install_file
-    start mdbd
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=mtp,adb
@@ -875,11 +863,8 @@ on property:sys.usb.config=mtp,adb
     write /sys/class/android_usb/android0/idProduct ff68
     write /sys/class/android_usb/android0/iManufacturer ${ro.product.manufacturer}
     write /sys/class/android_usb/android0/iProduct ${ro.product.model}
-    write /sys/class/android_usb/android0/functions mtp,mass_storage,adb
+    write /sys/class/android_usb/android0/functions mtp,adb
     write /sys/class/android_usb/android0/enable 1
-    write /sys/class/android_usb/android0/f_mass_storage/lun/ro 1
-    trigger set_cdrom_install_file
-    start mdbd
     start adbd
     setprop sys.usb.state ${sys.usb.config}
 

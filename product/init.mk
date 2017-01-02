@@ -9,7 +9,6 @@ PRODUCT_PACKAGES += \
     init.qcom.sh \
     init.qcom.ssr.sh \
     init.qcom.syspart_fixup.sh \
-    init.qcom.usb.cdrom.rc \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
     init.recovery.hardware.rc \
