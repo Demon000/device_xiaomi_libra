@@ -166,7 +166,7 @@ service qseecomd /system/bin/qseecomd
 #   group system
 #   socket seempdw dgram 0666 system system
 
-service perfd /system/bin/perfd
+service perfd /system/vendor/bin/perfd
    class main
    user root
    disabled
@@ -197,7 +197,7 @@ on property:sys.shutdown.requested=*
 #   group system
 #   disabled
 #
-service thermal-engine /system/bin/thermal-engine
+service thermal-engine /system/vendor/bin/thermal-engine
    class main
    user root
    socket thermal-send-client stream 0666 system system
