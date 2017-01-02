@@ -11,7 +11,7 @@ PRODUCT_PACKAGES += \
     init.qcom.syspart_fixup.sh \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
-    init.recovery.hardware.rc \
+    init.recovery.qcom.rc \
     init.target.rc
 
 # etc scripts
