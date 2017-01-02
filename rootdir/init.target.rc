@@ -35,7 +35,6 @@ on early-init
     chmod 666 /sys/module/msm_thermal/core_control/cpus_offlined
 
 on init
-    mkdir /cust 0771 system system
     # sets up initial cpusets for ActivityManager
     mkdir /dev/cpuset
     mount cpuset none /dev/cpuset
@@ -87,16 +86,6 @@ on fs
 
     wait /dev/block/bootdevice/by-name/bluetooth
     mount vfat /dev/block/bootdevice/by-name/bluetooth /bt_firmware ro shortname=lower,uid=1002,gid=3002,dmask=227,fmask=337,context=u:object_r:bt_firmware_file:s0
-
-on post-fs
-    # We chown/chmod /cust again so because mount is run as root + defaults
-    chown system system /cust
-    chmod 0771 /cust
-    # We restorecon /cust in case the cust partition has been reset.
-    restorecon_recursive /cust
-
-    # create the lost+found directories, so as to enforce our permissions
-    mkdir /cust/lost+found 0770 root root
 
 on post-fs-data
     mkdir /data/tombstones 0771 system system
