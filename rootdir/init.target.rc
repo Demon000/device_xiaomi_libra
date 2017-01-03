@@ -414,3 +414,10 @@ service displayfeature /system/bin/displayfeature
     class late_start
     user root
     group root
+
+service readmac /system/bin/readmac
+    class main
+    user root
+    group root
+    oneshot
+    disabled
