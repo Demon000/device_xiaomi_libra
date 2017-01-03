@@ -65,10 +65,6 @@ on init
     chmod 0664 /dev/cpuset/background/tasks
     chmod 0664 /dev/cpuset/tasks
 
-
-on early-boot
-    start select_sns_hal
-
 on fs
     mount_all fstab.qcom
     swapon_all fstab.qcom
@@ -274,12 +270,6 @@ service imsdatadaemon /system/bin/imsdatadaemon
     socket ims_datad stream 0660 system radio
     group system wifi radio inet net_raw log qcom_diag net_admin
     disabled
-#
-service select_sns_hal /system/bin/sensor_select.sh
-    class main
-    user root
-    group root
-    oneshot
 
 #service wcnss-service /system/bin/wcnss_service
 #    class late_start
