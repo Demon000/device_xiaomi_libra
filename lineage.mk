@@ -15,7 +15,7 @@ $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 $(call inherit-product, device/xiaomi/libra/device.mk)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_NAME := cm_libra
+PRODUCT_NAME := lineage_libra
 PRODUCT_DEVICE := libra
 
 PRODUCT_BRAND := Xiaomi
