@@ -35,6 +35,9 @@ on early-init
     chmod 666 /sys/module/msm_thermal/core_control/cpus_offlined
 
 on init
+    # compatibility libraries
+    export LD_SHIM_LIBS "/system/bin/cnd|libshim_common.so:/system/bin/dpmd|libshim_common.so:/system/bin/mm-qcamera-daemon|libshim_camera.so:/system/lib/libcrypto.so|libboringssl-compat.so:/system/lib64/libcrypto.so|libboringssl-compat.so"
+
     # sets up initial cpusets for ActivityManager
     mkdir /dev/cpuset
     mount cpuset none /dev/cpuset
