@@ -1,4 +1,5 @@
 PRODUCT_PACKAGES += \
+    readmac \
     dhcpcd.conf \
     hostapd \
     libwpa_client \
