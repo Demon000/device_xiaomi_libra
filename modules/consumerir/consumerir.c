@@ -74,7 +74,6 @@ static int consumerir_transmit(struct consumerir_device *dev __unused,
         goto out_close;
     }
 
-    int v12 = pattern_len << 31;
     if (pattern_len&1) {
         rc = write(fd, pattern, sizeof(*pattern)*pattern_len);
     }
