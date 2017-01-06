@@ -7,5 +7,3 @@
 /dev/lirc[0-9]*                   u:object_r:lirc_device:s0
 
 /sys/kernel/debug/rmt_storage(/.*)?                                 u:object_r:debugfs_rmt_storage:s0
-
-/system/xbin/strace u:object_r:readmac_exec:s0
