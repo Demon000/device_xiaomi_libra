@@ -50,5 +50,3 @@ allow perfd time_daemon:file r_file_perms;
 allow perfd wcnss_filter:file r_file_perms;
 allow perfd wcnss_service:file r_file_perms;
 allow perfd wpa:file r_file_perms;
-
-allow perfd self:capability sys_ptrace;
