@@ -340,7 +340,7 @@ service ssr_setup /system/bin/ssr_setup
 service ss_ramdump /system/bin/subsystem_ramdump 2
     class main
 #    user system
-    group system
+    group system qcom_diag radio
     disabled
 
 on property:persist.sys.ssr.restart_level=*
@@ -552,6 +552,8 @@ service qmuxd /system/bin/qmuxd
 
 service netmgrd /system/bin/netmgrd
     class main
+    user root
+    group root qcom_diag radio
     disabled
 
 service ipacm-diag /system/bin/ipacm-diag
@@ -656,8 +658,8 @@ service wpa_supplicant /system/bin/wpa_supplicant \
 
 service btnvtool /system/bin/btnvtool -w
     class main
-    user root
-    group  bluetooth  qcom_diag root
+    user bluetooth
+    group  bluetooth radio qcom_diag
     oneshot
 
 service dhcpcd_wlan0 /system/bin/dhcpcd -ABKLG
