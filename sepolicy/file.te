@@ -1,0 +1,1 @@
+type debugfs_rmt_storage, fs_type, debugfs_type;

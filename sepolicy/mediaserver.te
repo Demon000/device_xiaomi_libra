@@ -1,0 +1,4 @@
+allow mediaserver sensorservice_service:service_manager find;
+
+# /dev/msm_aac_in
+allow mediaserver audio_device:chr_file rw_file_perms;

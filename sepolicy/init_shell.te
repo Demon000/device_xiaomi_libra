@@ -1,0 +1,4 @@
+allow qti_init_shell bluetooth_data_file:file r_file_perms;
+allow qti_init_shell bluetooth_loader_exec:file r_file_perms;
+allow qti_init_shell btnvtool_exec:file rx_file_perms;
+allow qti_init_shell sysfs_devices_system_cpu:file create_file_perms;

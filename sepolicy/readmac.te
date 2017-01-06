@@ -2,3 +2,14 @@ type readmac, domain, domain_deprecated;
 type readmac_exec, exec_type, file_type;
 
 init_daemon_domain(readmac)
+
+qmux_socket(readmac)
+diag_use(readmac)
+set_prop(readmac, wlan_driver_status_prop)
+
+# /data/misc/wifi/wlan_mac.bin
+allow readmac wifi_data_file:file create_file_perms;
+allow readmac wifi_data_file:dir create_dir_perms;
+
+allow readmac self:socket create_socket_perms;
+allow readmac self:capability fsetid;

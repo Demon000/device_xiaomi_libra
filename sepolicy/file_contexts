@@ -1,2 +1,11 @@
 /system/bin/mmbn-daemon           u:object_r:mmbn-daemon_exec:s0
 /system/bin/readmac               u:object_r:readmac_exec:s0
+/persist/st_.*                    u:object_r:sensors_persist_file:s0
+/persist/prox_calib_data.dat      u:object_r:sensors_persist_file:s0
+/persist/LightSensorData.txt      u:object_r:sensors_persist_file:s0
+/persist/PSensor.*                u:object_r:sensors_persist_file:s0
+/dev/lirc[0-9]*                   u:object_r:lirc_device:s0
+
+/sys/kernel/debug/rmt_storage(/.*)?                                 u:object_r:debugfs_rmt_storage:s0
+
+/system/xbin/strace u:object_r:readmac_exec:s0
