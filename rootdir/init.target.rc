@@ -407,7 +407,7 @@ service displayfeature /system/bin/displayfeature
 
 service readmac /system/bin/readmac
     class main
-    user root
-    group root
+    user system
+    group radio qcom_diag log net_raw wifi
     oneshot
     disabled
