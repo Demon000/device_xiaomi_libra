@@ -21,6 +21,7 @@
 #include <string.h>
 #include <cutils/log.h>
 #include <cutils/properties.h>
+#include <errno.h>
 
 #define MAC_ADDR_SIZE    6
 #define WLAN_MAC_BIN     "/data/misc/wifi/wlan_mac.bin"
@@ -43,6 +44,11 @@ int main(void)
 
     // generate mac file
     fp = fopen(WLAN_MAC_BIN, "w");
+    if (fp==NULL) {
+        ALOGE("Can't open wlan_mac.bin: %d", errno);
+        return 1;
+    }
+
     fprintf(fp, "Intf0MacAddress=%02X%02X%02X%02X%02X%02X\n",
             mac_addr[0], mac_addr[1], mac_addr[2], mac_addr[3], mac_addr[4], mac_addr[5]);
     fprintf(fp, "Intf1MacAddress=%02X%02X%02X%02X%02X%02X\n",
