@@ -1,7 +1,6 @@
 # ramdisk files
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    qca6234-service.sh \
     ueventd.qcom.rc
 
 # etc files
