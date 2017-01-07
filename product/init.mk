@@ -8,7 +8,6 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     init.qcom.sh \
     init.qcom.ssr.sh \
-    init.qcom.syspart_fixup.sh \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
     init.recovery.qcom.rc \
@@ -16,7 +15,6 @@ PRODUCT_PACKAGES += \
 
 # etc scripts
 PRODUCT_PACKAGES += \
-    init.qcom.audio.sh \
     init.qcom.bt.sh \
     init.qcom.coex.sh \
     init.qcom.debug.sh \
@@ -24,5 +22,4 @@ PRODUCT_PACKAGES += \
     init.qcom.post_boot.sh \
     init.qcom.sdio.sh \
     init.qcom.uicc.sh \
-    init.qcom.wifi.sh \
     init.qcom.zram.sh
