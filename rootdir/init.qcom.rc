@@ -361,11 +361,6 @@ on property:persist.radio.atfwd.start=false
 on property:radio.atfwd.start=false
     stop atfwd
 
-service qcom-debug /system/bin/sh /system/etc/init.qcom.debug.sh
-    class core
-    user root
-    oneshot
-
 # corefile limit and ETB enabling
 on property:persist.debug.trace=1
     mkdir /data/core 0777 root root
