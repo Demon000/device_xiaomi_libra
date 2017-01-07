@@ -7,7 +7,6 @@ PRODUCT_PACKAGES += \
 # etc files
 PRODUCT_PACKAGES += \
     usf_post_boot.sh \
-    hcidump.sh \
     hsic.control.bt.sh
 
 # These are the hardware-specific features

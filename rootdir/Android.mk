@@ -145,14 +145,6 @@ include $(BUILD_PREBUILT)
 # system partition
 
 include $(CLEAR_VARS)
-LOCAL_MODULE       := hcidump.sh
-LOCAL_MODULE_TAGS  := optional
-LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := etc/hcidump.sh
-LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
 LOCAL_MODULE       := init.qcom.audio.sh
 LOCAL_MODULE_TAGS  := optional
 LOCAL_MODULE_CLASS := ETC

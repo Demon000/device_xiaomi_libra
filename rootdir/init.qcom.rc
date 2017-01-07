@@ -859,12 +859,6 @@ service profiler_daemon /system/bin/profiler_daemon
     group root
     disabled
 
-service hcidump /system/bin/sh /system/etc/hcidump.sh
-    user bluetooth
-    group bluetooth system net_bt_admin net_admin
-    disabled
-    oneshot
-
 service charger /sbin/chargeonlymode
     class charger
     seclabel u:r:chargeonlymode:s0
