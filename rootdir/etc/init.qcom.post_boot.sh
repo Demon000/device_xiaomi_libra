@@ -806,8 +806,6 @@ case "$target" in
         echo 384000 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
         # restore A57's max
         cat /sys/devices/system/cpu/cpu4/cpufreq/cpuinfo_max_freq > /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
-        # insert core_ctl module and use conservative paremeters
-        insmod /system/lib/modules/core_ctl.ko
         # re-enable thermal and BCL hotplug
         echo 1 > /sys/module/msm_thermal/core_control/enabled
         for mode in /sys/devices/soc.0/qcom,bcl.*/mode
@@ -930,8 +928,7 @@ case "$target" in
         echo 40000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time
         echo 80000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis
         echo 384000 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
-        # insert core_ctl module and use conservative paremeters
-        insmod /system/lib/modules/core_ctl.ko
+
         echo 1 > /sys/devices/system/cpu/cpu4/core_ctl/max_cpus
         # re-enable thermal and BCL hotplug
         echo 1 > /sys/module/msm_thermal/core_control/enabled

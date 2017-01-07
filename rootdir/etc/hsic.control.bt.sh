@@ -46,14 +46,10 @@ if [ $wifi_type == "2" ]; then
             # bind HSIC HCD
             echo msm_hsic_host > /sys/bus/platform/drivers/msm_hsic_host/bind
 
-            # load WLAN driver
-            insmod /system/lib/modules/wlan.ko
-
             # inform WLAN driver bt is on
             echo 1 > /sys/module/wlan/parameters/ath6kl_bt_on
 
             # unload WLAN driver
-            rmmod wlan
             echo "Now hsic power control will be in auto mode"
         fi
     elif [ $action == "unbind_hsic" ]; then

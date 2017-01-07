@@ -30,8 +30,6 @@ import init.target.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
-    insmod /sbin/qcrypto_module.ko
-    insmod /sbin/qdrbg_module.ko
 
 on init
     start qfintverify
@@ -750,10 +748,6 @@ service fm_dl /system/bin/sh /system/etc/init.qcom.fm.sh
     group system
     disabled
     oneshot
-
-on property:crypto.driver.load=1
-     insmod /system/lib/modules/qce.ko
-     insmod /system/lib/modules/qcedev.ko
 
 service drmdiag /system/bin/drmdiagapp
     class late_start

@@ -60,7 +60,7 @@ uicc_insert()
         fi
         ;;
     "msm8610")
-        insmod /system/lib/modules/ice40-hcd.ko
+        true
         ;;
     "msm8226")
         echo 1 > /sys/bus/platform/devices/msm_smsc_hub/enable
@@ -94,7 +94,7 @@ uicc_remove()
         fi
         ;;
     "msm8610")
-        rmmod /system/lib/modules/ice40-hcd.ko
+        true
         ;;
     "msm8226")
         echo 0 > /sys/bus/platform/devices/msm_smsc_hub/enable
