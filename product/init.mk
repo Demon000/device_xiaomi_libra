@@ -23,7 +23,6 @@ PRODUCT_PACKAGES += \
     init.qcom.coex.sh \
     init.qcom.debug.sh \
     init.qcom.efs.sync.sh \
-    init.qcom.fm.sh \
     init.qcom.post_boot.sh \
     init.qcom.sdio.sh \
     init.qcom.uicc.sh \
