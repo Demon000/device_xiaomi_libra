@@ -5,7 +5,6 @@ PRODUCT_PACKAGES += \
     init.qcom.factory.sh \
     init.qcom.rc \
     init.qcom.sh \
-    init.qcom.ssr.sh \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
     init.recovery.qcom.rc \
