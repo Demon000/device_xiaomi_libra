@@ -2,7 +2,6 @@
 PRODUCT_PACKAGES += \
     init.class_main.sh \
     init.qcom.class_core.sh \
-    init.qcom.early_boot.sh \
     init.qcom.factory.sh \
     init.qcom.rc \
     init.qcom.sh \
