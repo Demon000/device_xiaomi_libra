@@ -16,7 +16,6 @@ PRODUCT_PACKAGES += \
 
 # etc scripts
 PRODUCT_PACKAGES += \
-    init.crda.sh \
     init.qcom.audio.sh \
     init.qcom.bt.sh \
     init.qcom.coex.sh \
