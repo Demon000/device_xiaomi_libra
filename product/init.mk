@@ -17,6 +17,5 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     init.qcom.bt.sh \
     init.qcom.post_boot.sh \
-    init.qcom.sdio.sh \
     init.qcom.uicc.sh \
     init.qcom.zram.sh
