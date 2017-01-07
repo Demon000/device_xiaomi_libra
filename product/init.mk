@@ -16,7 +16,6 @@ PRODUCT_PACKAGES += \
 # etc scripts
 PRODUCT_PACKAGES += \
     init.qcom.bt.sh \
-    init.qcom.coex.sh \
     init.qcom.debug.sh \
     init.qcom.efs.sync.sh \
     init.qcom.post_boot.sh \
