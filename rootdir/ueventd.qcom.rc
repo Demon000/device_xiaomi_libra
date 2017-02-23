@@ -42,15 +42,11 @@
 /dev/smd6                 0660   system     system
 /dev/smd7                 0660   bluetooth  bluetooth
 /dev/ccid_bridge          0660   system     system
-/dev/ipa                  0660   net_admin  net_admin
-/dev/wwan_ioctl           0660   net_admin  net_admin
+/dev/ipa                  0660   system     net_admin
+/dev/wwan_ioctl           0660   system     net_admin
 /dev/ipaNatTable          0660   net_admin  net_admin
 /dev/rmnet_ctrl           0660   usb        usb
 /dev/dpl_ctrl             0660   usb        usb
-
-/dev/tspdrv               0660   system     system
-
-/dev/fpc1020              0666   system     system
 
 #permissions for CSVT
 /dev/smd11                0660   radio      radio
@@ -157,7 +153,6 @@
 /dev/msm_preproc_ctl      0660   system     audio
 /dev/msm_rtac             0660   system     audio
 /dev/msm_voicememo        0660   system     audio
-/dev/audio_service        0660   system     audio
 /dev/smd3                 0660   bluetooth  net_bt_stack
 /dev/smd2                 0660   bluetooth  net_bt_stack
 /dev/ttyHSL1              0660   system     system
@@ -169,6 +164,7 @@
 /dev/ttyGS0               0660   system     system
 /dev/i2c-5                0660   media       media
 /dev/voice_svc            0660   system     audio
+/dev/avtimer              0660   system     audio
 
 # DVB devices
 /dev/dvb/adapter0/demux*  0440   media       media
@@ -213,6 +209,7 @@
 
 #nfc permissions
 /dev/nfc-nci              0660    nfc         nfc
+/dev/nq-nci               0660    nfc         nfc
 /dev/assd                 0660    nfc         nfc
 
 # UIO devices
@@ -229,8 +226,14 @@
 # Ramdump devices
 /dev/ramdump*             0640   system     system
 
+# Add device block for FRP
+/dev/block/platform/soc.0/f9824900.sdhci/by-name/config    0600   system     system
+
 # for lirc
-/dev/lirc0          0660   system     system
+/dev/lirc0                0660   system     system
+
+# DVB API device nodes
+/dev/dvb*                 0660   root       system
 
 #for sensor-hub
 /dev/iio:device* 0660 system system

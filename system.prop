@@ -19,7 +19,8 @@ persist.sys.ssr.enable_ramdumps=1
 persist.radio.multisim.config=dsds
 DEVICE_PROVISIONED=1
 # Start in TD-SCDMA, GSM/WCDMA and LTE mode
-ro.telephony.default_network=20
+ro.telephony.default_network=20,20
+ro.telephony.default_cdma_sub=0
 
 debug.sf.hw=1
 debug.egl.hw=1
@@ -28,17 +29,21 @@ persist.hwc.mdpcomp.enable=true
 persist.mdpcomp.4k2kSplit=1
 persist.mdpcomp_perfhint=50
 debug.mdpcomp.logs=0
-persist.metadata_dynfps.disable=false
+persist.metadata_dynfps.disable=true
 persist.hwc.ptor.enable=true
 dalvik.vm.heapsize=36m
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
 
+ro.sf.lcd_density=480
 ro.hdmi.enable=true
 persist.speaker.prot.enable=true
+#enable dirac effect for speaker
+persist.audio.dirac.speaker=true
 #0 is default(30 min)
 persist.spkr.cal.duration=0
 qcom.hw.aac.encoder=true
+
 #
 # system props for the cne module
 #
@@ -47,8 +52,11 @@ persist.cne.feature=1
 #
 # system props for the dpm module
 #
-persist.dpm.feature=5
+persist.dpm.feature=1
 persist.dpm.nsrm.bkg.evt=3955
+
+# system props for setting mbn file location
+persist.radio.app_hw_mbn_path=/firmware/image/modem_pr/mcfg/configs/mcfg_hw/generic/common/MSM8994/LA
 
 #system props for the MM modules
 
@@ -61,11 +69,12 @@ media.stagefright.enable-scan=true
 mmp.enable.3g2=true
 mm.enable.smoothstreaming=true
 media.aac_51_output_enabled=true
+av.debug.disable.pers.cache=true
 
-#3314291: Decimal sum after adding FLAC parser flag 131072
+#3379827: Decimal sum after adding WAV parser flag
 #37491 is decimal sum of supported codecs in AAL
 #codecs: DivX DivXHD AVI AC3 ASF AAC QCP DTS 3G2 MP2TS
-mm.enable.qcom_parser=3314291
+mm.enable.qcom_parser=3379827
 
 # Enable AwesomePlayer stats
 persist.debug.sf.statistics=1
@@ -100,9 +109,15 @@ ro.opengles.version=196609
 
 # System property for cabl
 ro.qualcomm.cabl=0
+
+# System property for AD
 ro.qcom.ad=1
 ro.qcom.ad.calib.data=/system/etc/calib.cfg
 ro.qcom.ad.sensortype=2
+
+# Display feature support
+# bit0-ColorPrefer bit1-EyeCare bit2-AD bit3-CE bit4-CABC bit5-SRGB
+ro.sys.display.support=23
 
 #
 # System props for telephony
@@ -114,6 +129,9 @@ telephony.lteOnCdmaDevice=1
 # System prop to turn on hfp client
 bluetooth.hfp.client=1
 
+# Set Bluetooth transport
+# initialization timeout
+bluetooth.enable_timeout_ms=12000
 
 #Simulate sdcard on /data/media
 #
@@ -122,21 +140,18 @@ persist.fuse_sdcard=true
 #system prop for Bluetooth SOC type
 qcom.bluetooth.soc=rome
 
-#system prop for A4WP profile support
-ro.bluetooth.a4wp=true
-
 #system prop for wipower support
-ro.bluetooth.wipower=false
+ro.bluetooth.wipower=true
 
-#Set this true as ROME on 8992 always comes with Wipower programmed
-#and triggering embedded mode by deafult
-persist.BT3_2.version=true
+#Set this true as ROME which is programmed
+#as embedded wipower mode by deafult
+ro.bluetooth.emb_wp_mode=true
 
 #
 #snapdragon value add features
 #
-ro.qc.sdk.audio.ssr=true
-persist.audio.ssr.3mic=true
+ro.qc.sdk.audio.ssr=false
+persist.audio.ssr.3mic=false
 ##fluencetype can be "fluence" or "fluencepro" or "none"
 ro.qc.sdk.audio.fluencetype=fluence
 persist.audio.fluence.voicecall=true
@@ -158,7 +173,7 @@ audio.offload.gapless.enabled=true
 audio.offload.buffer.size.kb=32
 
 #Enable offload audio video playback by default
-av.offload.enable=false
+audio.offload.video=true
 
 #Enable 16 bit PCM offload by default
 audio.offload.pcm.16bit.enable=false
@@ -168,8 +183,14 @@ audio.offload.multiple.enabled=false
 
 #Enable 24 bit PCM offload by default
 audio.offload.pcm.24bit.enable=false
-
 audio.offload.disable=1
+
+#Enable audio track offload by default
+audio.offload.track.enable=false
+
+#Enable music through deep buffer
+audio.deep_buffer.media=true
+
 #property to enable VDS WFD solution
 persist.hwc.enable_vds=1
 
@@ -180,32 +201,17 @@ sys.games.gt.prof=0
 
 # enable navigation bar
 
-# enable usb otg setting
-persist.sys.isUsbOtgEnabled=true
-
 #enable voice path for PCM VoIP by default
 use.voice.path.for.pcm.voip=true
 
 #selects CoreSight configuration to enable
 persist.debug.coresight.config=stm-events
 
-#System property for FM transmitter
-ro.fm.transmitter=false
-#enable dirac effect for speaker
-persist.audio.dirac.speaker=true
-
-# disable strictmode
-persist.sys.strictmode.disable=true
+# Create zram disk
+#ro.config.zram=true
 
 # Enable manual network selection function and distinguish 2G/3G/4G
 persist.radio.rat_on=combine
-
-# disable old modem fast dormancy function
-persist.env.fastdorm.enabled=false
-persist.data.tcp_rst_drop=true
-persist.radio.data_no_toggle=1
-persist.fd.scroff.timer=3000
-persist.fd.scron.timer=10000
 
 #For specail cdma card sms issue
 persist.radio.force_on_dc=true
@@ -215,19 +221,17 @@ persist.dbg.volte_avail_ovr=1
 persist.dbg.vt_avail_ovr=1
 persist.radio.VT_HYBRID_ENABLE=1
 
-#Qcril ignore service domain camped status for 5 senconds.
-persist.radio.ignore_dom_time=5
-
 #Enable short oos enhancement
 ro.sys.oosenhance.enable=true
 ro.sys.oosenhance.timer=20000
 
-# default color_prefer is off
-persist.sys.display_prefer=0
+# button jack mode & switch
+persist.sys.button_jack_profile=volume
+persist.sys.button_jack_switch=0
 
-#Display feature support
-#bit0-ColorPrefer bit1-EyeCare bit2-AD bit3-CE bit4-CABC bit5-SRGB
-ro.sys.display.support=23
+#property to set fingerpirnt vendor
+ro.hardware.fingerprint=fpc
+sys.fpc.tu.disabled=0
 
 #
 # ADDITIONAL_BUILD_PROPERTIES (stock)
@@ -235,20 +239,27 @@ ro.sys.display.support=23
 persist.sys.mcd_config_file=/system/etc/mcd_default.conf
 persist.sys.klo=on
 persist.sys.whetstone.level=2
-ro.ril.hsxpa=1
-ro.ril.gprsclass=10
+persist.sys.frozenKernel=true
+ro.ss.version=5.1.111
+ro.ss.nohidden=true
+ro.vendor.extension_library=libqti-perfd-client.so
+persist.radio.custom_ecc=1
+persist.radio.sib16_support=1
+ro.frp.pst=/dev/block/bootdevice/by-name/config
+af.fast_track_multiplier=1
+audio_hal.period_size=192
 ro.wlan.mimo=1
 ro.btconfig.if=uart
 ro.btconfig.dev=/dev/ttyHS0
 ro.btconfig.vendor=qcom
 ro.btconfig.chip=QCA6164
-persist.sys.ltm_enable=true
-assertdisplay.value=128
-dalvik.vm.isa.arm64.features=div,needfix_835769
-dalvik.vm.isa.arm.features=div
-persist.gps.qc_nlp_in_use=1
-persist.loc.nlp_name=com.qualcomm.location
-ro.gps.agps_provider=1
-ro.pip.gated=0
-persist.data.qmi.adb_logmask=0
+dalvik.vm.isa.arm64.variant=generic
+dalvik.vm.isa.arm64.features=default
+dalvik.vm.isa.arm.variant=cortex-a53
+dalvik.vm.isa.arm.features=default
+ro.product.cuptsm=XIAOMI|ESE|02|01
+persist.power.useautobrightadj=true
 persist.radio.apm_sim_not_pwdn=1
+sys.haptic.down.weak=0,10,15,30
+sys.haptic.down.normal=0,15,20,45
+sys.haptic.down.strong=0,20,25,60

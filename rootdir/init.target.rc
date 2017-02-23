@@ -31,51 +31,23 @@ on early-init
     mkdir /firmware 0771 system system
     mkdir /bt_firmware 0771 system system
     symlink /data/tombstones /tombstones
-    chown system root  /sys/module/msm_thermal/core_control/cpus_offlined
-    chmod 666 /sys/module/msm_thermal/core_control/cpus_offlined
 
-on init
-    # compatibility libraries
-    export LD_SHIM_LIBS "/system/bin/cnd|libshim_common.so:/system/bin/dpmd|libshim_common.so:/system/bin/mm-qcamera-daemon|libshim_camera.so:/system/lib/libcrypto.so|libboringssl-compat.so:/system/lib64/libcrypto.so|libboringssl-compat.so"
-
-    # sets up initial cpusets for ActivityManager
-    mkdir /dev/cpuset
-    mount cpuset none /dev/cpuset
-
-    # this ensures that the cpusets are present and usable, but the device's
-    # init.rc must actually set the correct cpus
-    mkdir /dev/cpuset/foreground
-    write /dev/cpuset/foreground/cpus 0-5
-    write /dev/cpuset/foreground/mems 0
-    mkdir /dev/cpuset/foreground/boost
-    write /dev/cpuset/foreground/boost/cpus 4-5
-    write /dev/cpuset/foreground/boost/mems 0
-    mkdir /dev/cpuset/background
-    write /dev/cpuset/background/cpus 0-3
-    write /dev/cpuset/background/mems 0
-
-    # change permissions for all cpusets we'll touch at runtime
-    chown system system /dev/cpuset
-    chown system system /dev/cpuset/foreground
-    chown system system /dev/cpuset/foreground/boost
-    chown system system /dev/cpuset/background
-    chown system system /dev/cpuset/tasks
-    chown system system /dev/cpuset/foreground/tasks
-    chown system system /dev/cpuset/foreground/boost/tasks
-    chown system system /dev/cpuset/background/tasks
-    chmod 0664 /dev/cpuset/foreground/tasks
-    chmod 0664 /dev/cpuset/foreground/boost/tasks
-    chmod 0664 /dev/cpuset/background/tasks
-    chmod 0664 /dev/cpuset/tasks
+on early-boot
+    start select_sns_hal
 
 on fs
+    wait /dev/block/platform/soc.0/f9824900.sdhci/mmcblk0
+    symlink /dev/block/platform/soc.0/f9824900.sdhci /dev/block/bootdevice
+
     mount_all fstab.qcom
     swapon_all fstab.qcom
+    #write /proc/sys/vm/swappiness 100
 
     wait /dev/block/bootdevice/by-name/persist
     mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev barrier=1
     restorecon_recursive /persist
     mkdir /persist/data 0700 system system
+    mkdir /persist/wlan_bt 0700 system system
 
     wait /dev/block/bootdevice/by-name/modem
     mount vfat /dev/block/bootdevice/by-name/modem /firmware ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
@@ -90,13 +62,15 @@ on post-fs-data
     mkdir /tombstones/wcnss 0771 system system
     mkdir /tombstones/dsps 0771 system system
     mkdir /data/misc/dts 0770 media audio
-    mkdir /persist/property 0700 root root
-    chown system system /dev/sysmatdrv
-    chmod 0660 /dev/sysmatdrv
+    mkdir /data/thermal 0771 system system
 
 on boot
+    symlink /dev/block/platform/soc.0 /dev/block/bootdevice
     start rmt_storage
     start rfs_access
+    write /sys/bus/i2c/devices/2-004a/update_fw 1
+    write /sys/bus/i2c/devices/2-004a/update_cfg 1
+    write /sys/bus/i2c/devices/2-0020/input/input0/update_fw 1
 # access permission for secure touch
     chmod 0660 /sys/devices/soc.0/f9924000.i2c/i2c-2/2-0020/input/input0/secure_touch_enable
     chmod 0440 /sys/devices/soc.0/f9924000.i2c/i2c-2/2-0020/input/input0/secure_touch
@@ -107,9 +81,19 @@ on boot
     chown system drmrpc /sys/devices/soc.0/f9924000.i2c/i2c-2/2-004a/secure_touch_enable
     chown system drmrpc /sys/devices/soc.0/f9924000.i2c/i2c-2/2-004a/secure_touch
     write /proc/sys/kernel/sched_boost 1
-    chown system system /sys/class/leds/button-backlight/max_brightness
-    chown system system /sys/class/leds/button-backlight1/max_brightness
-    write /sys/block/mmcblk0/queue/read_ahead_kb 128
+
+    write /dev/cpuset/foreground/cpus 0-2,4-5
+    write /dev/cpuset/foreground/boost/cpus 4-5
+    write /dev/cpuset/background/cpus 0
+    write /dev/cpuset/system-background/cpus 0-2
+    mkdir /dev/cpuset/top-app/boost
+    write /dev/cpuset/top-app/cpus 0-5
+    write /dev/cpuset/top-app/boost/cpus 4-5
+
+
+    chown system system /dev/cpuset/top-app/boost
+    chown system system /dev/cpuset/top-app/boost/tasks
+    chmod 0664 /dev/cpuset/top-app/boost/tasks
 
 #start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
@@ -154,7 +138,6 @@ service qseecomd /system/bin/qseecomd
 service perfd /system/vendor/bin/perfd
    class main
    user root
-   group root readproc
    disabled
 
 #service mpdecision /system/bin/mpdecision --avg_comp
@@ -183,21 +166,14 @@ on property:sys.shutdown.requested=*
 #   group system
 #   disabled
 #
-service thermal-engine /system/vendor/bin/thermal-engine
+service thermal-engine /system/vendor/bin/thermal-engine -T
    class main
    user root
    socket thermal-send-client stream 0666 system system
    socket thermal-recv-client stream 0660 system system
    socket thermal-recv-passive-client stream 0666 system system
    group root
-
-service security-check1 /sbin/security_boot_check system
-    class core
-    oneshot
-
-service security-check2 /sbin/security_boot_check recovery
-    class core
-    oneshot
+   setenv LD_PRELOAD libshim_thermalengine.so
 
 service time_daemon /system/bin/time_daemon
    class late_start
@@ -214,102 +190,40 @@ service audiod /system/bin/audiod
    user system
    group system
 
-service usf_tester /system/bin/usf_tester
-    user system
-    group system inet
-    disabled
-
-service usf_epos /system/bin/usf_epos
-    class main
-    user system
-    group system inet
-    disabled
-
-service usf_gesture /system/bin/usf_gesture
-    user system
-    group system inet
-    disabled
-
-service usf_sync_gesture /system/bin/usf_sync_gesture
-    user system
-    group system inet audio
-    disabled
-
-service usf_p2p /system/bin/usf_p2p
-    user system
-    group system inet
-    disabled
-
-service usf_hovering /system/bin/usf_hovering
-    user system
-    group system inet
-    disabled
-
-service usf_proximity /system/bin/usf_proximity
-    user system
-    group system inet
-    disabled
-
-service usf-post-boot /system/bin/sh /system/etc/usf_post_boot.sh
-    class late_start
-    user root
-    disabled
-    oneshot
-
-on property:init.svc.bootanim=stopped
-    start usf-post-boot
-
 service imsqmidaemon /system/bin/imsqmidaemon
     class main
     user system
     socket ims_qmid stream 0660 system radio
-    group radio net_raw log qcom_diag
+    group radio log diag
 
 service imsdatadaemon /system/bin/imsdatadaemon
     class main
     user system
     socket ims_datad stream 0660 system radio
-    group system wifi radio inet net_raw log qcom_diag net_admin
+    group system wifi radio inet log diag
     disabled
 
+service select_sns_hal /system/bin/sh /system/bin/sensor_select.sh
+    class main
+    user root
+    group root
+    oneshot
+
+#
 #service wcnss-service /system/bin/wcnss_service
 #    class late_start
 #    user root
 #    group system wifi
 #    oneshot
 #
-
-service smonsir /system/bin/smonsir
-    user root
-    group root
-    oneshot
-    disabled
-
-service smprosrv /system/bin/smprosrv
-    user root
-    group root
-    oneshot
-    disabled
-
-on property:persist.sys.matsir.enable=1
-    setprop sys.sysmat.service.control start
-    start smonsir
-    start smprosrv
-
-service smeloop /system/bin/smeloop
-    class late_start
-    user root
-    group root
-    oneshot
-
 on property:sys.ims.QMI_DAEMON_STATUS=1
     start imsdatadaemon
 
 service ims_rtp_daemon /system/bin/ims_rtp_daemon
    class main
-   user root
+   user system
    socket ims_rtpd stream 0660 system radio
-   group radio system net_raw diag qcom_diag log
+   group radio diag inet log
    disabled
 
 on property:sys.ims.DATA_DAEMON_STATUS=1
@@ -318,7 +232,7 @@ on property:sys.ims.DATA_DAEMON_STATUS=1
 service imscmservice /system/bin/imscmservice
    class main
    user system
-   group radio net_raw diag qcom_diag log
+   group radio diag inet log
 
 service ppd /system/bin/mm-pp-daemon
     class late_start
@@ -329,32 +243,19 @@ service ppd /system/bin/mm-pp-daemon
 on property:init.svc.surfaceflinger=stopped
     stop ppd
 
-on charger
-    wait /dev/block/bootdevice/by-name/system
-    mount ext4 /dev/block/bootdevice/by-name/system /system ro barrier=1
-    write /sys/class/input/input0/enabled 0
-    write /sys/class/input/input1/enabled 0
-    write /sys/class/input/input2/enabled 0
-    write /sys/class/input/input3/enabled 0
-    write /sys/class/input/input4/enabled 0
-    write /sys/class/input/input5/enabled 0
-    write /sys/module/lpm_levels/parameters/sleep_disabled 0
-    write /sys/module/lpm_levels/system/system-cci-pc/idle_enabled 0
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "userspace"
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_setspeed 300000
-    write /sys/devices/system/cpu/cpu1/online 1
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "userspace"
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_setspeed 300000
-    write /sys/devices/system/cpu/cpu2/online 0
-    write /sys/devices/system/cpu/cpu3/online 0
-    write /sys/devices/system/cpu/cpu4/online 0
-    write /sys/devices/system/cpu/cpu5/online 0
-    write /sys/module/msm_thermal/parameters/enabled "N"
-    chown root system /sys/class/power_supply/bms/current_now
-    chown root system /sys/class/power_supply/bms/voltage_ocv
-    chmod 0664 /sys/class/power_supply/bms/current_now
-    chmod 0664 /sys/class/power_supply/bms/voltage_ocv
-    start qcom-sh
+service displayfeature /system/bin/displayfeature
+    class late_start
+    user root
+    group root
+
+on property:init.svc.surfaceflinger=stopped
+    stop displayfeature
+
+on property:init.svc.surfaceflinger=running
+    start displayfeature
+
+on property:init.svc.surfaceflinger=restarting
+    stop displayfeature
 
 service ml_daemon /system/bin/ml_daemon
     class core
@@ -392,19 +293,14 @@ service fidodaemon /system/vendor/bin/fidodaemon
     user system
     group system
 
-service bugreport_daemon /system/xbin/bugreport_daemon
-    class late_start
-
 service mtservice /system/bin/mtd
     class late_start
 
 service vsimservice /system/bin/vsimd
     class late_start
 
-service displayfeature /system/bin/displayfeature
+service mlipayservice /system/bin/mlipayd
     class late_start
-    user root
-    group root
 
 service readmac /system/bin/readmac
     class main

@@ -5,5 +5,6 @@
 /persist/LightSensorData.txt      u:object_r:sensors_persist_file:s0
 /persist/PSensor.*                u:object_r:sensors_persist_file:s0
 /dev/lirc[0-9]*                   u:object_r:lirc_device:s0
+/data/thermal(/.*)?               u:object_r:thermal_data_file:s0
 
 /sys/kernel/debug/rmt_storage(/.*)?                                 u:object_r:debugfs_rmt_storage:s0

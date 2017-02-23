@@ -49,54 +49,6 @@ else
   fi
 fi
 
-#
-# fix_xml:
-#
-# $1: xml file to fix
-#
-function fix_elf() {
-    local ELF="$1"
-
-    if [[ "$ELF" == *"lib/rfsa/adsp/"* ]]; then
-        return
-    fi
-
-    /media/Data/repositories/git/patchelf/src/patchelf \
-        --rename-symbol androidGetTid gettid \
-        --rename-symbol _ZN7android5Fence4waitEj _ZN7android5Fence4waitEi \
-        "$ELF"
-}
-
-function dex_decomp() {
-    local FILE="$1"
-    local DECOMPDIR="$2"
-    local DEXFILE="$TMPDIR/classes.dex"
-
-    unzip -p "$FILE" classes.dex > "$DEXFILE"
-    baksmali -a 22 -o "$DECOMPDIR" "$DEXFILE"
-}
-
-function dex_recomp() {
-    local FILE="$1"
-    local DECOMPDIR="$2"
-    local DEXFILE="$TMPDIR/classes.dex"
-
-    smali -a 22 -o "$DEXFILE" "$DECOMPDIR"
-    zip -gjq "$FILE" "$DEXFILE"
-}
-
-function fix_java() {
-    local FILE="$1"
-    local ZIPCONTENTS="$TMPDIR/zipcontents"
-    local DECOMPDIR="$TMPDIR/baksmali_out"
-
-    if [[ "$FILE" == *"datastatusnotification.apk" ]]; then
-        dex_decomp "$FILE" "$DECOMPDIR"
-        find "$DECOMPDIR" -type f -print0 | xargs -0 sed -i 's/getIccOperatorNumeric/getSimOperator/g'
-        dex_recomp "$FILE" "$DECOMPDIR"
-    fi
-}
-
 # Initialize the helper
 setup_vendor "$DEVICE" "$VENDOR" "$CM_ROOT"
 

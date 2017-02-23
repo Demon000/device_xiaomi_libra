@@ -27,6 +27,41 @@
 #
 
 target=`getprop ro.board.platform`
+
+function configure_memory_parameters() {
+# Set Memory paremeters.
+#
+# Set Low memory killer minfree parameters
+# 64 bit all memory configurations will use 18K series
+#
+# Set ALMK parameters (usually above the highest minfree values)
+# 64 bit will have 81K
+#
+
+    arch_type=`uname -m`
+    MemTotalStr=`cat /proc/meminfo | grep MemTotal`
+    MemTotal=${MemTotalStr:16:8}
+
+    echo 0 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
+
+    if [ "$arch_type" == "aarch64" ] && [ $MemTotal -gt 2097152 ]; then
+        echo "18432,23040,27648,32256,55296,80640" > /sys/module/lowmemorykiller/parameters/minfree
+        echo 81250 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
+    elif [ "$arch_type" == "aarch64" ] && [ $MemTotal -gt 1048576 ]; then
+        echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
+        echo "18432,23040,27648,32256,55296,80640" > /sys/module/lowmemorykiller/parameters/minfree
+        echo 81250 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
+    fi
+
+    # Zram disk - 512MB size
+    zram_enable=`getprop ro.config.zram`
+    if [ "$zram_enable" == "true" ]; then
+        echo 536870912 > /sys/block/zram0/disksize
+        mkswap /dev/block/zram0
+        swapon /dev/block/zram0 -p 32758
+    fi
+}
+
 case "$target" in
     "msm7201a_ffa" | "msm7201a_surf" | "msm7627_ffa" | "msm7627_6x" | "msm7627a"  | "msm7627_surf" | \
     "qsd8250_surf" | "qsd8250_ffa" | "msm7630_surf" | "msm7630_1x" | "msm7630_fusion" | "qsd8650a_st1x")
@@ -781,10 +816,10 @@ case "$target" in
         echo 19000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay
         echo 90 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load
         echo 20000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate
-        echo 1248000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq
+        echo 960000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq
         echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy
-        echo 65 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
-        echo 20000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time
+        echo 80 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
+        echo 40000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time
         echo 80000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/max_freq_hysteresis
         echo 384000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
         # online CPU4
@@ -796,7 +831,7 @@ case "$target" in
         echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_sched_load
         echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_migration_notif
         echo 19000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay
-        echo 80 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load
+        echo 90 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load
         echo 20000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate
         echo 1248000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq
         echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy
@@ -841,20 +876,13 @@ case "$target" in
         echo 2 > /sys/devices/system/cpu/cpu4/core_ctl/task_thres
         # Setting b.L scheduler parameters
         echo 1 > /proc/sys/kernel/sched_migration_fixup
-        echo 15 > /proc/sys/kernel/sched_small_task
+        echo 30 > /proc/sys/kernel/sched_small_task
         echo 20 > /proc/sys/kernel/sched_mostly_idle_load
         echo 3 > /proc/sys/kernel/sched_mostly_idle_nr_run
-        echo 85 > /proc/sys/kernel/sched_upmigrate
-        echo 70 > /proc/sys/kernel/sched_downmigrate
-        echo 7500000 > /proc/sys/kernel/sched_cpu_high_irqload
-        echo 60 > /proc/sys/kernel/sched_heavy_task
-        echo 65 > /proc/sys/kernel/sched_init_task_load
-        echo 200000000 > /proc/sys/kernel/sched_min_runtime
+        echo 99 > /proc/sys/kernel/sched_upmigrate
+        echo 85 > /proc/sys/kernel/sched_downmigrate
         echo 400000 > /proc/sys/kernel/sched_freq_inc_notify
         echo 400000 > /proc/sys/kernel/sched_freq_dec_notify
-        #relax access permission for display power consumption
-        chown -h system /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
-        chown -h system /sys/devices/system/cpu/cpu4/core_ctl/max_cpus
         #enable rps static configuration
         echo 8 >  /sys/class/net/rmnet_ipa0/queues/rx-0/rps_cpus
         for devfreq_gov in /sys/class/devfreq/qcom,cpubw*/governor
@@ -867,13 +895,15 @@ case "$target" in
         done
         # Disable sched_boost
         echo 0 > /proc/sys/kernel/sched_boost
+
+        # Set Memory parameters
+        configure_memory_parameters
+        restorecon -R /sys/devices/system/cpu
     ;;
 esac
 
 case "$target" in
     "msm8994")
-        # enable suspend trace
-        echo 1 > /proc/suspend_trace_stats
         # ensure at most one A57 is online when thermal hotplug is disabled
         echo 0 > /sys/devices/system/cpu/cpu5/online
         echo 0 > /sys/devices/system/cpu/cpu6/online
@@ -973,9 +1003,6 @@ case "$target" in
         echo 400000 > /proc/sys/kernel/sched_freq_inc_notify
         echo 400000 > /proc/sys/kernel/sched_freq_dec_notify
         echo 0 > /proc/sys/kernel/sched_boost
-        #relax access permission for display power consumption
-        chown -h system /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
-        chown -h system /sys/devices/system/cpu/cpu4/core_ctl/max_cpus
         #enable rps static configuration
         echo 8 >  /sys/class/net/rmnet_ipa0/queues/rx-0/rps_cpus
         for devfreq_gov in /sys/class/devfreq/qcom,cpubw*/governor
@@ -986,6 +1013,10 @@ case "$target" in
         do
             echo "cpufreq" > $devfreq_gov
         done
+
+        # Set Memory parameters
+        configure_memory_parameters
+        restorecon -R /sys/devices/system/cpu
     ;;
 esac
 

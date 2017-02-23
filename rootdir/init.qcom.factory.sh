@@ -253,3 +253,6 @@ setprop persist.sys.usb.config diag,adb
     start qcomsysd
     start ptt_ffbm
     start ftm_ffbm
+    start adbd
+    start per_mgr
+    start per_proxy

@@ -13,5 +13,4 @@ PRODUCT_PACKAGES += \
 # etc scripts
 PRODUCT_PACKAGES += \
     init.qcom.bt.sh \
-    init.qcom.post_boot.sh \
-    init.qcom.zram.sh
+    init.qcom.post_boot.sh
