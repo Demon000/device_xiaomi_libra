@@ -984,6 +984,7 @@ service wfdservice /system/bin/wfdservice
     class main
     user system
     group graphics audio camera inet net_bt net_bt_admin net_bt_stack drmrpc bluetooth media_rw media
+    disabled
 
 #service RIDL /system/vendor/bin/RIDLClient.exe
 #    class late_start
