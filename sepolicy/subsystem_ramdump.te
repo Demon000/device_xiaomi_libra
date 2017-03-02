@@ -3,7 +3,7 @@ userdebug_or_eng(`
   diag_use(subsystem_ramdump)
 
   allow subsystem_ramdump self:socket create_socket_perms;
-  allow subsystem_ramdump fuse:dir r_dir_perms;
+  allow subsystem_ramdump fuse:dir { r_dir_perms write add_name create };
   allow subsystem_ramdump mnt_user_file:dir r_dir_perms;
   allow subsystem_ramdump mnt_user_file:lnk_file r_file_perms;
   allow subsystem_ramdump storage_file:dir r_dir_perms;
