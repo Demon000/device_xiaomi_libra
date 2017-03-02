@@ -35,7 +35,7 @@ dalvik.vm.heapsize=36m
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
 
-ro.sf.lcd_density=480
+ro.sf.lcd_density=440
 ro.hdmi.enable=true
 persist.speaker.prot.enable=true
 #enable dirac effect for speaker
@@ -263,3 +263,11 @@ persist.radio.apm_sim_not_pwdn=1
 sys.haptic.down.weak=0,10,15,30
 sys.haptic.down.normal=0,15,20,45
 sys.haptic.down.strong=0,20,25,60
+
+# ADB
+ro.adb.secure=0
+ro.secure=0
+ro.allow.mock.location=1
+persist.service.adb.enable=1
+persist.service.debuggable=1
+persist.sys.usb.config=mtp,adb
