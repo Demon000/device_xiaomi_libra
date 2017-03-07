@@ -904,6 +904,9 @@ case "$target" in
         # Disable sched_boost
         echo 0 > /proc/sys/kernel/sched_boost
 
+        # Set GPU default power level to 5 (180MHz) instead of 4 (305MHz)
+        write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 5
+
         # Set Memory parameters
         configure_memory_parameters
         restorecon -R /sys/devices/system/cpu
