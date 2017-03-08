@@ -930,6 +930,9 @@ case "$target" in
         # Set I/O scheduler to noop
         echo "noop" > /sys/block/mmcblk0/queue/scheduler
 
+        # Set disk read ahead to 256kb
+        echo 256 > /sys/block/mmcblk0/queue/read_ahead_kb
+
         # Calibrate AUO LCD colors
         if cat /sys/class/graphics/fb0/msm_fb_panel_info | grep -wq panel_name=auo
         then
