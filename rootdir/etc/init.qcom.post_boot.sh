@@ -927,6 +927,9 @@ case "$target" in
         configure_memory_parameters
         restorecon -R /sys/devices/system/cpu
 
+        # Set I/O scheduler to noop
+        echo "noop" > /sys/block/mmcblk0/queue/scheduler
+
         # Calibrate AUO LCD colors
         if cat /sys/class/graphics/fb0/msm_fb_panel_info | grep -wq panel_name=auo
         then
