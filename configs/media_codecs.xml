@@ -157,6 +157,11 @@ Only the three quirks included above are recognized at this point:
     <Decoders>
         <!-- Audio Hardware  -->
         <!-- Audio Software  -->
+        <MediaCodec name="OMX.ffmpeg.flac.decoder" type="audio/flac" />
+        <MediaCodec name="OMX.ffmpeg.dsd.decoder" type="audio/dsd" />
+        <MediaCodec name="OMX.ffmpeg.dts.decoder" type="audio/dts" />
+        <MediaCodec name="OMX.ffmpeg.adpcm.decoder" type="audio/32KADPCM" />
+        <MediaCodec name="OMX.ffmpeg.ape.decoder" type="audio/x-ape" />
         <!-- Video Hardware  -->
         <MediaCodec name="OMX.qcom.video.decoder.avc" type="video/avc" >
             <Quirk name="requires-allocate-on-input-ports" />
@@ -316,13 +321,6 @@ Only the three quirks included above are recognized at this point:
             <Feature name="secure-playback" required="true" />
             <Limit name="concurrent-instances" max="6" />
         </MediaCodec>
-        <!-- Audio Software  -->
-        <MediaCodec name="OMX.ffmpeg.flac.decoder" type="audio/flac" />
-        <MediaCodec name="OMX.ffmpeg.dsd.decoder" type="audio/dsd" />
-        <MediaCodec name="OMX.ffmpeg.dts.decoder" type="audio/dts" />
-        <MediaCodec name="OMX.ffmpeg.adpcm.decoder" type="audio/32KADPCM" />
-        <MediaCodec name="OMX.ffmpeg.ape.decoder" type="audio/x-ape" />
-
     </Decoders>
     <Include href="media_codecs_google_video.xml" />
 </MediaCodecs>
