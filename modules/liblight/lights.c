@@ -27,6 +27,7 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <pthread.h>
+#include <cutils/properties.h>
 
 #include <sys/ioctl.h>
 #include <sys/types.h>
@@ -39,7 +40,9 @@ static pthread_once_t g_init = PTHREAD_ONCE_INIT;
 static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
 static struct light_state_t g_notification;
 static struct light_state_t g_battery;
-static int g_attention = 0;
+static struct light_state_t g_attention;
+
+// cat /sys/class/leds/red/brightness; cat /sys/class/leds/green/brightness; cat /sys/class/leds/blue/brightness;
 
 char const*const RED_LED_FILE
         = "/sys/class/leds/red/brightness";
@@ -76,6 +79,37 @@ void init_globals(void)
 {
     // init the mutex
     pthread_mutex_init(&g_lock, NULL);
+}
+
+static int
+read_string(char const* path, char* buf)
+{
+  static int already_warned = 0;
+
+  int fd = open(path, O_RDONLY);
+  if(fd >= 0) {
+    int size = (int)read(fd, buf, 12);
+    close(fd);
+    buf[size - 1] = '\0';
+    return size;
+  }
+
+  if(0 == already_warned) {
+    ALOGE("read_string failed to open %s\n", path);
+    already_warned = 1;
+  }
+  return -1;
+}
+
+static int
+read_int(char const* path, int* val)
+{
+  char buffer[20];
+  if (read_string(path, buffer) > 0) {
+    *val = (int)strtol(buffer, NULL, 10);
+    return 0;
+  }
+  return -1;
 }
 
 static int
@@ -125,6 +159,7 @@ set_light_backlight(struct light_device_t* dev,
     }
     pthread_mutex_lock(&g_lock);
     err = write_int(LCD_FILE, brightness);
+
     pthread_mutex_unlock(&g_lock);
     return err;
 }
@@ -134,27 +169,45 @@ set_speaker_light_locked(struct light_device_t* dev,
         struct light_state_t const* state)
 {
     int red, green, blue;
-    int blink;
-    int onMS, offMS;
     unsigned int colorRGB;
+    int flashMode = 0;
 
     if(!dev) {
         return -1;
     }
 
-    switch (state->flashMode) {
-        case LIGHT_FLASH_TIMED:
-            onMS = state->flashOnMS;
-            offMS = state->flashOffMS;
-            break;
-        case LIGHT_FLASH_NONE:
-        default:
-            onMS = 0;
-            offMS = 0;
-            break;
+    if (state == NULL)
+    {
+                write_int(RED_BLINK_FILE, 0);
+                write_int(GREEN_BLINK_FILE, 0);
+                write_int(BLUE_BLINK_FILE, 0);
+
+                write_int(RED_LED_FILE, 0);
+                write_int(GREEN_LED_FILE, 0);
+                write_int(BLUE_LED_FILE, 0);
+
+        return 0;
     }
 
+    flashMode = state->flashMode;
     colorRGB = state->color;
+
+    if (state->flashOnMS+state->flashOffMS == 0)
+                flashMode = LIGHT_FLASH_NONE;
+
+    if (flashMode != LIGHT_FLASH_NONE)
+    {
+      if (state->flashOnMS > 0 && state->flashOffMS == 0) {
+                // Always on
+                flashMode = LIGHT_FLASH_NONE;
+      }
+      else if (state->flashOnMS == 0)
+      {
+                // Off
+                flashMode = LIGHT_FLASH_NONE;
+                colorRGB = 0;
+      }
+    }
 
 #if 0
     ALOGD("set_speaker_light_locked mode %d, colorRGB=%08X, onMS=%d, offMS=%d\n",
@@ -165,35 +218,33 @@ set_speaker_light_locked(struct light_device_t* dev,
     green = (colorRGB >> 8) & 0xFF;
     blue = colorRGB & 0xFF;
 
-    if (onMS > 0 && offMS > 0) {
-        /*
-         * if ON time == OFF time
-         *   use blink mode 2
-         * else
-         *   use blink mode 1
-         */
-        if (onMS == offMS)
-            blink = 2;
-        else
-            blink = 1;
-    } else {
-        blink = 0;
-    }
+    ALOGD("set_speaker_light_locked mode %d, colorRGB=%d,%d,%d; flashon %d; flashoff %d\n",
+            flashMode, red, green, blue, state->flashOnMS, state->flashOffMS);
 
-    if (blink) {
-        if (red) {
-            if (write_int(RED_BLINK_FILE, blink))
-                write_int(RED_LED_FILE, 0);
-	}
-        if (green) {
-            if (write_int(GREEN_BLINK_FILE, blink))
-                write_int(GREEN_LED_FILE, 0);
-	}
-        if (blue) {
-            if (write_int(BLUE_BLINK_FILE, blink))
-                write_int(BLUE_LED_FILE, 0);
-	}
+    if (flashMode != LIGHT_FLASH_NONE && colorRGB != 0)
+    {
+		red = (red > 127) ? 255 : 0;
+		green = (green > 127) ? 255 : 0;
+		blue = (blue > 127) ? 255 : 0;
+
+		if (red == 0 && green == 0 && blue == 0) {
+		  red = green = blue = 255; // Defaults to white..
+		}
+
+		// Sleep 20ms before writing new values to breathe mode..
+		usleep(20000);
+
+		write_int(RED_BLINK_FILE, (red > 0));
+		write_int(GREEN_BLINK_FILE, (green > 0));
+		write_int(BLUE_BLINK_FILE, (blue > 0));
+
     } else {
+
+        // Scale to 0 - 48
+        red = (int)((float)red / 255.0f * 48.0f);
+        green = (int)((float)green / 255.0f * 48.0f);
+        blue = (int)((float)blue / 255.0f * 48.0f);
+
         write_int(RED_LED_FILE, red);
         write_int(GREEN_LED_FILE, green);
         write_int(BLUE_LED_FILE, blue);
@@ -205,10 +256,19 @@ set_speaker_light_locked(struct light_device_t* dev,
 static void
 handle_speaker_battery_locked(struct light_device_t* dev)
 {
-    if (is_lit(&g_battery)) {
-        set_speaker_light_locked(dev, &g_battery);
-    } else {
+    set_speaker_light_locked(dev, NULL);
+
+    if (is_lit(&g_attention))
+    {
+        set_speaker_light_locked(dev, &g_attention);
+    }
+    else if (is_lit(&g_notification))
+    {
         set_speaker_light_locked(dev, &g_notification);
+    }
+    else
+    {
+        set_speaker_light_locked(dev, &g_battery);
     }
 }
 
@@ -239,11 +299,7 @@ set_light_attention(struct light_device_t* dev,
         struct light_state_t const* state)
 {
     pthread_mutex_lock(&g_lock);
-    if (state->flashMode == LIGHT_FLASH_HARDWARE) {
-        g_attention = state->flashOnMS;
-    } else if (state->flashMode == LIGHT_FLASH_NONE) {
-        g_attention = 0;
-    }
+    g_attention = *state;
     handle_speaker_battery_locked(dev);
     pthread_mutex_unlock(&g_lock);
     return 0;
@@ -258,8 +314,8 @@ set_light_buttons(struct light_device_t* dev,
         return -1;
     }
     pthread_mutex_lock(&g_lock);
-    err = write_int(BUTTON_FILE1, state->color & 0xFF);
     err = write_int(BUTTON_FILE, state->color & 0xFF);
+    err = write_int(BUTTON_FILE1, state->color & 0xFF);
     pthread_mutex_unlock(&g_lock);
     return err;
 }
