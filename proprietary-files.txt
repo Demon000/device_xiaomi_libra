@@ -694,6 +694,7 @@ etc/data/qmi_config.xml
 etc/modem/Diag.cfg
 etc/permissions/qcnvitems.xml
 etc/permissions/qcrilhook.xml
+etc/permissions/qti_telephony_common.xml
 etc/wifibt_diag.cfg
 -framework/QtiTelephonyServicelibrary.jar
 -framework/qcnvitems.jar
