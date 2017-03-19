@@ -172,9 +172,7 @@ echo 0 > /sys/module/lpm_levels/parameters/sleep_disabled
 echo "4:4294967295 5:4294967295" > /sys/module/msm_performance/parameters/cpu_max_freq
 
 # input boost configuration
-echo 1 > /sys/module/cpu_boost/parameters/input_boost_enabled
-echo "0:960000 1:960000 2:0 3:0 4:0 5:0" > /sys/module/cpu_boost/parameters/input_boost_freq
-echo 32 > /sys/module/cpu_boost/parameters/input_boost_ms
+echo 0 > /sys/module/cpu_boost/parameters/input_boost_enabled
 
 # core_ctl module
 echo 2 > /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
