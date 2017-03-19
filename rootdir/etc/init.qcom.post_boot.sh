@@ -207,7 +207,7 @@ done
 echo 0 > /proc/sys/kernel/sched_boost
 
 # Set GPU default power level to 5 (180MHz) instead of 4 (305MHz)
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 5
+echo 5 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
 
 # Set Memory parameters
 configure_memory_parameters
