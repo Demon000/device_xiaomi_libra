@@ -17,3 +17,4 @@
 /devices/soc.0/f9a55000.ehci/usb1       /storage/uicc0     vfat    nosuid,nodev                                    voldmanaged=uicc0:auto
 /devices/soc.0/f9a55000.ehci/usb1       /storage/uicc1     vfat    nosuid,nodev                                    voldmanaged=uicc1:auto
 /devices/soc.0/f9200000.ssusb/f9200000.dwc3/xhci-hcd.0.auto/usb*    auto      auto    defaults                     voldmanaged=usb:auto
+/devices/soc.0/f98a4900.sdhci/mmc_host*                             auto      auto    defaults                     voldmanaged=sdcard1:auto,encryptable=userdata
