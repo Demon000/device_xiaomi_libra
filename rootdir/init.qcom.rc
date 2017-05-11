@@ -729,7 +729,7 @@ service ftm_ffbm /system/bin/ftmdaemon
     disabled
     oneshot
 
-service cnss_diag /system/bin/cnss_diag -q -f
+service cnss_diag /system/bin/cnss_diag -q
     class main
     user system
     group system wifi inet net_admin sdcard_rw media_rw diag
