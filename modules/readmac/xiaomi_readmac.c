@@ -126,8 +126,7 @@ int main(void)
 
     if(0 == xiaomi_is_mac_in_correct_order(mac_addr)) {
         if(0 == xiaomi_readmac_reverse_mac(mac_addr)) {
-            ALOGE("xiaomi_readmac_invert_mac error");
-            return 1;
+            ALOGE("xiaomi_readmac_reverse_mac error");
         }
     }
 
