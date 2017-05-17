@@ -92,49 +92,16 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     user camera
     group camera system inet input graphics
 
-## Allow usb charging to be disabled persistently
-#on property:persist.usb.chgdisabled=1
-#    write /sys/class/power_supply/battery/charging_enabled 0
-#
-#on property:persist.usb.chgdisabled=0
-#    write /sys/class/power_supply/battery/charging_enabled 1
-#
-#service qrngd /system/bin/qrngd -f
-#    class main
-#    user root
-#    group root
-#
-#service qrngp /system/bin/qrngp
-#    class main
-#    user root
-#    group root
-#    oneshot
-#    disabled
-#
-#on property:sys.boot_completed=1
-#    start qrngp
-#
-
 service qseecomd /system/bin/qseecomd
    class core
    user root
    group root
-
-#service seempd /system/bin/seempd
-#   class core
-#   user system
-#   group system
-#   socket seempdw dgram 0666 system system
 
 service perfd /system/vendor/bin/perfd
    class main
    user root
    disabled
 
-#service mpdecision /system/bin/mpdecision --avg_comp
-#   user root
-#   disabled
-#
 service per_mgr /system/bin/pm-service
     class core
     user system
@@ -152,11 +119,6 @@ on property:init.svc.per_mgr=running
 on property:sys.shutdown.requested=*
     stop per_proxy
 
-#service qosmgrd /system/bin/qosmgr /system/etc/qosmgr_rules.xml
-#   user system
-#   group system
-#   disabled
-#
 service thermal-engine /system/vendor/bin/thermal-engine -T
    class main
    user root
@@ -200,13 +162,6 @@ service select_sns_hal /system/bin/sh /system/bin/sensor_select.sh
     group root
     oneshot
 
-#
-#service wcnss-service /system/bin/wcnss_service
-#    class late_start
-#    user root
-#    group system wifi
-#    oneshot
-#
 on property:sys.ims.QMI_DAEMON_STATUS=1
     start imsdatadaemon
 
