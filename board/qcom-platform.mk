@@ -6,7 +6,7 @@ TARGET_RIL_VARIANT := caf
 BOARD_USES_QC_TIME_SERVICES := true
 
 # Power
-TARGET_POWERHAL_VARIANT := qcom
+TARGET_POWERHAL_VARIANT := none
 
 # Enable peripheral manager
 TARGET_PER_MGR_ENABLED := true
