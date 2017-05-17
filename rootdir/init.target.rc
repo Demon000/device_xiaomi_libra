@@ -68,7 +68,6 @@ on boot
     symlink /dev/block/platform/soc.0 /dev/block/bootdevice
     start rmt_storage
     start rfs_access
-    write /proc/sys/kernel/sched_boost 1
 
     write /dev/cpuset/foreground/cpus 0-2,4-5
     write /dev/cpuset/foreground/boost/cpus 4-5
