@@ -26,14 +26,14 @@
     <ctl name="LINEOUT4 Volume" value="13" />
     <ctl name="HPHL Volume" value="20" />
     <ctl name="HPHR Volume" value="20" />
-    <ctl name="RX1 Digital Volume" value="84" />
-    <ctl name="RX2 Digital Volume" value="84" />
-    <ctl name="RX3 Digital Volume" value="84" />
-    <ctl name="RX4 Digital Volume" value="84" />
-    <ctl name="RX5 Digital Volume" value="84" />
-    <ctl name="RX6 Digital Volume" value="84" />
-    <ctl name="RX7 Digital Volume" value="84" />
-    <ctl name="RX8 Digital Volume" value="84" />
+    <ctl name="RX1 Digital Volume" value="92" />
+    <ctl name="RX2 Digital Volume" value="92" />
+    <ctl name="RX3 Digital Volume" value="92" />
+    <ctl name="RX4 Digital Volume" value="92" />
+    <ctl name="RX5 Digital Volume" value="92" />
+    <ctl name="RX6 Digital Volume" value="92" />
+    <ctl name="RX7 Digital Volume" value="92" />
+    <ctl name="RX8 Digital Volume" value="92" />
     <ctl name="ADC1 Volume" value="19" />
     <ctl name="ADC2 Volume" value="19" />
     <ctl name="ADC3 Volume" value="0" />
@@ -1474,7 +1474,7 @@
         <ctl name="SLIM RX1 MUX" value="AIF1_PB" />
         <ctl name="SLIM_0_RX Channels" value="One" />
         <ctl name="RX7 MIX1 INP1" value="RX1" />
-        <ctl name="RX7 Digital Volume" value="84" />
+        <ctl name="RX7 Digital Volume" value="92" />
         <ctl name="COMP0 Switch" value="1" />
     </path>
 
@@ -1549,7 +1549,7 @@
         <ctl name="SLIM_0_RX Channels" value="One" />
         <ctl name="RX7 MIX1 INP1" value="RX1" />
         <ctl name="COMP0 Switch" value="1" />
-        <ctl name="RX7 Digital Volume" value="84" />
+        <ctl name="RX7 Digital Volume" value="92" />
     </path>
 
     <path name="voice-speaker-protected">
@@ -1725,10 +1725,10 @@
         <ctl name="HPHL DAC Switch" value="1" />
         <ctl name="HPHL Volume" value="12" />
         <ctl name="HPHR Volume" value="12" />
-        <ctl name="RX1 Digital Volume" value="84" />
-        <ctl name="RX2 Digital Volume" value="84" />
+        <ctl name="RX1 Digital Volume" value="92" />
+        <ctl name="RX2 Digital Volume" value="92" />
         <ctl name="RX7 MIX1 INP1" value="RX1" />
-        <ctl name="RX7 Digital Volume" value="84" />
+        <ctl name="RX7 Digital Volume" value="92" />
         <ctl name="SPK DRV Volume" value="5" />
     </path>
 
@@ -1743,8 +1743,8 @@
         <path name="headphones" />
         <ctl name="RX7 MIX1 INP1" value="RX1" />
         <ctl name="RX8 MIX1 INP1" value="RX2" />
-        <ctl name="RX7 Digital Volume" value="84" />
-        <ctl name="RX8 Digital Volume" value="84" />
+        <ctl name="RX7 Digital Volume" value="92" />
+        <ctl name="RX8 Digital Volume" value="92" />
         <ctl name="COMP0 Switch" value="1" />
     </path>
 
