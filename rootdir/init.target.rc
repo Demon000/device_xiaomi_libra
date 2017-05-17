@@ -249,3 +249,21 @@ service readmac /system/bin/readmac
     group radio qcom_diag log net_raw wifi
     oneshot
     disabled
+
+on property:sys.perf.profile=0
+	write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
+	write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 0
+	write /sys/devices/system/cpu/cpu4/core_ctl/max_cpus 0
+	write /sys/module/cpu_boost/parameters/input_boost_enabled 0
+
+on property:sys.perf.profile=1
+	write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
+	write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 0
+	write /sys/devices/system/cpu/cpu4/core_ctl/max_cpus 2
+	write /sys/module/cpu_boost/parameters/input_boost_enabled 1
+
+on property:sys.perf.profile=2
+	write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
+	write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 2
+	write /sys/devices/system/cpu/cpu4/core_ctl/max_cpus 2
+	write /sys/module/cpu_boost/parameters/input_boost_enabled 1
