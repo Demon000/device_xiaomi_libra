@@ -26,31 +26,6 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-# Set Memory paremeters.
-#
-# Set Low memory killer minfree parameters
-# 64 bit all memory configurations will use 18K series
-#
-# Set ALMK parameters (usually above the highest minfree values)
-# 64 bit will have 81K
-#
-function configure_memory_parameters() {
-    arch_type=`uname -m`
-    MemTotalStr=`cat /proc/meminfo | grep MemTotal`
-    MemTotal=${MemTotalStr:16:8}
-
-    echo 0 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
-
-    if [ "$arch_type" == "aarch64" ] && [ $MemTotal -gt 2097152 ]; then
-        echo "14746,18432,22118,25805,33038,41988" > /sys/module/lowmemorykiller/parameters/minfree
-        echo 81250 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
-    elif [ "$arch_type" == "aarch64" ] && [ $MemTotal -gt 1048576 ]; then
-        echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
-        echo "18432,23040,27648,32256,55296,80640" > /sys/module/lowmemorykiller/parameters/minfree
-        echo 81250 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
-    fi
-}
-
 # ensure at most one A57 is online when thermal hotplug is disabled
 echo 0 > /sys/devices/system/cpu/cpu5/online
 
@@ -205,7 +180,8 @@ echo 0 > /proc/sys/kernel/sched_boost
 echo 5 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
 
 # Set Memory parameters
-configure_memory_parameters
+echo "14746,18432,22118,25805,33038,41988" > /sys/module/lowmemorykiller/parameters/minfree
+echo 81250 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
 restorecon -R /sys/devices/system/cpu
 
 # Set I/O scheduler to noop
