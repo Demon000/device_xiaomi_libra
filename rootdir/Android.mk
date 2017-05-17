@@ -121,14 +121,6 @@ LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE       := init.qcom.zram.sh
-LOCAL_MODULE_TAGS  := optional
-LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := etc/init.qcom.zram.sh
-LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
 LOCAL_MODULE       := usf_post_boot.sh
 LOCAL_MODULE_TAGS  := optional
 LOCAL_MODULE_CLASS := ETC

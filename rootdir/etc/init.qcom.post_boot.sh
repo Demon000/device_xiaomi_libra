@@ -49,14 +49,6 @@ function configure_memory_parameters() {
         echo "18432,23040,27648,32256,55296,80640" > /sys/module/lowmemorykiller/parameters/minfree
         echo 81250 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
     fi
-
-    # Zram disk - 512MB size
-    zram_enable=`getprop ro.config.zram`
-    if [ "$zram_enable" == "true" ]; then
-        echo 536870912 > /sys/block/zram0/disksize
-        mkswap /dev/block/zram0
-        swapon /dev/block/zram0 -p 32758
-    fi
 }
 
 # ensure at most one A57 is online when thermal hotplug is disabled
