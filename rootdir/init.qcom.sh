@@ -33,61 +33,6 @@ else
     platformid=`cat /sys/devices/system/soc/soc0/id`
 fi
 
-start_battery_monitor()
-{
-	if ls /sys/bus/spmi/devices/qpnp-bms-*/fcc_data ; then
-		chown -h root.system /sys/module/pm8921_bms/parameters/*
-		chown -h root.system /sys/module/qpnp_bms/parameters/*
-		chown -h root.system /sys/bus/spmi/devices/qpnp-bms-*/fcc_data
-		chown -h root.system /sys/bus/spmi/devices/qpnp-bms-*/fcc_temp
-		chown -h root.system /sys/bus/spmi/devices/qpnp-bms-*/fcc_chgcyl
-		chmod 0660 /sys/module/qpnp_bms/parameters/*
-		chmod 0660 /sys/module/pm8921_bms/parameters/*
-		mkdir -p /data/bms
-		chown -h root.system /data/bms
-		chmod 0770 /data/bms
-		start battery_monitor
-	fi
-}
-
-start_charger_monitor()
-{
-	if ls /sys/module/qpnp_charger/parameters/charger_monitor; then
-		chown -h root.system /sys/module/qpnp_charger/parameters/*
-		chown -h root.system /sys/class/power_supply/battery/input_current_max
-		chown -h root.system /sys/class/power_supply/battery/input_current_trim
-		chown -h root.system /sys/class/power_supply/battery/input_current_settled
-		chown -h root.system /sys/class/power_supply/battery/voltage_min
-		chmod 0664 /sys/class/power_supply/battery/input_current_max
-		chmod 0664 /sys/class/power_supply/battery/input_current_trim
-		chmod 0664 /sys/class/power_supply/battery/input_current_settled
-		chmod 0664 /sys/class/power_supply/battery/voltage_min
-		chmod 0664 /sys/module/qpnp_charger/parameters/charger_monitor
-		start charger_monitor
-	fi
-}
-
-start_vm_bms()
-{
-	if [ -e /dev/vm_bms ]; then
-		chown -h root.system /sys/class/power_supply/bms/current_now
-		chown -h root.system /sys/class/power_supply/bms/voltage_ocv
-		chmod 0664 /sys/class/power_supply/bms/current_now
-		chmod 0664 /sys/class/power_supply/bms/voltage_ocv
-		start vm_bms
-	fi
-}
-
-start_msm_irqbalance_8939()
-{
-	if [ -f /system/bin/msm_irqbalance ]; then
-		case "$platformid" in
-		    "239")
-			start msm_irqbalance;;
-		esac
-	fi
-}
-
 start_msm_irqbalance()
 {
 	if [ -f /system/bin/msm_irqbalance ]; then
