@@ -32,22 +32,6 @@ if [ -f /sys/devices/soc0/soc_id ]; then
 else
     platformid=`cat /sys/devices/system/soc/soc0/id`
 fi
-#
-# Function to start sensors for DSPS enabled platforms
-#
-#start_sensors()
-#{
-#    if [ -c /dev/msm_dsps -o -c /dev/sensors ]; then
-#        chmod -h 775 /persist/sensors
-#        chmod -h 664 /persist/sensors/sensors_settings
-#        chown -h system.root /persist/sensors/sensors_settings
-
-#        mkdir -p /data/misc/sensors
-#        chmod -h 775 /data/misc/sensors
-
-#        start sensors
-#    fi
-#}
 
 start_battery_monitor()
 {
@@ -223,7 +207,6 @@ else
     echo 96 > /sys/class/leds/blue/max_brightness
 fi
 
-#start_sensors
 start_copying_prebuilt_qcril_db
 
 case "$target" in
