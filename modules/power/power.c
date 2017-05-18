@@ -36,14 +36,18 @@ enum {
     PROFILE_POWER_SAVE,
     PROFILE_BALANCED,
     PROFILE_HIGH_PERFORMANCE,
+    PROFILE_BIAS_POWER,
+    PROFILE_BIAS_PERFORMANCE,
 };
 
-#define POWER_NR_OF_SUPPORTED_PROFILES 3
+#define POWER_NR_OF_SUPPORTED_PROFILES 5
 
 #define POWER_PROFILE_PROPERTY  "sys.perf.profile"
 #define POWER_SAVE_PROP         "0"
 #define BALANCED_PROP           "1"
 #define HIGH_PERFORMANCE_PROP   "2"
+#define BIAS_POWER_PROP         "3"
+#define BIAS_PERFORMANCE_PROP   "4"
 
 static int current_power_profile = PROFILE_BALANCED;
 
@@ -94,6 +98,12 @@ static void set_power_profile(int profile)
         break;
     case PROFILE_HIGH_PERFORMANCE:
         property_set(POWER_PROFILE_PROPERTY, HIGH_PERFORMANCE_PROP);
+        break;
+    case PROFILE_BIAS_POWER:
+        property_set(POWER_PROFILE_PROPERTY, BIAS_POWER_PROP);
+        break;
+    case PROFILE_BIAS_PERFORMANCE:
+        property_set(POWER_PROFILE_PROPERTY, BIAS_PERFORMANCE_PROP);
         break;
     }
 
