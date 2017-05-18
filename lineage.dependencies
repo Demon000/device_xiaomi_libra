@@ -4,7 +4,7 @@
     "target_path": "device/qcom/common"
   },
   {
-    "repository": "android_kernel_xiaomi_libra",
-    "target_path": "kernel/xiaomi/libra"
+    "repository": "android_kernel_xiaomi_msm8992",
+    "target_path": "kernel/xiaomi/msm8992"
   }
 ]
