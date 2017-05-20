@@ -185,9 +185,6 @@ echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
 echo 81250 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
 restorecon -R /sys/devices/system/cpu
 
-# Set I/O scheduler to noop
-echo "noop" > /sys/block/mmcblk0/queue/scheduler
-
 # Set disk read ahead to 256kb
 echo 256 > /sys/block/mmcblk0/queue/read_ahead_kb
 

@@ -251,6 +251,7 @@ service readmac /system/bin/readmac
 
 # power save
 on property:sys.perf.profile=0
+  write /sys/block/mmcblk0/queue/scheduler "noop"
   write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
   write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 0
   write /sys/devices/system/cpu/cpu4/core_ctl/max_cpus 0
@@ -258,6 +259,7 @@ on property:sys.perf.profile=0
 
 # bias power save
 on property:sys.perf.profile=3
+  write /sys/block/mmcblk0/queue/scheduler "noop"
   write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
   write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 0
   write /sys/devices/system/cpu/cpu4/core_ctl/max_cpus 0
@@ -265,6 +267,7 @@ on property:sys.perf.profile=3
 
 # balanced
 on property:sys.perf.profile=1
+  write /sys/block/mmcblk0/queue/scheduler "noop"
   write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
   write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 0
   write /sys/devices/system/cpu/cpu4/core_ctl/max_cpus 2
@@ -272,6 +275,7 @@ on property:sys.perf.profile=1
 
 # bias high performance
 on property:sys.perf.profile=4
+  write /sys/block/mmcblk0/queue/scheduler "cfq"
   write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
   write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 1
   write /sys/devices/system/cpu/cpu4/core_ctl/max_cpus 2
@@ -279,6 +283,7 @@ on property:sys.perf.profile=4
 
 # high performance
 on property:sys.perf.profile=2
+  write /sys/block/mmcblk0/queue/scheduler "cfq"
   write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
   write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 2
   write /sys/devices/system/cpu/cpu4/core_ctl/max_cpus 2
