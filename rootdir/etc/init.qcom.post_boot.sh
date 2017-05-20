@@ -183,11 +183,6 @@ echo 5 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
 echo "14746,18432,22118,25805,33038,41988" > /sys/module/lowmemorykiller/parameters/minfree
 echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
 echo 81250 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
-echo 1 > /sys/module/process_reclaim/parameters/enable_process_reclaim
-echo 70 > /sys/module/process_reclaim/parameters/pressure_max
-echo 30 > /sys/module/process_reclaim/parameters/swap_opt_eff
-echo 10 > /sys/module/process_reclaim/parameters/pressure_min
-echo 1024 > /sys/module/process_reclaim/parameters/per_swap_size
 restorecon -R /sys/devices/system/cpu
 
 # Set I/O scheduler to noop
