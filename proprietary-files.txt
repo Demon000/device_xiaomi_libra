@@ -631,8 +631,8 @@ vendor/lib64/libwqe.so
 bin/irsc_util
 bin/mmbn-daemon
 etc/permissions/qti_permissions.xml
-lib/libqminvapi.so
-lib64/libqminvapi.so
+-lib/libqminvapi.so
+-lib64/libqminvapi.so
 vendor/lib/libdiag.so
 vendor/lib/libdsi_netctrl.so
 vendor/lib/libdsutils.so
