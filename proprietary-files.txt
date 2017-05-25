@@ -489,6 +489,14 @@ vendor/lib64/libmmcamera2_stats_algorithm.so
 vendor/lib64/libmmcamera_ov5645.so
 vendor/lib64/libmorpho_panorama_gp.so
 
+# camera firmware
+etc/firmware/cpp_firmware_v1_1_1.fw
+etc/firmware/cpp_firmware_v1_1_6.fw
+etc/firmware/cpp_firmware_v1_2_0.fw
+etc/firmware/cpp_firmware_v1_4_0.fw
+etc/firmware/cpp_firmware_v1_6_0.fw
+etc/firmware/cpp_firmware_v1_8_0.fw
+
 # DPM
 bin/dpmd
 etc/dpm/dpm.conf
@@ -898,42 +906,6 @@ vendor/lib64/libsensor_reg.so
 bin/cnss-daemon
 bin/cnss_diag
 
-# firmware
-etc/firmware/a225_pfp.fw
-etc/firmware/a225_pm4.fw
-etc/firmware/a225p5_pm4.fw
-etc/firmware/a300_pfp.fw
-etc/firmware/a300_pm4.fw
-etc/firmware/a330_pfp.fw
-etc/firmware/a330_pm4.fw
-etc/firmware/a420_pfp.fw
-etc/firmware/a420_pm4.fw
-etc/firmware/cpp_firmware_v1_1_1.fw
-etc/firmware/cpp_firmware_v1_1_6.fw
-etc/firmware/cpp_firmware_v1_2_0.fw
-etc/firmware/cpp_firmware_v1_4_0.fw
-etc/firmware/cpp_firmware_v1_6_0.fw
-etc/firmware/cpp_firmware_v1_8_0.fw
-etc/firmware/leia_pfp_470.fw
-etc/firmware/leia_pm4_470.fw
-etc/firmware/nvm_tlv.bin
-etc/firmware/nvm_tlv_1.3.bin
-etc/firmware/nvm_tlv_2.1.bin
-etc/firmware/nvm_tlv_3.0.bin
-etc/firmware/nvm_tlv_3.2.bin
-etc/firmware/rampatch_tlv.img
-etc/firmware/rampatch_tlv_1.3.tlv
-etc/firmware/rampatch_tlv_2.1.tlv
-etc/firmware/rampatch_tlv_3.0.tlv
-etc/firmware/rampatch_tlv_3.2.tlv
-etc/firmware/venus.b00
-etc/firmware/venus.b01
-etc/firmware/venus.b02
-etc/firmware/venus.b03
-etc/firmware/venus.b04
-etc/firmware/venus.mbn
-etc/firmware/venus.mdt
-
 # sec
 -vendor/app/SecProtect/SecProtect.apk
 
@@ -977,3 +949,28 @@ vendor/lib64/librs_adreno_sha1.so|f4a5f2e4737a000167f696edc0e917aaea3b4d8e
 vendor/lib64/libRSDriver_adreno.so|6091f09af07d288031a4c5a24ad5ad2ee25885e2
 vendor/lib64/libscale.so|993c923e266f41d268eaa9f7ce327baf6dd72266
 vendor/lib64/libuiblur.so|8d0275c4071423cad99862f50b79075db0807ad2
+
+# gpu firmware
+etc/firmware/a420_pfp.fw
+etc/firmware/a420_pm4.fw
+
+# media firmware
+etc/firmware/venus.b00
+etc/firmware/venus.b01
+etc/firmware/venus.b02
+etc/firmware/venus.b03
+etc/firmware/venus.b04
+etc/firmware/venus.mbn
+etc/firmware/venus.mdt
+
+# firmware
+etc/firmware/nvm_tlv.bin
+etc/firmware/nvm_tlv_1.3.bin
+etc/firmware/nvm_tlv_2.1.bin
+etc/firmware/nvm_tlv_3.0.bin
+etc/firmware/nvm_tlv_3.2.bin
+etc/firmware/rampatch_tlv.img
+etc/firmware/rampatch_tlv_1.3.tlv
+etc/firmware/rampatch_tlv_2.1.tlv
+etc/firmware/rampatch_tlv_3.0.tlv
+etc/firmware/rampatch_tlv_3.2.tlv
