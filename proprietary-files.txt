@@ -67,14 +67,6 @@ vendor/lib64/libwfduibcsinkinterface.so
 vendor/lib64/libwfduibcsrc.so
 vendor/lib64/libwfduibcsrcinterface.so
 
-# subsystem restart
-bin/qcom-system-daemon
-bin/ssr_diag
-bin/ssr_setup
-bin/subsystem_ramdump
-vendor/lib/libsubsystem_control.so
-vendor/lib64/libsubsystem_control.so
-
 # camera
 bin/mm-qcamera-daemon
 lib/hw/camera.msm8992.so

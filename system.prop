@@ -14,8 +14,6 @@ persist.rild.nitz_short_ons_1=
 persist.rild.nitz_short_ons_2=
 persist.rild.nitz_short_ons_3=
 ril.subscription.types=RUIM
-persist.sys.ssr.restart_level=ALL_ENABLE
-persist.sys.ssr.enable_ramdumps=1
 persist.radio.multisim.config=dsds
 DEVICE_PROVISIONED=1
 # Start in TD-SCDMA, GSM/WCDMA and LTE mode
