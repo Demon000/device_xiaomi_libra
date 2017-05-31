@@ -736,12 +736,6 @@ vendor/lib64/libqti-perfd-client.so
 vendor/lib64/libthermalclient.so
 vendor/lib64/libthermalioctl.so
 
-# GPU
-vendor/lib/libOpenCL.so
-vendor/lib/libc2d30-a3xx.so
-vendor/lib64/libOpenCL.so
-vendor/lib64/libc2d30-a3xx.so
-
 # adsp
 bin/adsprpcd
 vendor/lib/libadsprpc.so
