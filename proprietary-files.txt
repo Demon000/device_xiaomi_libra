@@ -768,7 +768,6 @@ lib/libjni_resource_drm.so
 lib64/libjni_resource_drm.so
 vendor/lib/libtzdrmgenprov.so
 vendor/lib64/libtzdrmgenprov.so
-vendor/lib/mediadrm/libwvdrmengine.so|8d8f13b2b20db3fdeeca94fa03063d0bf5597718
 
 # GPS (from ether)
 bin/garden_app
@@ -924,3 +923,6 @@ etc/firmware/rampatch_tlv_1.3.tlv
 etc/firmware/rampatch_tlv_2.1.tlv
 etc/firmware/rampatch_tlv_3.0.tlv
 etc/firmware/rampatch_tlv_3.2.tlv
+
+# Widevine
+vendor/lib/mediadrm/libwvdrmengine.so|8d8f13b2b20db3fdeeca94fa03063d0bf5597718
