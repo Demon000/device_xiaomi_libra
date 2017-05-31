@@ -915,9 +915,6 @@ vendor/lib64/libsensor_reg.so
 bin/cnss-daemon
 bin/cnss_diag
 
-# sec
--vendor/app/SecProtect/SecProtect.apk
-
 # Qcom msm8992 graphic
 vendor/lib/egl/eglSubDriverAndroid.so|44aa4bd91b31969c75701c5198238f0d7749d40b
 vendor/lib/egl/libEGL_adreno.so|9ad92382b51bf11261928f03487308080dadbdc6
