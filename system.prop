@@ -218,10 +218,6 @@ persist.dbg.volte_avail_ovr=1
 persist.dbg.vt_avail_ovr=1
 persist.radio.VT_HYBRID_ENABLE=1
 
-#Enable short oos enhancement
-ro.sys.oosenhance.enable=true
-ro.sys.oosenhance.timer=20000
-
 # button jack mode & switch
 persist.sys.button_jack_profile=volume
 persist.sys.button_jack_switch=0
