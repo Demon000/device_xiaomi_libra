@@ -40,12 +40,6 @@ ro.btconfig.dev=/dev/ttyHS0
 ro.btconfig.if=uart
 ro.btconfig.vendor=qcom
 
-# CABL
-ro.qcom.ad.calib.data=/system/etc/calib.cfg
-ro.qcom.ad.sensortype=2
-ro.qcom.ad=1
-ro.qualcomm.cabl=0
-
 # Display
 debug.composition.type=c2d
 debug.egl.hw=1
