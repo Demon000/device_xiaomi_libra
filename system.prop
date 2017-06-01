@@ -234,26 +234,14 @@ sys.fpc.tu.disabled=0
 #
 # ADDITIONAL_BUILD_PROPERTIES (stock)
 #
-persist.sys.mcd_config_file=/system/etc/mcd_default.conf
-persist.sys.klo=on
-persist.sys.whetstone.level=2
-persist.sys.frozenKernel=true
-ro.ss.version=5.1.111
-ro.ss.nohidden=true
 ro.vendor.extension_library=libqti-perfd-client.so
 persist.radio.custom_ecc=1
 persist.radio.sib16_support=1
 ro.frp.pst=/dev/block/bootdevice/by-name/config
 af.fast_track_multiplier=1
 audio_hal.period_size=192
-ro.wlan.mimo=1
 ro.btconfig.if=uart
 ro.btconfig.dev=/dev/ttyHS0
 ro.btconfig.vendor=qcom
 ro.btconfig.chip=QCA6164
-ro.product.cuptsm=XIAOMI|ESE|02|01
-persist.power.useautobrightadj=true
 persist.radio.apm_sim_not_pwdn=1
-sys.haptic.down.weak=0,10,15,30
-sys.haptic.down.normal=0,15,20,45
-sys.haptic.down.strong=0,20,25,60
