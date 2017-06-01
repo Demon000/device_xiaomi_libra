@@ -46,9 +46,6 @@ ro.qcom.ad.sensortype=2
 ro.qcom.ad=1
 ro.qualcomm.cabl=0
 
-# Coresight
-persist.debug.coresight.config=stm-events
-
 # Display
 debug.composition.type=c2d
 debug.egl.hw=1
