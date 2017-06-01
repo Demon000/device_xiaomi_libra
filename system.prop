@@ -15,7 +15,6 @@ persist.rild.nitz_short_ons_2=
 persist.rild.nitz_short_ons_3=
 ril.subscription.types=RUIM
 persist.radio.multisim.config=dsds
-DEVICE_PROVISIONED=1
 # Start in TD-SCDMA, GSM/WCDMA and LTE mode
 ro.telephony.default_network=20,20
 ro.telephony.default_cdma_sub=0
