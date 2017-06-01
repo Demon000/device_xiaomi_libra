@@ -85,7 +85,6 @@ media.stagefright.enable-player=true
 media.stagefright.enable-qcp=true
 media.stagefright.enable-scan=true
 media.stagefright.log-uri=1
-mm.enable.qcom_parser=3379827
 mm.enable.smoothstreaming=true
 mmp.enable.3g2=true
 persist.debug.sf.statistics=1
