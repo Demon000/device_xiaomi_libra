@@ -121,9 +121,6 @@ ro.telephony.default_network=20,20
 ro.use_data_netmgrd=true
 telephony.lteOnCdmaDevice=1
 
-# Sdcard
-persist.fuse_sdcard=true
-
 # Sensors
 ro.qc.sdk.camera.facialproc=false
 ro.qc.sdk.gestures.camera=false
