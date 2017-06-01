@@ -222,10 +222,6 @@ persist.radio.VT_HYBRID_ENABLE=1
 persist.sys.button_jack_profile=volume
 persist.sys.button_jack_switch=0
 
-#property to set fingerpirnt vendor
-ro.hardware.fingerprint=fpc
-sys.fpc.tu.disabled=0
-
 #
 # ADDITIONAL_BUILD_PROPERTIES (stock)
 #
