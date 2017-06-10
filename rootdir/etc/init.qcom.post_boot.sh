@@ -30,6 +30,9 @@
 echo 1 > /sys/devices/system/cpu/cpu4/online
 echo 0 > /sys/devices/system/cpu/cpu5/online
 
+# Enable LPM sleep
+echo 0 > /sys/module/lpm_levels/parameters/sleep_disabled
+
 # Disable thermal and bcl hotplug
 echo 0 > /sys/module/msm_thermal/core_control/enabled
 for mode in /sys/devices/soc.0/qcom,bcl.*/mode
