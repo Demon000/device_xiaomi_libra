@@ -49,7 +49,7 @@ enum {
 #define BIAS_POWER_PROP         "3"
 #define BIAS_PERFORMANCE_PROP   "4"
 
-static int current_power_profile = PROFILE_BALANCED;
+static int current_power_profile = -1;
 
 static int sysfs_write(const char *path, char *s)
 {
