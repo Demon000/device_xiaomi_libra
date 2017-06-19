@@ -295,6 +295,8 @@ on property:persist.env.fastdorm.enabled=true
 
 service cnd /vendor/bin/cnd
     class main
+    user system
+    group system wifi inet radio wakelock net_admin
     socket cnd stream 660 root inet
 
 service irsc_util /vendor/bin/irsc_util "/etc/sec_config"
