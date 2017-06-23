@@ -37,7 +37,6 @@ on fs
     symlink /dev/block/platform/soc.0/f9824900.sdhci /dev/block/bootdevice
 
     mount_all fstab.qcom
-    swapon_all fstab.qcom
 
     wait /dev/block/bootdevice/by-name/persist
     mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev barrier=1
@@ -70,6 +69,10 @@ on boot
     chown system system /dev/cpuset/top-app/boost
     chown system system /dev/cpuset/top-app/boost/tasks
     chmod 0664 /dev/cpuset/top-app/boost/tasks
+
+on property:sys.boot_completed=1
+    # Enable ZRAM on boot_complete
+    swapon_all fstab.qcom
 
 #start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
