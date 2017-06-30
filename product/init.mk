@@ -1,6 +1,5 @@
 # ramdisk files
 PRODUCT_PACKAGES += \
-    init.class_main.sh \
     init.qcom.class_core.sh \
     init.qcom.factory.sh \
     init.qcom.rc \
