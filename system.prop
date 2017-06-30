@@ -31,9 +31,11 @@ use.voice.path.for.pcm.voip=true
 
 # Bluetooth
 bluetooth.enable_timeout_ms=12000
-bluetooth.hfp.client=1
 qcom.bluetooth.soc=rome
+ro.bluetooth.dun=true
 ro.bluetooth.emb_wp_mode=true
+ro.bluetooth.hfp.ver=1.6
+ro.bluetooth.sap=true
 ro.bluetooth.wipower=true
 ro.btconfig.chip=QCA6164
 ro.btconfig.dev=/dev/ttyHS0
