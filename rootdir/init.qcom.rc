@@ -331,11 +331,6 @@ on property:bluetooth.startbtsnoop=true
 on property:bluetooth.startbtsnoop=false
     stop btsnoop
 
-service qcom-c_core-sh /system/bin/sh /init.qcom.class_core.sh
-    class core
-    user root
-    oneshot
-
 on property:vold.decrypt=trigger_restart_framework
     start config_bt_addr
     start config_bluetooth
