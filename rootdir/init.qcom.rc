@@ -560,34 +560,6 @@ service charger /charger
     class charger
     seclabel u:r:healthd:s0
 
-# Define fastmmi
-service fastmmi /system/bin/mmi
-    user root
-    group root
-    disabled
-
-service fastmmisrv /system/bin/sh /init.qcom.factory.sh
-    user root
-    disabled
-    oneshot
-
-on mmi
-    start fastmmisrv
-
-on ffbm
-    trigger early-fs
-    trigger fs
-    trigger post-fs
-    trigger post-fs-data
-
-    # Load properties from /system/ + /factory after fs mount. Place
-    # this in another action so that the load will be scheduled after the prior
-    # issued fs triggers have completed.
-    trigger load_all_props_action
-
-    trigger early-boot
-    trigger mmi
-
 service qbcharger /charger -m 1
     disabled
     oneshot
