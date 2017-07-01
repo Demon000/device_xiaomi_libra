@@ -1915,9 +1915,9 @@
     <path name="camcorder-mic">
         <ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
         <ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
-        <ctl name="SLIM TX7 MUX" value="DEC6" />
+        <ctl name="SLIM TX7 MUX" value="DEC3" />
         <ctl name="DEC6 MUX" value="ADC1" />
-        <ctl name="SLIM TX8 MUX" value="DEC3" />
+        <ctl name="SLIM TX8 MUX" value="DEC6" />
         <ctl name="DEC3 MUX" value="ADC4" />
         <ctl name="SLIM_0_TX Channels" value="Two" />
         <ctl name="ADC1 Volume" value="3" />
