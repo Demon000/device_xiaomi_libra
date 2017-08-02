@@ -165,8 +165,6 @@ on boot
     chown system system /sys/class/leds/blue/blink
     chown system system /sys/class/leds/blue/duty_pcts
     chown system system /sys/class/leds/blue/ramp_step_ms
-    write /sys/class/leds/button-backlight/brightness 255
-    write /sys/class/leds/button-backlight1/brightness 255
     chown system system /sys/class/leds/button-backlight/brightness
     chown system system /sys/class/leds/button-backlight1/brightness
     chmod 0660 /sys/class/leds/button-backlight/brightness
