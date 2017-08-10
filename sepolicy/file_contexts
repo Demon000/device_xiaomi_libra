@@ -8,3 +8,5 @@
 /data/thermal(/.*)?               u:object_r:thermal_data_file:s0
 
 /sys/kernel/debug/rmt_storage(/.*)?                                 u:object_r:debugfs_rmt_storage:s0
+
+/dev/block/bootdevice/by-name/bk1		u:object_r:metadata_block_device:s0
