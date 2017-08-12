@@ -234,7 +234,7 @@ service mlipayservice /system/bin/mlipayd
     class late_start
 
 service readmac /system/bin/readmac
-    class main
+    class late_start
     user system
     group radio qcom_diag log net_raw wifi
     oneshot
