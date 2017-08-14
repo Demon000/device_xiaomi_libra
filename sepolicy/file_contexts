@@ -37,6 +37,14 @@
 /system/vendor/bin/init\.qcom\.post_boot\.sh		u:object_r:qti_init_shell_exec:s0
 /system/vendor/bin/init\.qcom\.usb\.sh				u:object_r:qti_init_shell_exec:s0
 
+# UIO sysfs
+/sys/class/uio(/.*)?									u:object_r:uio_sysfs:s0
+/sys/devices/soc.0/fc4b8000.qcom,msm-core/uio(/.*)?			u:object_r:uio_sysfs:s0
+/sys/devices/soc.0/0.qcom,dsp_sharedmem/uio(/.*)?			u:object_r:uio_sysfs:s0
+/sys/devices/soc.0/0.qcom,mdm_sharedmem/uio(/.*)?			u:object_r:uio_sysfs:s0
+/sys/devices/soc.0/0.qcom,rmtfs_sharedmem/uio(/.*)?			u:object_r:uio_sysfs:s0
+/sys/devices/soc.0/0.qcom,sensors_sharedmem/uio(/.*)?			u:object_r:uio_sysfs:s0
+
 # Binaries
 /system/bin/adsprpcd u:object_r:adsprpcd_exec:s0
 /system/bin/btnvtool u:object_r:btnvtool_exec:s0
