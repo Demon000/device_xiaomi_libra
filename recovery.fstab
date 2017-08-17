@@ -13,4 +13,4 @@
 /misc            emmc    /dev/block/bootdevice/by-name/misc
 
 /sdcard1         vfat    /dev/block/mmcblk1p1 /dev/block/mmcblk1   flags=removable;storage
-/usb-otg         vfat    /dev/block/sda1 /dev/block/sda            flags=removable;storage;display=OTG
+/usb-otg         vfat    /dev/block/sda1 /dev/block/sda            flags=removable;storage
