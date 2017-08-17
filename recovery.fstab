@@ -12,5 +12,5 @@
 
 /misc            emmc    /dev/block/bootdevice/by-name/misc
 
-/sdcard1         ext4    /devices/soc.0/f98a4900.sdhci/mmc_host*   flags=removable;storage;display=SDCARD1
+/sdcard1         vfat    /dev/block/mmcblk1p1 /dev/block/mmcblk1   flags=removable;storage
 /usb-otg         vfat    /dev/block/sda1 /dev/block/sda            flags=removable;storage;display=OTG
