@@ -266,7 +266,6 @@ PRODUCT_PACKAGES += \
     ethertypes \
     libbson \
     libcnefeatureconfig \
-    libqsap_sdk \
     librmnetctl \
     libxml2
 
