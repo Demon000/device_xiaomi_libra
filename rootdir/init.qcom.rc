@@ -608,3 +608,8 @@ service mmbn-daemon /system/bin/mmbn-daemon
     user root
     group root system radio qcom_diag
     oneshot
+
+service gatekeeperd /system/bin/gatekeeperd /data/misc/gatekeeper
+    class late_start
+    user system
+    writepid /dev/cpuset/system-background/tasks
