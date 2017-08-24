@@ -327,6 +327,10 @@ etc/firmware/rampatch_tlv_2.1.tlv
 etc/firmware/rampatch_tlv_3.0.tlv
 etc/firmware/rampatch_tlv_3.2.tlv
 
+# Gatekeeper
+vendor/lib/hw/gatekeeper.msm8992.so
+vendor/lib64/hw/gatekeeper.msm8992.so
+
 # GPS
 bin/garden_app
 bin/loc_launcher
