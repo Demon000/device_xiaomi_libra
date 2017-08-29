@@ -162,10 +162,6 @@ TARGET_RIL_VARIANT := caf
 include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
-# QCOM
-BOARD_USES_QCOM_HARDWARE := true
-BOARD_USES_QC_TIME_SERVICES := true
-
 # Vendor init
 TARGET_INIT_VENDOR_LIB := libinit_msm
 
