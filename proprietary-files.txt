@@ -301,9 +301,10 @@ vendor/lib/libcneqmiutils.so
 vendor/lib/libvendorconn.so
 vendor/lib/libwms.so
 vendor/lib/libwqe.so
-vendor/lib64/libcne.so
-vendor/lib64/libcneapiclient.so
+vendor/lib64/libcne.so|f0f041898420de14004b36cea00adf868533d09f
+vendor/lib64/libcneapiclient.so|5d0b256c43580225ec727f2ccf35c68bbcfbddc0
 vendor/lib64/libcneqmiutils.so
+vendor/lib64/libprotobuf-cpp-lpro.so|4baf3586523e6f298aeb89f171642963c6e8fb89
 vendor/lib64/libvendorconn.so
 vendor/lib64/libwms.so
 vendor/lib64/libwqe.so
