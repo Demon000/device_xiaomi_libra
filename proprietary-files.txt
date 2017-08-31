@@ -376,7 +376,6 @@ lib64/libloc_core.so
 lib64/libloc_ds_api.so
 lib64/libloc_eng.so
 -priv-app/com.qualcomm.location/com.qualcomm.location.apk
-vendor/bin/slim_daemon
 vendor/lib/hw/flp.default.so
 vendor/lib/libasn1cper.so
 vendor/lib/libasn1crt.so
