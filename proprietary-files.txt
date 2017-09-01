@@ -287,7 +287,7 @@ vendor/lib/libmmcamera_s5k3m2xm.so
 vendor/lib/libmmcamera_s5k3m2xm_ofilm.so
 
 # CNE
-bin/cnd
+bin/cnd|7ab48aacda61e2ed23c1ea34630590cc4079eee5
 etc/cne/SwimConfig.xml
 etc/cne/andsfCne.xml
 etc/permissions/cneapiclient.xml
