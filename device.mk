@@ -192,17 +192,15 @@ PRODUCT_PACKAGES += \
 # Media
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
-    libdivxdrmdecrypt \
-    libOmxAacEnc \
-    libOmxAmrEnc \
+    libstagefrighthw \
     libOmxCore \
-    libOmxEvrcEnc \
-    libOmxQcelp13Enc \
     libmm-omxcore \
     libOmxVdec \
     libOmxVdecHevc \
-    libOmxVenc \
-    libstagefrighthw
+    libOmxVenc
+
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.0-impl
 
 # Media codecs
 PRODUCT_COPY_FILES += \
