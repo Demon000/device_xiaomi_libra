@@ -294,7 +294,7 @@ etc/permissions/cneapiclient.xml
 etc/permissions/com.quicinc.cne.xml
 -framework/cneapiclient.jar
 -framework/com.quicinc.cne.jar
--priv-app/CNEService/CNEService.apk
+-priv-app/CNEService/CNEService.apk:priv-app/CNEService/CNEService.apk:PRESIGNED
 vendor/lib/libcne.so
 vendor/lib/libcneapiclient.so
 vendor/lib/libcneqmiutils.so
