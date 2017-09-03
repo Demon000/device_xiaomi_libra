@@ -20,13 +20,11 @@
 
 #include <string.h>
 #include <cutils/log.h>
-#include <cutils/properties.h>
 #include <errno.h>
 
 #define XIAOMI_OUI_LIST_SIZE       41
 #define MAC_ADDR_SIZE              6
 #define WLAN_MAC_BIN               "/data/misc/wifi/wlan_mac.bin"
-#define DRIVER_PROP_NAME           "wlan.driver.status"
 
 const uint8_t xiaomi_oui_list[XIAOMI_OUI_LIST_SIZE][3] =
 {
@@ -147,9 +145,6 @@ int main(void)
             mac_addr[0], mac_addr[1], mac_addr[2], mac_addr[3], mac_addr[4], mac_addr[5]+1);
     fprintf(fp, "END\n");
     fclose(fp);
-
-    // notify wifi service of our success
-    property_set(DRIVER_PROP_NAME, "ok");
 
     return 0;
 }

@@ -184,11 +184,10 @@ service fidodaemon /system/vendor/bin/fidodaemon
     group system
 
 service readmac /system/bin/readmac
-    class late_start
+    class core
     user system
     group radio qcom_diag log net_raw wifi
     oneshot
-    disabled
 
 # power save
 on property:sys.perf.profile=0
