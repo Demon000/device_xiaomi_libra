@@ -28,7 +28,7 @@
 
 #include <utils/threads.h>
 #include <utils/String8.h>
-#include <gui/SensorManager.h>
+#include <sensor/SensorManager.h>
 #include <hardware/hardware.h>
 #include <hardware/camera.h>
 #include <camera/Camera.h>
