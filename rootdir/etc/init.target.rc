@@ -226,3 +226,6 @@ on property:sys.perf.profile=2
   write /sys/kernel/cpu_input_boost/ib_freqs "1248000 1248000"
   write /sys/kernel/cpu_input_boost/ib_duration_ms 1000
   write /sys/kernel/cpu_input_boost/enabled 1
+
+on property:sys.boot_completed=1
+  setprop sys.perf.profile 1
