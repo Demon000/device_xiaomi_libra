@@ -348,7 +348,7 @@ etc/firmware/rampatch_tlv_3.2.tlv
 # Gatekeeper
 bin/gatekeeperd|8edbd328928a6a6e1ead02bc4242fbeab5153909
 vendor/lib/hw/gatekeeper.msm8992.so|82fe599b9858b02bfb9564a267b0cc2678434589
-vendor/lib64/hw/gatekeeper.msm8992.so|4a82a0275faad7960002750c66a9cbf390bd7624
+vendor/lib64/hw/gatekeeper.msm8992.so|2d7fecc68ca7fa0ce853c9f4460acfd2b3dc2d13
 
 # GPS
 bin/garden_app
