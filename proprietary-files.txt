@@ -736,4 +736,4 @@ bin/cnss-daemon
 bin/cnss_diag
 
 # Widevine
-vendor/lib/mediadrm/libwvdrmengine.so|8d8f13b2b20db3fdeeca94fa03063d0bf5597718
+vendor/lib/mediadrm/libwvdrmengine.so|66ba66d047044f92eb0eada1faf6a5799ded90ab
