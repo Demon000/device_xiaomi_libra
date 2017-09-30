@@ -507,22 +507,18 @@ vendor/lib64/libvoice-svc.so
 
 # Media
 vendor/lib/libFileMux.so
-vendor/lib/libI420colorconvert.so
 vendor/lib/libOmxAacDec.so
 vendor/lib/libOmxAmrwbplusDec.so
 vendor/lib/libOmxEvrcDec.so
 vendor/lib/libOmxMux.so
 vendor/lib/libOmxQcelp13Dec.so
 vendor/lib/libOmxWmaDec.so
-vendor/lib/libmm-color-convertor.so
 vendor/lib/libmmosal.so
 vendor/lib64/libFileMux.so
-vendor/lib64/libI420colorconvert.so
 vendor/lib64/libOmxAacDec.so
 vendor/lib64/libOmxAmrwbplusDec.so
 vendor/lib64/libOmxMux.so
 vendor/lib64/libOmxWmaDec.so
-vendor/lib64/libmm-color-convertor.so
 vendor/lib64/libmmosal.so
 
 # Media firmware
