@@ -1,4 +1,4 @@
-type readmac, domain, domain_deprecated;
+type readmac, domain;
 type readmac_exec, exec_type, file_type;
 
 init_daemon_domain(readmac)
