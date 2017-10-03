@@ -5,7 +5,6 @@ init_daemon_domain(readmac)
 
 qmux_socket(readmac)
 diag_use(readmac)
-set_prop(readmac, wlan_driver_status_prop)
 
 # /data/misc/wifi/wlan_mac.bin
 allow readmac wifi_data_file:file create_file_perms;

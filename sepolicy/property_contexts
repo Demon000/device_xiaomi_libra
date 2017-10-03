@@ -1,4 +1,3 @@
 sys.fake_bs_flag0                    u:object_r:fake_bs_flag0_prop:s0
 sys.fake_bs_flag1                    u:object_r:fake_bs_flag1_prop:s0
-wlan.driver.status                   u:object_r:wlan_driver_status_prop:s0
 ro.sys.oem.sno                       u:object_r:oem_sno_prop:s0
