@@ -25,7 +25,7 @@
 
 #define LOG_TAG "CameraWrapper"
 #include <cutils/log.h>
-
+#include <cutils/native_handle.h>
 #include <utils/threads.h>
 #include <utils/String8.h>
 #include <sensor/SensorManager.h>
@@ -33,6 +33,7 @@
 #include <hardware/camera.h>
 #include <camera/Camera.h>
 #include <camera/CameraParameters.h>
+#include <media/hardware/HardwareAPI.h> // For VideoNativeHandleMetadata
 
 using namespace android;
 
@@ -292,10 +293,16 @@ static void camera_release_recording_frame(struct camera_device *device,
     if (!device)
         return;
 
+    VideoNativeHandleMetadata* md = (VideoNativeHandleMetadata*) opaque;
+    native_handle_t* nh = md->pHandle;
+
     ALOGV("%s->%08X->%08X", __FUNCTION__, (uintptr_t)device,
             (uintptr_t)(((wrapper_camera_device_t*)device)->vendor));
 
     VENDOR_CALL(device, release_recording_frame, opaque);
+
+    native_handle_close(nh);
+    native_handle_delete(nh);
 }
 
 static int camera_auto_focus(struct camera_device *device)
