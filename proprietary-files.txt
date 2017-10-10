@@ -692,10 +692,8 @@ vendor/lib64/libsystem_health_mon.so
 etc/sensor_diag.cfg
 lib/hw/activity_recognition.msm8994.so
 lib/hw/sensors.lsm6db0.so:vendor/lib/libsensors.lsm6db0.so
-lib/hw/sensors.msm8992.so:vendor/lib/libsensors.msm8992.so
 lib64/hw/activity_recognition.msm8994.so
 lib64/hw/sensors.lsm6db0.so:vendor/lib64/libsensors.lsm6db0.so
-lib64/hw/sensors.msm8992.so:vendor/lib64/libsensors.msm8992.so
 vendor/lib/libsensor1.so
 vendor/lib/libsensor_reg.so
 vendor/lib64/libsensor1.so
