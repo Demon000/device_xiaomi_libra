@@ -556,20 +556,6 @@ bin/pm-service
 vendor/lib/libperipheral_client.so
 vendor/lib64/libperipheral_client.so
 
-# Post processing
-bin/mm-pp-daemon
-etc/calib.cfg
-vendor/lib/libdisp-aba.so
-vendor/lib/libmm-abl-oem.so
-vendor/lib/libmm-abl.so
-vendor/lib/libmm-als.so
-vendor/lib/libmm-qdcm.so
-vendor/lib64/libdisp-aba.so
-vendor/lib64/libmm-abl-oem.so
-vendor/lib64/libmm-abl.so
-vendor/lib64/libmm-als.so
-vendor/lib64/libmm-qdcm.so
-
 # Qseecomm
 bin/qseecomd
 vendor/bin/fidodaemon
