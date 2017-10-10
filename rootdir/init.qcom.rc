@@ -542,16 +542,6 @@ service charger /charger
     class charger
     seclabel u:r:charger:s0
 
-service qbcharger /charger -m 1
-    disabled
-    oneshot
-
-on property:sys.qbcharger.enable=true
-    start qbcharger
-
-on property:sys.qbcharger.enable=false
-    stop qbcharger
-
 service diag_mdlog_start /system/bin/diag_mdlog -n 20
     class late_start
     user shell
