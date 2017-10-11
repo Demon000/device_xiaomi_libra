@@ -75,6 +75,9 @@ ro.sys.display.support=23
 # CNE
 persist.cne.feature=1
 
+# DPM
+persist.dpm.feature=0
+
 # FRP
 ro.frp.pst=/dev/block/bootdevice/by-name/config
 
