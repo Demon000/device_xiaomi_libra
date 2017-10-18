@@ -11,6 +11,10 @@
 
 /dev/block/bootdevice/by-name/bk1		u:object_r:metadata_block_device:s0
 
+# Bluetooth
+/sys/devices/bt_qca6174\.[0-9]+/extldo                          u:object_r:sysfs_bluetooth_writable:s0
+/sys/devices/bt_qca6174\.[0-9]+/rfkill/rfkill0/state            u:object_r:sysfs_bluetooth_writable:s0
+
 # Fingerprint
 /sys/devices/soc\.0/f9968000.spi/spi_master/spi12/spi12\.0/irq                      u:object_r:fpc_sysfs:s0
 /sys/devices/soc\.0/f9968000.spi/spi_master/spi12/spi12\.0/hw_reset                 u:object_r:fpc_sysfs:s0
