@@ -254,7 +254,7 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-impl \
+    vendor.lineage.power@1.0-impl \
     power.msm8992
 
 PRODUCT_COPY_FILES += \
