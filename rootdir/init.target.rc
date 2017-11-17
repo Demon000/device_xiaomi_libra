@@ -180,7 +180,7 @@ service fidodaemon /system/vendor/bin/fidodaemon
 service readmac /system/bin/readmac
     class core
     user system
-    group radio qcom_diag log net_raw wifi
+    group radio oem_2950 log net_raw wifi
     oneshot
 
 # power save

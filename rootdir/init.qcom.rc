@@ -322,9 +322,9 @@ on post-fs-data
     # qti-logkit data
     mkdir /data/misc/qti-logkit/ 0771 system system
     mkdir /data/misc/qti-logkit/shared-privileged/ 2770 system system
-    mkdir /data/misc/qti-logkit/shared-public/ 2770 system qcom_diag
+    mkdir /data/misc/qti-logkit/shared-public/ 2770 system oem_2950
     mkdir /data/misc/qti-logkit/socket-privileged/ 2770 system system
-    mkdir /data/misc/qti-logkit/socket-public/ 2750 system qcom_diag
+    mkdir /data/misc/qti-logkit/socket-public/ 2750 system oem_2950
     mkdir /data/misc/qti-logkit/logdata/ 2750 system shell
 
 service perfd /system/vendor/bin/perfd
@@ -386,7 +386,7 @@ on property:wc_transport.start_hci=false
 service start_hci_filter /system/bin/wcnss_filter
     class late_start
     user bluetooth
-    group bluetooth qcom_diag
+    group bluetooth oem_2950
     disabled
 
 on property:wc_transport.start_root=true
@@ -398,7 +398,7 @@ on property:wc_transport.start_root=false
 service hci_filter_root /system/bin/wcnss_filter
     class late_start
     user bluetooth
-    group bluetooth qcom_diag system
+    group bluetooth oem_2950 system
     disabled
 
 service config_bt_addr /system/bin/btnvtool -O
@@ -534,14 +534,14 @@ service charger /charger
 service diag_mdlog_start /system/bin/diag_mdlog -n 20
     class late_start
     user shell
-    group system qcom_diag sdcard_rw sdcard_r media_rw net_raw readproc
+    group system oem_2950 sdcard_rw sdcard_r media_rw net_raw readproc
     disabled
     oneshot
 
 service diag_mdlog_stop /system/bin/diag_mdlog -k
     class late_start
     user shell
-    group system qcom_diag sdcard_rw sdcard_r media_rw net_raw readproc
+    group system oem_2950 sdcard_rw sdcard_r media_rw net_raw readproc
     disabled
     oneshot
 
@@ -555,7 +555,7 @@ service msm_irqbalance /system/bin/msm_irqbalance -f /system/vendor/etc/msm_irqb
 service mmbn-daemon /system/bin/mmbn-daemon
     class main
     user root
-    group root system radio qcom_diag
+    group root system radio oem_2950
     oneshot
 
 service gatekeeperd /system/bin/gatekeeperd /data/misc/gatekeeper

@@ -343,7 +343,7 @@ bin/xtwifi-client
 bin/xtwifi-inet-agent
 etc/permissions/com.qti.location.sdk.xml
 etc/permissions/com.qualcomm.location.vzw_library.xml
-etc/permissions/com.qualcomm.location.xml
+etc/permissions/com.qualcomm.location.xml|ee15154d1727abb16a14d89eb5e7fdc252a93f05
 etc/permissions/izat.xt.srv.xml
 -framework/com.qti.location.sdk.jar
 -framework/com.qualcomm.location.vzw_library.jar
@@ -559,7 +559,7 @@ vendor/lib64/libtzdrmgenprov.so
 # Qualcomm framework
 bin/irsc_util
 bin/mmbn-daemon
-etc/permissions/qti_permissions.xml
+etc/permissions/qti_permissions.xml|2826b33ed8e2756cc748c80bd6c466ff8af97ac5
 -lib/libqminvapi.so
 -lib64/libqminvapi.so
 vendor/lib/libdiag.so
