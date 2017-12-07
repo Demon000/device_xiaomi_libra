@@ -10,3 +10,11 @@
 /sys/kernel/debug/rmt_storage(/.*)?                                 u:object_r:debugfs_rmt_storage:s0
 
 /dev/block/bootdevice/by-name/bk1		u:object_r:metadata_block_device:s0
+
+# Fingerprint
+/sys/devices/soc\.0/f9968000.spi/spi_master/spi12/spi12\.0/irq                      u:object_r:fpc_sysfs:s0
+/sys/devices/soc\.0/f9968000.spi/spi_master/spi12/spi12\.0/hw_reset                 u:object_r:fpc_sysfs:s0
+/sys/devices/soc\.0/f9968000.spi/spi_master/spi12/spi12\.0/clk_enable               u:object_r:fpc_sysfs:s0
+/sys/devices/soc\.0/f9968000.spi/spi_master/spi12/spi12\.0/wakeup_enable            u:object_r:fpc_sysfs:s0
+/sys/devices/soc\.0/f9968000.spi/spi_master/spi12/spi12\.0/spi_prepare              u:object_r:fpc_sysfs:s0
+/data/fpc.*	                                                                    u:object_r:fpc_data_file:s0
