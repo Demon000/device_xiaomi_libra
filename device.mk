@@ -136,6 +136,11 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:system/etc/permissions/android.hardware.vulkan.version.xml \
     frameworks/native/data/etc/android.hardware.vr.high_performance.xml:system/etc/permissions/android.hardware.vr.high_performance.xml
 
+# Fingerprint
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/uinput-fpc.kl:system/usr/keylayout/uinput-fpc.kl \
+    $(LOCAL_PATH)/configs/uinput-fpc.idc:system/usr/idc/uinput-fpc.idc
+
 # GPS
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/flp.conf:system/etc/flp.conf \
