@@ -29,6 +29,8 @@
 
 #include "property_service.h"
 
+using android::init::property_set;
+
 char const *heapstartsize;
 char const *heapgrowthlimit;
 char const *heapsize;
