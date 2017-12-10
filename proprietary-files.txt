@@ -640,7 +640,7 @@ vendor/lib64/libril-qc-qmi-1.so
 vendor/lib64/libril-qc-radioconfig.so
 vendor/lib64/libril-qcril-hook-oem.so
 vendor/lib64/librilqmiservices.so
-vendor/lib64/libsettings.so|d2ad9a40263b47b16d60d903f8a11259d4be88c2
+vendor/lib64/libsettings.so|4609cacca0a56dae2596687c8f5f2f9423d4d0d9
 vendor/lib64/libsystem_health_mon.so
 
 # Sensors
