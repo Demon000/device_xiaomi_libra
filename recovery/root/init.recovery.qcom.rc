@@ -5,5 +5,8 @@ service sbinqseecomd /sbin/qseecomd
     group root
     seclabel u:r:recovery:s0
 
+on boot
+    write /sys/class/leds/lcd-backlight/brightness 255
+
 on property:ro.crypto.state=encrypted
 	start sbinqseecomd
