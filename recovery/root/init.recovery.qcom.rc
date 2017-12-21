@@ -5,6 +5,11 @@ service sbinqseecomd /sbin/qseecomd
     group root
     seclabel u:r:recovery:s0
 
+on post-fs
+    mkdir /firmware 0771 system system
+    wait /dev/block/bootdevice/by-name/modem
+    mount vfat /dev/block/bootdevice/by-name/modem /firmware ro shortname=lower dmask=0555 fmask=0555 gid=1000
+
 on boot
     write /sys/class/leds/lcd-backlight/brightness 255
 
