@@ -10,6 +10,12 @@ on post-fs
     wait /dev/block/bootdevice/by-name/modem
     mount vfat /dev/block/bootdevice/by-name/modem /firmware ro shortname=lower dmask=0555 fmask=0555 gid=1000
 
+on init
+   chmod 0660 /dev/qseecom
+   chown system drmrpc /dev/qseecom
+   chmod 0664 /dev/ion
+   chown system system /dev/ion
+
 on boot
     write /sys/class/leds/lcd-backlight/brightness 255
 
