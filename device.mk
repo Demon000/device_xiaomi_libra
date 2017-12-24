@@ -183,6 +183,9 @@ PRODUCT_PACKAGES += \
     init.recovery.qcom.rc \
     init.qcom.post_boot.sh
 
+PRODUCT_PACKAGES += \
+    kernel_loggy.sh
+
 # Input
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/atmel-maxtouch.kl:system/usr/keylayout/atmel-maxtouch.kl \

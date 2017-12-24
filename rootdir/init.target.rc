@@ -77,6 +77,11 @@ service logcat_debug /system/bin/logcat -b all -f /data/logcat.txt -v threadtime
     user root
     group system
 
+service kernel_loggy /system/bin/sh /kernel_loggy.sh
+    class main
+    user root
+    oneshot
+
 #start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
     class late_start
