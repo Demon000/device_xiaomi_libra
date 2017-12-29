@@ -601,7 +601,6 @@ bin/ipacm-diag
 bin/irsc_util
 bin/netmgrd
 bin/qmuxd
-bin/radish
 bin/rfs_access
 bin/rmnetcli
 bin/rmt_storage
