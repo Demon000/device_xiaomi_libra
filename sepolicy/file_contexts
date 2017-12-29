@@ -1,5 +1,5 @@
-/system/bin/mmbn-daemon           u:object_r:mmbn-daemon_exec:s0
-/system/bin/readmac               u:object_r:readmac_exec:s0
+/system/vendor/bin/mmbn-daemon			u:object_r:mmbn-daemon_exec:s0
+/system/vendor/bin/readmac               u:object_r:readmac_exec:s0
 /persist/st_.*                    u:object_r:sensors_persist_file:s0
 /persist/prox_calib_data.dat      u:object_r:sensors_persist_file:s0
 /persist/LightSensorData.txt      u:object_r:sensors_persist_file:s0
