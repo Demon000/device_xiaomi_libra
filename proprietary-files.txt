@@ -555,7 +555,6 @@ vendor/lib/libtzdrmgenprov.so
 vendor/lib64/libtzdrmgenprov.so
 
 # Qualcomm framework
-bin/irsc_util
 bin/mmbn-daemon
 etc/permissions/qti_permissions.xml
 -lib/libqminvapi.so
