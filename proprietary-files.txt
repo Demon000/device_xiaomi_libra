@@ -673,7 +673,6 @@ vendor/lib64/libTimeService.so
 
 # Wi-Fi
 bin/cnss-daemon
-bin/cnss_diag
 
 # Widevine
 vendor/lib/mediadrm/libwvdrmengine.so|8d8f13b2b20db3fdeeca94fa03063d0bf5597718
