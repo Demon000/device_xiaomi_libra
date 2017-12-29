@@ -597,7 +597,6 @@ vendor/lib64/libxml.so
 -app/fastdormancy/fastdormancy.apk
 -app/shutdownlistener/shutdownlistener.apk
 bin/diag_mdlog
-bin/ipacm-diag
 bin/irsc_util
 bin/netmgrd
 bin/qmuxd
