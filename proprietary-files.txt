@@ -336,7 +336,6 @@ vendor/lib64/hw/gatekeeper.msm8992.so|2d7fecc68ca7fa0ce853c9f4460acfd2b3dc2d13
 
 # GPS
 bin/garden_app
-bin/gpsone_daemon
 bin/loc_launcher
 bin/lowi-server
 bin/xtwifi-client
