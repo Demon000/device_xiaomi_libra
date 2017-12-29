@@ -35,12 +35,8 @@ vendor/lib64/libaudcal.so
 
 # Bluetooth
 bin/btnvtool
-bin/dun-server
-bin/ftmdaemon
-bin/hci_qcomm_init
 bin/port-bridge
 bin/wcnss_filter
-etc/ftm_test_config
 vendor/lib/libbtnv.so
 vendor/lib64/libCommandSvc.so
 vendor/lib64/libbtnv.so
