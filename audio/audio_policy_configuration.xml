@@ -98,6 +98,11 @@
                              samplingRates="8000,11025,12000,16000,22050,24000,32000,44100,48000"
                              channelMasks="AUDIO_CHANNEL_IN_MONO,AUDIO_CHANNEL_IN_STEREO,AUDIO_CHANNEL_IN_FRONT_BACK"/>
                 </mixPort>
+                <mixPort name="fast input" role="sink" flags="AUDIO_INPUT_FLAG_FAST">
+                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                             samplingRates="8000,11025,12000,16000,22050,24000,32000,44100,48000"
+                             channelMasks="AUDIO_CHANNEL_IN_MONO,AUDIO_CHANNEL_IN_STEREO,AUDIO_CHANNEL_IN_FRONT_BACK"/>
+				</mixPort>
                 <mixPort name="voice_rx" role="sink">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="8000,16000,48000" channelMasks="AUDIO_CHANNEL_IN_MONO,AUDIO_CHANNEL_IN_STEREO"/>
