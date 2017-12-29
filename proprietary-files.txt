@@ -599,7 +599,6 @@ bin/irsc_util
 bin/netmgrd
 bin/qmuxd
 bin/rfs_access
-bin/rmnetcli
 bin/rmt_storage
 bin/tftp_server
 etc/data/dsi_config.xml
