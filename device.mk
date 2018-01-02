@@ -157,6 +157,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/uinput-fpc.kl:system/usr/keylayout/uinput-fpc.kl \
     $(LOCAL_PATH)/configs/uinput-fpc.idc:system/usr/idc/uinput-fpc.idc
 
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.fingerprint.xml:system/etc/permissions/android.hardware.fingerprint.xml
+
 # Gatekeeper
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl
