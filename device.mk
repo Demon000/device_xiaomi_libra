@@ -150,6 +150,7 @@ PRODUCT_COPY_FILES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
+    android.hardware.biometrics.fingerprint@2.1-service \
     init.fpc.rc
 
 PRODUCT_COPY_FILES += \
