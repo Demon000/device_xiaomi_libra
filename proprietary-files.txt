@@ -313,6 +313,12 @@ lib/libDiracAPI_SHARED.so
 lib/soundfx/libdirac.so
 vendor/etc/diracmobile.config
 
+# Fingerprint
+lib/libcom_fingerprints_service.so|80b7f1c8344bb803173e75ab40ec044fda1d765a
+lib/hw/fingerprint.fpc.so|19387877a750eeab27054e5fabd7b8da12969837
+lib64/libcom_fingerprints_service.so|84184194dc22c7f82892862f142977bc2c81d6eb
+lib64/hw/fingerprint.fpc.so|9cbb143331d590b7931ef379b55d6aff09dd879b
+
 # Firmware
 etc/firmware/nvm_tlv.bin
 etc/firmware/nvm_tlv_1.3.bin
