@@ -14,3 +14,8 @@ service fingerprintd /system/bin/fingerprintd
     user system
     group system drmrpc diag input
     writepid /dev/cpuset/system-background/tasks
+    disabled
+
+on property:ro.boot.fingerprint=fpc
+    setprop ro.hardware.fingerprint fpc
+    start fingerprintd
