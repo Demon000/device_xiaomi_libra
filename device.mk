@@ -205,6 +205,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml
 
+# IMS
+PRODUCT_PACKAGES += \
+    ims-ext-common
+
 # IPA
 PRODUCT_PACKAGES += \
     ipacm \
