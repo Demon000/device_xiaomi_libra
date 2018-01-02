@@ -138,6 +138,7 @@ PRODUCT_COPY_FILES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
+    fingerprintd \
     init.fpc.rc
 
 PRODUCT_COPY_FILES += \
