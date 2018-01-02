@@ -29,8 +29,3 @@ PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Mi-4c
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_RESTRICT_VENDOR_FILES := false
-
-# Build fingerprint
-PRODUCT_BUILD_PROP_OVERRIDES += \
-	BUILD_FINGERPRINT="Xiaomi/libra/libra:7.0/NRD90M/V8.2.3.0.NXKCNEC:user/release-keys" \
-	PRIVATE_BUILD_DESC="libra-user 7.0 NRD90M V8.2.3.0.NXKCNEC release-keys"
