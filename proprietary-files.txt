@@ -531,18 +531,18 @@ vendor/lib64/libperipheral_client.so
 bin/qseecomd
 vendor/bin/fidodaemon
 vendor/lib/hw/keystore.msm8992.so
-vendor/lib/libQSEEComAPI.so
 vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
+vendor/lib/libQSEEComAPI.so
 vendor/lib/librpmb.so
 vendor/lib/libssd.so
+vendor/lib/libtzdrmgenprov.so
 vendor/lib64/hw/keystore.msm8992.so
-vendor/lib64/libQSEEComAPI.so
 vendor/lib64/libdrmfs.so
 vendor/lib64/libdrmtime.so
+vendor/lib64/libQSEEComAPI.so
 vendor/lib64/librpmb.so
 vendor/lib64/libssd.so
-vendor/lib/libtzdrmgenprov.so
 vendor/lib64/libtzdrmgenprov.so
 
 # Qualcomm framework
