@@ -552,8 +552,6 @@ vendor/lib64/libdrmtime.so
 vendor/lib64/libkmcrypto.so|f1edbfc92da2f96328fee6d6cd9eea706c00716e
 vendor/lib64/librpmb.so
 vendor/lib64/libssd.so
-lib/libjni_resource_drm.so
-lib64/libjni_resource_drm.so
 vendor/lib/libtzdrmgenprov.so
 vendor/lib64/libtzdrmgenprov.so
 
