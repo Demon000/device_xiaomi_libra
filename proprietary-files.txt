@@ -332,9 +332,9 @@ etc/firmware/rampatch_tlv_3.0.tlv
 etc/firmware/rampatch_tlv_3.2.tlv
 
 # Gatekeeper
-bin/gatekeeperd|8edbd328928a6a6e1ead02bc4242fbeab5153909
-vendor/lib/hw/gatekeeper.msm8992.so|82fe599b9858b02bfb9564a267b0cc2678434589
-vendor/lib64/hw/gatekeeper.msm8992.so|2d7fecc68ca7fa0ce853c9f4460acfd2b3dc2d13
+bin/gatekeeperd
+vendor/lib/hw/gatekeeper.msm8992.so
+vendor/lib64/hw/gatekeeper.msm8992.so
 
 # GPS
 bin/garden_app
@@ -538,18 +538,16 @@ vendor/lib64/libperipheral_client.so
 # Qseecomm
 bin/qseecomd
 vendor/bin/fidodaemon
-vendor/lib/hw/keystore.msm8992.so|c39f59e3a05bb4b5fb3e05f8a4867c3ebfff30e8
+vendor/lib/hw/keystore.msm8992.so
 vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
-vendor/lib/libkmcrypto.so|61db4e6781d0ee59c5b83835ad635788050a1773
 vendor/lib/libQSEEComAPI.so
 vendor/lib/librpmb.so
 vendor/lib/libssd.so
 vendor/lib/libtzdrmgenprov.so
-vendor/lib64/hw/keystore.msm8992.so|499866e46bf27d9ab44560fb103d7a67efa8a672
+vendor/lib64/hw/keystore.msm8992.so
 vendor/lib64/libdrmfs.so
 vendor/lib64/libdrmtime.so
-vendor/lib64/libkmcrypto.so|f1edbfc92da2f96328fee6d6cd9eea706c00716e
 vendor/lib64/libQSEEComAPI.so
 vendor/lib64/librpmb.so
 vendor/lib64/libssd.so
