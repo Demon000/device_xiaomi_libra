@@ -626,7 +626,6 @@ vendor/lib64/libconfigdb.so
 vendor/lib64/liblqe.so
 vendor/lib64/libmdmdetect.so
 vendor/lib64/libnetmgr.so
-vendor/lib64/libprotobuf-cpp-preo.so|5617592a5552e1aa3925d1a0dbad91a8e7b72059
 vendor/lib64/libqcmaputils.so
 vendor/lib64/libril-qc-ltedirectdisc.so
 vendor/lib64/libril-qc-qmi-1.so
