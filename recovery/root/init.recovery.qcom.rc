@@ -20,4 +20,4 @@ on boot
     write /sys/class/leds/lcd-backlight/brightness 255
 
 on property:ro.crypto.state=encrypted
-	start sbinqseecomd
+    start sbinqseecomd
