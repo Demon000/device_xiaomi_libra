@@ -476,12 +476,6 @@ vendor/lib/libOmxMux.so
 vendor/lib/libOmxQcelp13Dec.so
 vendor/lib/libOmxWmaDec.so
 vendor/lib/libmmosal.so
-vendor/lib64/libFileMux.so
-vendor/lib64/libOmxAacDec.so
-vendor/lib64/libOmxAmrwbplusDec.so
-vendor/lib64/libOmxMux.so
-vendor/lib64/libOmxWmaDec.so
-vendor/lib64/libmmosal.so
 
 # Media firmware
 etc/firmware/venus.b00
