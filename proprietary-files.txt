@@ -478,6 +478,19 @@ etc/firmware/venus.b04
 etc/firmware/venus.mbn
 etc/firmware/venus.mdt
 
+# Perf
+bin/energy-awareness
+bin/msm_irqbalance
+vendor/bin/perfd
+vendor/etc/perf-profile0.conf
+vendor/etc/perf-profile1.conf
+vendor/etc/perf-profile2.conf
+vendor/etc/perf-profile3.conf
+vendor/etc/perf-profile4.conf
+vendor/etc/perf-profile5.conf
+vendor/lib/libqti-perfd-client.so
+vendor/lib64/libqti-perfd-client.so
+
 # Peripheral manager
 bin/pm-proxy
 bin/pm-service
@@ -596,20 +609,9 @@ vendor/lib64/libsensor1.so
 vendor/lib64/libsensor_reg.so
 
 # Thermal
-bin/energy-awareness
-bin/msm_irqbalance
 etc/thermal-engine-8992.conf
-vendor/bin/perfd
 vendor/bin/thermal-engine
-vendor/etc/perf-profile0.conf
-vendor/etc/perf-profile1.conf
-vendor/etc/perf-profile2.conf
-vendor/etc/perf-profile3.conf
-vendor/etc/perf-profile4.conf
-vendor/etc/perf-profile5.conf
-vendor/lib/libqti-perfd-client.so
 vendor/lib/libthermalclient.so
-vendor/lib64/libqti-perfd-client.so
 vendor/lib64/libthermalclient.so
 vendor/lib64/libthermalioctl.so
 
