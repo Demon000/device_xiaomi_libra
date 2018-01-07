@@ -465,14 +465,9 @@ vendor/lib/hw/keystore.msm8992.so
 vendor/lib64/hw/keystore.msm8992.so
 
 # Media
-vendor/lib/libFileMux.so
 vendor/lib/libOmxAacDec.so
-vendor/lib/libOmxAmrwbplusDec.so
 vendor/lib/libOmxEvrcDec.so
-vendor/lib/libOmxMux.so
-vendor/lib/libOmxQcelp13Dec.so
 vendor/lib/libOmxWmaDec.so
-vendor/lib/libmmosal.so
 
 # Media firmware
 etc/firmware/venus.b00
