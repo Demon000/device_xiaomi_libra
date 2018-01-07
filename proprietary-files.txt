@@ -140,18 +140,23 @@ vendor/lib/libqomx_jpegenc_pipe.so
 vendor/lib/libactuator_bu64244gwz.so
 vendor/lib/libactuator_bu64244gwz_camcorder.so
 vendor/lib/libactuator_bu64244gwz_camera.so
+
 vendor/lib/libactuator_bu64244gwz_s5k3m2xm.so
 vendor/lib/libactuator_bu64244gwz_s5k3m2xm_camcorder.so
 vendor/lib/libactuator_bu64244gwz_s5k3m2xm_camera.so
+
 vendor/lib/libactuator_dw9761b.so
 vendor/lib/libactuator_dw9761b_camcorder.so
 vendor/lib/libactuator_dw9761b_camera.so
+
 vendor/lib/libactuator_dw9761b_s5k3m2xm.so
 vendor/lib/libactuator_dw9761b_s5k3m2xm_camcorder.so
 vendor/lib/libactuator_dw9761b_s5k3m2xm_camera.so
+
 vendor/lib/libactuator_dw9763.so
 vendor/lib/libactuator_dw9763_camcorder.so
 vendor/lib/libactuator_dw9763_camera.so
+
 vendor/lib/libactuator_dw9763_s5k3m2xm.so
 vendor/lib/libactuator_dw9763_s5k3m2xm_camcorder.so
 vendor/lib/libactuator_dw9763_s5k3m2xm_camera.so
@@ -174,6 +179,7 @@ vendor/lib/libchromatix_imx258_postproc.so
 vendor/lib/libchromatix_imx258_preview.so
 vendor/lib/libchromatix_imx258_snapshot.so
 vendor/lib/libchromatix_imx258_snapshot_street.so
+
 vendor/lib/libchromatix_imx258_sunny_common.so
 vendor/lib/libchromatix_imx258_sunny_cpp_hfr_120.so
 vendor/lib/libchromatix_imx258_sunny_cpp_hfr_60.so
@@ -191,6 +197,7 @@ vendor/lib/libchromatix_imx258_sunny_postproc.so
 vendor/lib/libchromatix_imx258_sunny_preview.so
 vendor/lib/libchromatix_imx258_sunny_snapshot.so
 vendor/lib/libchromatix_imx258_sunny_snapshot_street.so
+
 vendor/lib/libchromatix_ov5670_common.so
 vendor/lib/libchromatix_ov5670_cpp_hfr_120.so
 vendor/lib/libchromatix_ov5670_cpp_hfr_60.so
@@ -207,6 +214,7 @@ vendor/lib/libchromatix_ov5670_liveshot.so
 vendor/lib/libchromatix_ov5670_postproc.so
 vendor/lib/libchromatix_ov5670_preview.so
 vendor/lib/libchromatix_ov5670_snapshot.so
+
 vendor/lib/libchromatix_ov5670_sunny_common.so
 vendor/lib/libchromatix_ov5670_sunny_cpp_hfr_120.so
 vendor/lib/libchromatix_ov5670_sunny_cpp_hfr_60.so
@@ -223,6 +231,7 @@ vendor/lib/libchromatix_ov5670_sunny_liveshot.so
 vendor/lib/libchromatix_ov5670_sunny_postproc.so
 vendor/lib/libchromatix_ov5670_sunny_preview.so
 vendor/lib/libchromatix_ov5670_sunny_snapshot.so
+
 vendor/lib/libchromatix_s5k3m2xm_common.so
 vendor/lib/libchromatix_s5k3m2xm_cpp_hfr_120.so
 vendor/lib/libchromatix_s5k3m2xm_cpp_hfr_60.so
@@ -236,6 +245,11 @@ vendor/lib/libchromatix_s5k3m2xm_hfr_120.so
 vendor/lib/libchromatix_s5k3m2xm_hfr_60.so
 vendor/lib/libchromatix_s5k3m2xm_hfr_90.so
 vendor/lib/libchromatix_s5k3m2xm_liveshot.so
+vendor/lib/libchromatix_s5k3m2xm_postproc.so
+vendor/lib/libchromatix_s5k3m2xm_preview.so
+vendor/lib/libchromatix_s5k3m2xm_snapshot.so
+vendor/lib/libchromatix_s5k3m2xm_snapshot_street.so
+
 vendor/lib/libchromatix_s5k3m2xm_ofilm_common.so
 vendor/lib/libchromatix_s5k3m2xm_ofilm_cpp_hfr_120.so
 vendor/lib/libchromatix_s5k3m2xm_ofilm_cpp_hfr_60.so
@@ -253,10 +267,6 @@ vendor/lib/libchromatix_s5k3m2xm_ofilm_postproc.so
 vendor/lib/libchromatix_s5k3m2xm_ofilm_preview.so
 vendor/lib/libchromatix_s5k3m2xm_ofilm_snapshot.so
 vendor/lib/libchromatix_s5k3m2xm_ofilm_snapshot_street.so
-vendor/lib/libchromatix_s5k3m2xm_postproc.so
-vendor/lib/libchromatix_s5k3m2xm_preview.so
-vendor/lib/libchromatix_s5k3m2xm_snapshot.so
-vendor/lib/libchromatix_s5k3m2xm_snapshot_street.so
 
 # Camera eeprom
 vendor/lib/libmmcamera_dw9761b_eeprom.so
