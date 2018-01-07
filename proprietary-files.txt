@@ -450,6 +450,10 @@ vendor/lib64/libimsmedia_jni.so
 vendor/lib64/librcc.so
 vendor/lib64/libvoice-svc.so
 
+# Keystore
+vendor/lib/hw/keystore.msm8992.so
+vendor/lib64/hw/keystore.msm8992.so
+
 # Media
 vendor/lib/libFileMux.so
 vendor/lib/libOmxAacDec.so
@@ -497,9 +501,7 @@ vendor/lib64/libperipheral_client.so
 # Qseecomm
 bin/qseecomd
 vendor/bin/fidodaemon
-vendor/lib/hw/keystore.msm8992.so
 vendor/lib/libQSEEComAPI.so
-vendor/lib64/hw/keystore.msm8992.so
 vendor/lib64/libdrmfs.so
 vendor/lib64/libdrmtime.so
 vendor/lib64/libQSEEComAPI.so
