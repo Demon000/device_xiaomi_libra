@@ -18,3 +18,10 @@
 /sys/devices/soc\.0/f9968000.spi/spi_master/spi12/spi12\.0/wakeup_enable            u:object_r:fpc_sysfs:s0
 /sys/devices/soc\.0/f9968000.spi/spi_master/spi12/spi12\.0/spi_prepare              u:object_r:fpc_sysfs:s0
 /data/fpc.*	                                                                    u:object_r:fpc_data_file:s0
+
+# Light HAL
+/system/vendor/bin/hw/android\.hardware\.light@2\.0-service.libra		u:object_r:hal_light_default_exec:s0
+/sys/class/leds/lcd-backlight(/.*)?				u:object_r:sysfs_leds:s0
+/sys/devices/soc.0/leds-qpnp-9/leds(/.*)?			u:object_r:sysfs_leds:s0
+/sys/devices/soc.0/leds-qpnp-10/leds(/.*)?			u:object_r:sysfs_leds:s0
+/sys/devices/soc.0/leds-qpnp-31/leds(/.*)?			u:object_r:sysfs_leds:s0
