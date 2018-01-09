@@ -46,7 +46,8 @@
 /system/bin/imsdatadaemon u:object_r:ims_exec:s0
 /system/bin/imsqmidaemon u:object_r:ims_exec:s0
 /system/bin/ims_rtp_daemon u:object_r:ims_exec:s0
-/system/bin/imscmservice u:object_r:imscm_exec:s0
+# /system/bin/imscmservice u:object_r:imscm_exec:s0
+/system/bin/imscmservice u:object_r:ims_exec:s0
 /system/bin/pm-service u:object_r:per_mgr_exec:s0
 /system/bin/pm-proxy u:object_r:per_mgr_exec:s0
 /system/bin/qseecomd u:object_r:tee_exec:s0
