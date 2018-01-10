@@ -44,6 +44,8 @@ on fs
     mkdir /persist/data 0700 system system
     mkdir /persist/wlan_bt 0700 system system
 
+   restorecon_recursive /system
+
 on post-fs-data
     mkdir /data/tombstones 0771 system system
     mkdir /tombstones/modem 0771 system system
