@@ -25,3 +25,8 @@
 /sys/devices/soc.0/leds-qpnp-9/leds(/.*)?			u:object_r:sysfs_leds:s0
 /sys/devices/soc.0/leds-qpnp-10/leds(/.*)?			u:object_r:sysfs_leds:s0
 /sys/devices/soc.0/leds-qpnp-31/leds(/.*)?			u:object_r:sysfs_leds:s0
+
+# Shell files
+/system/vendor/bin/init\.qcom\.sh					u:object_r:qti_init_shell_exec:s0
+/system/vendor/bin/init\.qcom\.post_boot\.sh		u:object_r:qti_init_shell_exec:s0
+/system/vendor/bin/init\.qcom\.usb\.sh				u:object_r:qti_init_shell_exec:s0
