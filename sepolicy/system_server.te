@@ -1,3 +1,5 @@
 allow system_server persist_file:dir read;
 allow system_server sensors_persist_file:file rw_file_perms;
 allow system_server lirc_device:chr_file rw_file_perms;
+
+get_prop(system_server, alarm_boot_prop)
