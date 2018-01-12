@@ -117,8 +117,6 @@ int32_t QCameraStream::get_bufs_deffered(
     *initial_reg_flag   = stream->mRegFlags;
     *num_bufs           = stream->mNumBufs;
     *bufs               = stream->mBufDefs;
-    CDBG_HIGH("%s: stream type: %d, mRegFlags: 0x%x, numBufs: %d",
-            __func__, stream->getMyType(), stream->mRegFlags, stream->mNumBufs);
     return NO_ERROR;
 }
 
@@ -1211,15 +1209,11 @@ int32_t QCameraStream::getBufs(cam_frame_len_offset_t *offset,
     *num_bufs = mNumBufs;
     *initial_reg_flag = regFlags;
     *bufs = mBufDefs;
-    CDBG_HIGH("%s: stream type: %d, mRegFlags: 0x%x, numBufs: %d",
-            __func__, mStreamInfo->stream_type, regFlags, mBufDefs);
 
     if (mNumBufsNeedAlloc > 0) {
         pthread_mutex_lock(&m_lock);
         wait_for_cond = TRUE;
         pthread_mutex_unlock(&m_lock);
-        CDBG_HIGH("%s: Still need to allocate %d buffers",
-              __func__, mNumBufsNeedAlloc);
         // remember memops table
         m_MemOpsTbl = *ops_tbl;
         // start another thread to allocate the rest of buffers

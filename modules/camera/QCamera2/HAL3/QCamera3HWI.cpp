@@ -263,15 +263,15 @@ const QCamera3HardwareInterface::QCameraMap<
 };
 
 camera3_device_ops_t QCamera3HardwareInterface::mCameraOps = {
-    initialize:                         QCamera3HardwareInterface::initialize,
-    configure_streams:                  QCamera3HardwareInterface::configure_streams,
-    register_stream_buffers:            NULL,
-    construct_default_request_settings: QCamera3HardwareInterface::construct_default_request_settings,
-    process_capture_request:            QCamera3HardwareInterface::process_capture_request,
-    get_metadata_vendor_tag_ops:        NULL,
-    dump:                               QCamera3HardwareInterface::dump,
-    flush:                              QCamera3HardwareInterface::flush,
-    reserved:                           {0},
+    .initialize =                        QCamera3HardwareInterface::initialize,
+    .configure_streams =                 QCamera3HardwareInterface::configure_streams,
+    .register_stream_buffers =           NULL,
+    .construct_default_request_settings = QCamera3HardwareInterface::construct_default_request_settings,
+    .process_capture_request =           QCamera3HardwareInterface::process_capture_request,
+    .get_metadata_vendor_tag_ops =       NULL,
+    .dump =                              QCamera3HardwareInterface::dump,
+    .flush =                             QCamera3HardwareInterface::flush,
+    .reserved =                          {0},
 };
 
 /*===========================================================================
@@ -992,7 +992,6 @@ int QCamera3HardwareInterface::configureStreams(
     uint8_t eis_prop_set;
     uint32_t maxEisWidth = 0;
     uint32_t maxEisHeight = 0;
-    int32_t hal_version = CAM_HAL_V3;
 
     size_t count = IS_TYPE_MAX;
     count = MIN(gCamCapability[mCameraId]->supported_is_types_cnt, count);
@@ -1581,7 +1580,7 @@ int QCamera3HardwareInterface::validateCaptureRequest(
     }
     if (request->num_output_buffers >= MAX_NUM_STREAMS) {
         ALOGE("%s: Number of buffers %d equals or is greater than maximum number of streams!",
-                __func__, request->num_output_buffers, MAX_NUM_STREAMS);
+                __func__, request->num_output_buffers);
         return BAD_VALUE;
     }
     if (request->input_buffer != NULL) {
@@ -4153,8 +4152,6 @@ void QCamera3HardwareInterface::dumpMetadataToFile(tuning_params_t &meta,
                                                    const char *type,
                                                    uint32_t frameNumber)
 {
-    uint32_t frm_num = 0;
-
     //Some sanity checks
     if (meta.tuning_sensor_data_size > TUNING_SENSOR_DATA_MAX) {
         ALOGE("%s : Tuning sensor data size bigger than expected %d: %d",
@@ -7691,7 +7688,7 @@ bool QCamera3HardwareInterface::needJpegRotation()
  *==========================================================================*/
 QCamera3ReprocessChannel *QCamera3HardwareInterface::addOfflineReprocChannel(
         const reprocess_config_t &config, QCamera3PicChannel *picChHandle,
-        metadata_buffer_t *metadata)
+        metadata_buffer_t* /*metadata*/)
 {
     int32_t rc = NO_ERROR;
     QCamera3ReprocessChannel *pChannel = NULL;
