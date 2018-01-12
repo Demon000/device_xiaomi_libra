@@ -472,6 +472,8 @@ service qcom-post-boot /system/bin/sh /system/etc/init.qcom.post_boot.sh
     oneshot
 
 on property:sys.boot_completed=1
+    # Set disk read ahead to 256kb
+    write /sys/block/mmcblk0/queue/read_ahead_kb 256
     start qcom-post-boot
 
 service ril-daemon2 /vendor/bin/hw/rild -c 2

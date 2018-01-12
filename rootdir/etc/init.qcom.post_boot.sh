@@ -160,9 +160,6 @@ done
 # Restorecon again to give new files the correct label.
 restorecon -R /sys/devices/system/cpu
 
-# Set disk read ahead to 256kb
-echo 256 > /sys/block/mmcblk0/queue/read_ahead_kb
-
 # Disable sched_boost
 echo 0 > /proc/sys/kernel/sched_boost
 
