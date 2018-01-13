@@ -339,8 +339,10 @@ typedef struct{
 
     int64_t stall_durations[MAX_SIZES_CNT];
 
-    cam_illuminat_t reference_illuminant1;
+    cam_illuminat_t reference_illuminant1; // 9348 -> 9804 (456 bytes)
     cam_illuminat_t reference_illuminant2;
+
+    // there are 504 - 456 (48 bytes) spent in the section bellow
 
     int64_t jpeg_stall_durations[MAX_SIZES_CNT];
     int64_t raw16_stall_durations[MAX_SIZES_CNT];
@@ -352,7 +354,7 @@ typedef struct{
     cam_rational_type_t calibration_transform2[CAL_TRANSFORM_ROWS][CAL_TRANSFORM_COLS];
     uint16_t isCacSupported;
 
-    cam_opaque_raw_format_t opaque_raw_fmt;
+    cam_opaque_raw_format_t opaque_raw_fmt; // 10268 -> 10772 (504 btes)
 
     /* true Portrait info */
     cam_true_portrait_t  true_portrait_settings_need;
@@ -380,7 +382,7 @@ typedef struct{
     /* This is set to 'true' if sensor cannot guarantee per frame control */
     /* Default value of this capability is 'false' indicating per-frame */
     /* control is supported */
-    uint8_t no_per_frame_control_support;
+    uint8_t no_per_frame_control_support; // 10348 -> 10852 (504 bytes difference)
 
     /* EIS information */
     uint8_t supported_is_types_cnt;
@@ -391,7 +393,7 @@ typedef struct{
     float supported_is_type_margins[IS_TYPE_MAX];
 
     /* Max cpp batch size */
-    uint8_t max_batch_bufs_supported;
+    uint8_t max_batch_bufs_supported; // 10392 -> 10896 (504 bytes difference)
 } cam_capability_t;
 
 typedef enum {

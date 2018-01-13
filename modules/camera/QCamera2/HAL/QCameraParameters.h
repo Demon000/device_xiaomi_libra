@@ -1061,7 +1061,7 @@ private:
     int32_t mParmEffect;
 
     cam_capture_frame_config_t m_captureFrameConfig;
-    int8_t mBufBatchCnt;
+    int8_t mBufBatchCnt; // 1216 -> 1292
 
     uint32_t mRotation;
     uint32_t mJpegRotation;
