@@ -762,7 +762,9 @@ typedef struct {
     INCLUDE(CAM_INTF_META_IMGLIB,                       cam_intf_meta_imglib_t,      1);
     INCLUDE(CAM_INTF_PARM_CAPTURE_FRAME_CONFIG,         cam_capture_frame_config_t,  1);
     INCLUDE(CAM_INTF_PARM_FLIP,                         int32_t,                     1);
-    INCLUDE(XIAOMI_RESERVED_PARM_1,                     uint32_t,                    2);
+    INCLUDE(XIAOMI_RESERVED_PARM_1,                     uint32_t,                    1);
+    INCLUDE(XIAOMI_RESERVED_PARM_2,                     uint32_t,                    1);
+    INCLUDE(XIAOMI_RESERVED_PARM_3,                     uint32_t,                    1);
 } metadata_data_t;
 
 /* Update clear_metadata_buffer() function when a new is_xxx_valid is added to
