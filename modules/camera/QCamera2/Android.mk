@@ -33,7 +33,6 @@ LOCAL_SRC_FILES += \
         HAL/QCameraThermalAdapter.cpp
 
 LOCAL_CFLAGS := -Wall -Wextra -Werror
-LOCAL_CFLAGS += -Wno-unused-private-field
 LOCAL_CFLAGS += -DHAS_MULTIMEDIA_HINTS
 
 ifeq ($(TARGET_USES_AOSP),true)
