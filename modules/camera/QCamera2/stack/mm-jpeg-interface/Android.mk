@@ -53,6 +53,7 @@ LOCAL_SRC_FILES := \
     src/mm_jpegdec_interface.c \
     src/mm_jpegdec.c
 
+LOCAL_CLANG            := false
 LOCAL_MODULE           := libmmjpeg_interface
 LOCAL_PRELINK_MODULE   := false
 LOCAL_SHARED_LIBRARIES := libdl libcutils liblog libqomx_core
