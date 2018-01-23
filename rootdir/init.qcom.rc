@@ -507,20 +507,6 @@ service charger /charger
     class charger
     seclabel u:r:charger:s0
 
-service diag_mdlog_start /system/bin/diag_mdlog -n 20
-    class late_start
-    user shell
-    group system oem_2950 sdcard_rw sdcard_r media_rw net_raw readproc
-    disabled
-    oneshot
-
-service diag_mdlog_stop /system/bin/diag_mdlog -k
-    class late_start
-    user shell
-    group system oem_2950 sdcard_rw sdcard_r media_rw net_raw readproc
-    disabled
-    oneshot
-
 service msm_irqbalance /system/bin/msm_irqbalance -f /system/vendor/etc/msm_irqbalance.conf
     socket msm_irqbalance seqpacket 660 root system
     class core

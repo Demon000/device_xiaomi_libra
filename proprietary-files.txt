@@ -554,7 +554,6 @@ vendor/lib64/libxml.so
 -app/datastatusnotification/datastatusnotification.apk
 -app/fastdormancy/fastdormancy.apk
 -app/shutdownlistener/shutdownlistener.apk
-bin/diag_mdlog
 bin/irsc_util
 bin/netmgrd
 bin/qmuxd
