@@ -37,7 +37,6 @@ vendor/lib64/libaudcal.so
 bin/port-bridge
 bin/wcnss_filter
 vendor/lib/libbtnv.so
-vendor/lib64/libCommandSvc.so
 vendor/lib64/libbtnv.so
 
 # Camera
