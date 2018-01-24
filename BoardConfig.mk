@@ -68,13 +68,6 @@ TARGET_CAMERASERVICE_CLOSES_NATIVE_HANDLES := true
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
-# CM Hardware
-TARGET_TAP_TO_WAKE_NODE := "/proc/touchscreen/double_tap_enable"
-BOARD_USES_CYANOGEN_HARDWARE := true
-BOARD_HARDWARE_CLASS += \
-    hardware/cyanogen/cmhw \
-    $(DEVICE_PATH)/cmhw
-
 # CNE
 BOARD_USES_QCNE := true
 
@@ -134,6 +127,10 @@ TARGET_PROVIDES_KEYMASTER := true
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
+# Lineage Hardware
+BOARD_HARDWARE_CLASS += \
+    $(DEVICE_PATH)/lineagehw
+
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE     := 67108864
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE    := ext4
@@ -149,6 +146,7 @@ TARGET_PER_MGR_ENABLED := true
 
 # Power
 TARGET_POWERHAL_VARIANT := none
+TARGET_TAP_TO_WAKE_NODE := "/proc/touchscreen/double_tap_enable"
 
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
