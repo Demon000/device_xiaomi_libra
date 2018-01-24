@@ -34,7 +34,6 @@ vendor/lib64/libadiertac.so
 vendor/lib64/libaudcal.so
 
 # Bluetooth
-bin/btnvtool
 bin/port-bridge
 bin/wcnss_filter
 vendor/lib/libbtnv.so

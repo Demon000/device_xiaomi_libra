@@ -402,12 +402,6 @@ service hci_filter_root /system/bin/wcnss_filter
     group bluetooth oem_2950 system
     disabled
 
-service config_bt_addr /system/bin/btnvtool -O
-    class core
-    user bluetooth
-    group bluetooth radio
-    oneshot
-
 service btsnoop /system/bin/btsnoop
    user bluetooth
    group bluetooth net_bt_admin sdcard_rw sdcard_r media_rw
