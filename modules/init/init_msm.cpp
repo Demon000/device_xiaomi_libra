@@ -107,14 +107,14 @@ void vendor_load_properties()
 
     switch(board_id) {
     case LIBRA_BOARD_ID:
-        property_override("ro.product.model", "Mi4c");
+        property_override("ro.product.model", "Mi-4c");
         property_override("ro.product.device", "libra");
         property_override("ro.build.description", "libra-user 7.0 NRD90M 7.12.28 release-keys");
         property_override("ro.build.fingerprint", "Xiaomi/libra/libra:7.0/NRD90M/7.12.28:user/release-keys");
         property_override("ro.build.product", "libra");
         break;
     case AQUA_BOARD_ID:
-        property_override("ro.product.model", "Mi4s");
+        property_override("ro.product.model", "Mi-4s");
         property_override("ro.product.device", "aqua");
         property_override("ro.build.description", "aqua-user 7.0 NRD90M 7.12.28 release-keys");
         property_override("ro.build.fingerprint", "Xiaomi/aqua/aqua:7.0/NRD90M/7.12.28:user/release-keys");
