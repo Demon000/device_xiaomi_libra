@@ -424,7 +424,6 @@ vendor/lib64/librs_adreno.so|18e913b6d8f79e4b8563a8c8a0b2475e609d4813
 vendor/lib64/librs_adreno_sha1.so|ef430803f5b7623d774166d7c6130012f5f24845
 vendor/lib64/libRSDriver_adreno.so|05d94ad793ba74c1f6635762eb7871a611001c9c
 vendor/lib64/libscale.so|993c923e266f41d268eaa9f7ce327baf6dd72266
-vendor/lib64/libuiblur.so|8d0275c4071423cad99862f50b79075db0807ad2
 
 # GPU firmware
 etc/firmware/a420_pfp.fw
