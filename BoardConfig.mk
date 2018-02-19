@@ -52,6 +52,13 @@ BOARD_USES_ALSA_AUDIO := true
 BOARD_USES_GENERIC_AUDIO := true
 USE_XML_AUDIO_POLICY_CONF := 1
 
+# Bionic
+TARGET_LD_SHIM_LIBS := \
+    /system/vendor/lib64/libril-qc-qmi-1.so|rild_socket.so \
+    /system/vendor/lib/libmmcamera2_stats_algorithm.so|libshim_atomic.so \
+    /system/vendor/lib64/libizat_core.so|libshims_get_process_name.so \
+    /system/vendor/lib64/liblowi_wifihal_nl.so|libshims_is_wifi_driver_loaded.so
+
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
