@@ -30,7 +30,6 @@ vendor/lib/soundfx/libqcvirt.so
 
 # Bluetooth
 bin/wcnss_filter:vendor/bin/wcnss_filter
-vendor/lib/libbtnv.so
 vendor/lib64/libbtnv.so
 
 # Camera
