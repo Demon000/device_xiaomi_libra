@@ -436,7 +436,6 @@ vendor/lib64/librcc.so
 vendor/lib64/libvoice-svc.so
 
 # Keystore
-vendor/lib/hw/keystore.msm8992.so
 vendor/lib64/hw/keystore.msm8992.so
 
 # Media
