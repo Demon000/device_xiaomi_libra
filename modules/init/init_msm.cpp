@@ -116,15 +116,15 @@ void vendor_load_properties()
     case LIBRA_BOARD_ID:
         property_override_dual("ro.product.model", "ro.vendor.product.model", "Mi4c");
         property_override_dual("ro.product.device", "ro.vendor.product.device", "libra");
-        property_override("ro.build.description", "libra-user 7.0 NRD90M 7.12.28 release-keys");
-        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "Xiaomi/libra/libra:7.0/NRD90M/7.12.28:user/release-keys");
+        property_override("ro.build.description", "libra-user 7.0 NRD90M V9.5.2.0.NXKCNFA release-keys");
+        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "Xiaomi/libra/libra:7.0/NRD90M/V9.5.2.0.NXKCNFA:user/release-keys");
         property_override("ro.build.product", "libra");
         break;
     case AQUA_BOARD_ID:
         property_override_dual("ro.product.model", "ro.vendor.product.model", "Mi4s");
         property_override_dual("ro.product.device", "ro.vendor.product.device", "aqua");
-        property_override("ro.build.description", "aqua-user 7.0 NRD90M 7.12.28 release-keys");
-        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "Xiaomi/aqua/aqua:7.0/NRD90M/7.12.28:user/release-keys");
+        property_override("ro.build.description", "aqua-user 7.0 NRD90M V9.5.2.0.NXKCNFA release-keys");
+        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "Xiaomi/aqua/aqua:7.0/NRD90M/V9.5.2.0.NXKCNFA:user/release-keys");
         property_override("ro.build.product", "aqua");
         property_set("ro.boot.fingerprint", "fpc");
         break;
