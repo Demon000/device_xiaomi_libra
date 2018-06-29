@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 The LineageOS Project
+ * Copyright (C) 2017-2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,12 +21,6 @@
 #include "Light.h"
 
 #include <fstream>
-
-namespace android {
-namespace hardware {
-namespace light {
-namespace V2_0 {
-namespace implementation {
 
 #define LEDS            "/sys/class/leds/"
 
@@ -59,6 +53,7 @@ namespace implementation {
  */
 static int32_t BRIGHTNESS_RAMP[RAMP_STEPS] = {0, 12, 25, 37, 50, 72, 85, 100};
 
+namespace {
 /*
  * Write value to path and close file.
  */
@@ -173,29 +168,60 @@ static void handleNotification(const LightState& state) {
     }
 }
 
-static std::map<Type, std::function<void(const LightState&)>> lights = {
-    {Type::BACKLIGHT, handleBacklight},
-    {Type::BUTTONS, handleButtons},
-    {Type::BATTERY, handleNotification},
-    {Type::NOTIFICATIONS, handleNotification},
-    {Type::ATTENTION, handleNotification},
+static inline bool isLit(const LightState& state) {
+    return state.color & 0x00ffffff;
+}
+
+/* Keep sorted in the order of importance. */
+static std::vector<LightBackend> backends = {
+    { Type::ATTENTION, handleNotification },
+    { Type::NOTIFICATIONS, handleNotification },
+    { Type::BATTERY, handleNotification },
+    { Type::BACKLIGHT, handleBacklight },
+    { Type::BUTTONS, handleButtons },
 };
 
-Light::Light() {}
+}  // anonymous namespace
+
+namespace android {
+namespace hardware {
+namespace light {
+namespace V2_0 {
+namespace implementation {
 
 Return<Status> Light::setLight(Type type, const LightState& state) {
-    auto it = lights.find(type);
+    LightStateHandler handler;
+    bool handled = false;
 
-    if (it == lights.end()) {
+    /* Lock global mutex until light state is updated. */
+    std::lock_guard<std::mutex> lock(globalLock);
+
+    /* Update the cached state value for the current type. */
+    for (LightBackend& backend : backends) {
+        if (backend.type == type) {
+            backend.state = state;
+            handler = backend.handler;
+        }
+    }
+
+    /* If no handler has been found, then the type is not supported. */
+    if (!handler) {
         return Status::LIGHT_NOT_SUPPORTED;
     }
 
-    /*
-     * Lock global mutex until light state is updated.
-     */
-    std::lock_guard<std::mutex> lock(globalLock);
+    /* Light up the type with the highest priority that matches the current handler. */
+    for (LightBackend& backend : backends) {
+        if (handler == backend.handler && isLit(backend.state)) {
+            handler(backend.state);
+            handled = true;
+            break;
+        }
+    }
 
-    it->second(state);
+    /* If no type has been lit up, then turn off the hardware. */
+    if (!handled) {
+        handler(state);
+    }
 
     return Status::SUCCESS;
 }
@@ -203,7 +229,9 @@ Return<Status> Light::setLight(Type type, const LightState& state) {
 Return<void> Light::getSupportedTypes(getSupportedTypes_cb _hidl_cb) {
     std::vector<Type> types;
 
-    for (auto const& light : lights) types.push_back(light.first);
+    for (const LightBackend& backend : backends) {
+        types.push_back(backend.type);
+    }
 
     _hidl_cb(types);
 
