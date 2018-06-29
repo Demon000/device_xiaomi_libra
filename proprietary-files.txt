@@ -533,7 +533,6 @@ etc/data/qmi_config.xml
 etc/permissions/qcnvitems.xml
 etc/permissions/qcrilhook.xml
 etc/permissions/qti_telephony_common.xml
--framework/QtiTelephonyServicelibrary.jar
 -framework/qcnvitems.jar
 -framework/qcrilhook.jar
 -framework/qti-telephony-common.jar|2eba987ae297a892e895ec1e9a302b41dbe0232e
