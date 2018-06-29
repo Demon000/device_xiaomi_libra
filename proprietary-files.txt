@@ -542,7 +542,6 @@ etc/wifibt_diag.cfg
 -framework/qcrilhook.jar
 -framework/qti-telephony-common.jar|2eba987ae297a892e895ec1e9a302b41dbe0232e
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
-lib/librmnetctl.so
 lib64/librmnetctl.so
 vendor/bin/qti
 vendor/lib/libmdmdetect.so
